@@ -86,7 +86,9 @@ function MatchResult({ me, colleague }) {
     <>
       <div className="card">
         <h2>
-          {me.mbtiType} <span style={{ color: "#c6c6c6", fontWeight: 400 }}>&times;</span> {colleague.mbtiType}
+          {meProfile.archetype} ({me.mbtiType}){" "}
+          <span style={{ color: "#c6c6c6", fontWeight: 400 }}>&times;</span>{" "}
+          {colleagueProfile.archetype} ({colleague.mbtiType})
         </h2>
         <p>
           You ({meProfile.label}) and {colleague.username} ({colleagueProfile.label}).

@@ -1,8 +1,9 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername } from "../../lib/session";
 import { getAllUsers, getGuessesByUser } from "../../lib/db";
-import { MBTI_CODES } from "../../lib/mbti";
+import { getTypeProfile } from "../../lib/mbti";
 import { saveGuessAction, removeGuessAction } from "../actions";
+import TypePicker from "../components/TypePicker";
 
 export default async function GuessPage({ searchParams }) {
   const username = getSessionUsername();
@@ -58,12 +59,7 @@ export default async function GuessPage({ searchParams }) {
               ))}
             </select>
             <label>Your guess</label>
-            <select name="guessedType" defaultValue={editing?.guessedType || ""} required>
-              <option value="" disabled>Select a type&hellip;</option>
-              {MBTI_CODES.map((code) => (
-                <option key={code} value={code}>{code}</option>
-              ))}
-            </select>
+            <TypePicker name="guessedType" defaultValue={editing?.guessedType || ""} required />
             <label>Why do you think so?</label>
             <textarea
               name="reasoning"
@@ -84,7 +80,10 @@ export default async function GuessPage({ searchParams }) {
             <div key={g.guessedUsername} className="user-row" style={{ alignItems: "flex-start" }}>
               <div>
                 <h3 style={{ marginBottom: 2 }}>
-                  {g.guessedUsername} <span className="pill">{g.guessedType}</span>
+                  {g.guessedUsername} <span className="pill">{g.guessedType}</span>{" "}
+                  <span className="hint" style={{ display: "inline", marginTop: 0 }}>
+                    {getTypeProfile(g.guessedType)?.archetype}
+                  </span>
                 </h3>
                 {g.reasoning && <p style={{ margin: 0 }}>{g.reasoning}</p>}
               </div>

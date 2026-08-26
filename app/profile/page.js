@@ -1,8 +1,9 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername } from "../../lib/session";
 import { getUser } from "../../lib/db";
-import { getTypeProfile, MBTI_CODES } from "../../lib/mbti";
+import { getTypeProfile } from "../../lib/mbti";
 import { setMyTypeAction, deleteMyAccountAction } from "../actions";
+import TypePicker from "../components/TypePicker";
 
 export default async function ProfilePage({ searchParams }) {
   const username = getSessionUsername();
@@ -27,16 +28,10 @@ export default async function ProfilePage({ searchParams }) {
         <div className="card">
           <span className="pill">Step 1</span>
           <h1 style={{ marginTop: 10 }}>What's your MBTI type?</h1>
-          <p>Enter the type from your MBTI profiling to unlock your personal breakdown.</p>
+          <p>Pick the archetype that matches your MBTI profiling to unlock your personal breakdown. Know your letters instead? Each card shows its code too.</p>
           {error && <p className="error">{decodeURIComponent(error)}</p>}
           <form action={setMyTypeAction}>
-            <label>Your MBTI type</label>
-            <select name="mbtiType" defaultValue="">
-              <option value="" disabled>Select your type&hellip;</option>
-              {MBTI_CODES.map((code) => (
-                <option key={code} value={code}>{code}</option>
-              ))}
-            </select>
+            <TypePicker name="mbtiType" required />
             <button className="btn" type="submit">Save my type</button>
           </form>
         </div>
@@ -44,7 +39,8 @@ export default async function ProfilePage({ searchParams }) {
         <>
           <div className="card">
             <span className="pill">{user.mbtiType}</span>
-            <h1 style={{ marginTop: 10 }}>{profile.label}</h1>
+            <h1 style={{ marginTop: 10 }}>{profile.archetype}</h1>
+            <p className="hint" style={{ marginTop: -8, marginBottom: 12 }}>{profile.label}</p>
             <p>{profile.overview}</p>
           </div>
 
@@ -74,11 +70,7 @@ export default async function ProfilePage({ searchParams }) {
             <p>You can update your type anytime, nothing is locked in.</p>
             {error && <p className="error">{decodeURIComponent(error)}</p>}
             <form action={setMyTypeAction}>
-              <select name="mbtiType" defaultValue={user.mbtiType}>
-                {MBTI_CODES.map((code) => (
-                  <option key={code} value={code}>{code}</option>
-                ))}
-              </select>
+              <TypePicker name="mbtiType" defaultValue={user.mbtiType} />
               <button className="btn btn-outline" type="submit">Update my type</button>
             </form>
           </div>

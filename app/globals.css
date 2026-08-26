@@ -236,3 +236,76 @@ textarea {
   color: var(--bi-magenta);
   margin-bottom: 6px;
 }
+
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .type-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.type-card-wrap {
+  position: relative;
+}
+
+.type-card-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.type-card {
+  display: block;
+  cursor: pointer;
+  border: 1.5px solid #d5dee8;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--bi-white);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.type-card:hover {
+  border-color: #9db8d1;
+}
+
+.type-card-archetype {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--bi-navy);
+}
+
+.type-card-code {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--bi-blue);
+  letter-spacing: 0.04em;
+  margin-top: 3px;
+}
+
+.type-card-tagline {
+  display: block;
+  font-size: 12.5px;
+  color: var(--bi-gray);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+.type-card-input:checked + .type-card {
+  border-color: var(--bi-blue);
+  background: var(--bi-light-bg);
+  box-shadow: 0 0 0 2px rgba(0, 121, 193, 0.15);
+}
+
+.type-card-input:focus-visible + .type-card {
+  outline: 2px solid var(--bi-blue);
+  outline-offset: 2px;
+}

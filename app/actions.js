@@ -43,7 +43,7 @@ export async function signupAction(formData) {
       redirect("/?mode=signup&error=" + encodeURIComponent("That username is already taken. Try another one."));
     }
     console.error("createUser failed:", e);
-    redirect("/?mode=signup&error=" + encodeURIComponent("Something went wrong: " + (e && e.message ? e.message : String(e))));
+    redirect("/?mode=signup&error=" + encodeURIComponent("Something went wrong creating your account. Please try again."));
   }
 
   setSessionCookie(username);
