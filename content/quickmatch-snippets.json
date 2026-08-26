@@ -1,0 +1,70 @@
+{
+  "EI": {
+    "bothE": {
+      "strength": "You both draw energy from interaction, so brainstorming and discussion come naturally between you, and momentum builds quickly when you're in the same room.",
+      "weakness": "Left unchecked, conversations can circle without landing anywhere, and quieter reflection time can get skipped entirely.",
+      "conflict": "You may talk over each other or dominate the conversation, each waiting for a pause that never quite comes."
+    },
+    "bothI": {
+      "strength": "You both value focus and independent thinking, so you can work in parallel without needing constant check-ins, and you naturally respect each other's need for space.",
+      "weakness": "Neither of you may naturally initiate conversation, so small misunderstandings can go unaddressed longer than they should.",
+      "conflict": "Important issues may sit unspoken on both sides, since neither of you is inclined to bring it up first."
+    },
+    "mixed": {
+      "strength": "One of you brings energy and momentum to a conversation while the other brings depth and considered thought, which balances well when you let each other lead in turn.",
+      "weakness": "The more extraverted person may process out loud faster than the other can keep up with, while the more introverted person may need processing time the other doesn't think to offer.",
+      "conflict": "One of you may feel unheard, talked over, or rushed, while the other may feel like they can't get real engagement, or that silence is being read as disagreement."
+    }
+  },
+  "SN": {
+    "bothS": {
+      "strength": "You both stay grounded in facts and practical detail, so plans between you tend to be realistic and well-checked before you commit to them.",
+      "weakness": "You can both miss the bigger picture or a genuinely novel idea, since you're each focused on what's already proven to work.",
+      "conflict": "Rarely a source of friction between two Sensing types, though you may both under-invest in long-term vision because neither of you is naturally pulled that direction."
+    },
+    "bothN": {
+      "strength": "You both love exploring possibilities and connecting ideas, so brainstorming together can generate genuinely original thinking.",
+      "weakness": "Plans can stay abstract for too long, and important practical details can slip through because neither of you is naturally drawn to them.",
+      "conflict": "You may spiral into theoretical debate without converging on a concrete next step, each convinced the conversation still has more to give."
+    },
+    "mixed": {
+      "strength": "One of you keeps ideas grounded in what's practical and provable, while the other pushes toward new possibilities, and together you cover more ground than either would alone.",
+      "weakness": "The detail-focused person may feel the other is ungrounded or unrealistic, while the big-picture person may feel the other is too cautious or stuck in the weeds.",
+      "conflict": "Disagreements often show up as \"that won't work in practice\" versus \"you're not seeing the potential\", and both sides can end up feeling dismissed."
+    }
+  },
+  "TF": {
+    "bothT": {
+      "strength": "You both make decisions based on logic and evidence, so you can debate an idea on its merits without either of you taking it personally.",
+      "weakness": "The human, emotional impact of a decision can get overlooked by both of you in the push to find the most logical answer.",
+      "conflict": "Debates can get blunt or feel combative to people watching, even though neither of you actually means any offense by it."
+    },
+    "bothF": {
+      "strength": "You both weigh how decisions affect people, so you naturally consider morale, fairness, and relationships in whatever you're deciding together.",
+      "weakness": "Hard, necessary decisions can get delayed or softened past the point of usefulness, since neither of you wants to be the one to deliver an unwelcome truth.",
+      "conflict": "Rarely sharp conflict between two Feeling types, though unspoken tension can build if a disagreement is being smoothed over rather than actually resolved."
+    },
+    "mixed": {
+      "strength": "One of you brings clear-eyed logic to a decision while the other brings awareness of how it will land with the people involved, and together you tend to make more complete decisions.",
+      "weakness": "The logic-driven person may come across as cold or dismissive of feelings, while the people-focused person may come across as avoiding a hard but necessary call.",
+      "conflict": "One of you may feel the other is being unnecessarily harsh, while the other may feel decisions are being slowed down by too much concern for feelings over facts."
+    }
+  },
+  "JP": {
+    "bothJ": {
+      "strength": "You both like a clear plan and a defined timeline, so projects between you tend to stay organized and on schedule.",
+      "weakness": "You can both get locked into the original plan even when new information suggests it should change, since neither of you naturally enjoys reopening a decision.",
+      "conflict": "If your two plans differ, you may both dig in, since each of you is confident your own structure is the right one."
+    },
+    "bothP": {
+      "strength": "You both stay flexible and comfortable adapting as things change, so you handle surprises and shifting priorities well together.",
+      "weakness": "Deadlines can slip and decisions can stay open longer than they should, since neither of you feels a strong pull to close things out early.",
+      "conflict": "Rarely direct conflict between two Perceiving types, though things can drift without a clear finish line because neither of you is pushing for closure."
+    },
+    "mixed": {
+      "strength": "One of you brings structure and follow-through while the other brings adaptability and openness to new information, which balances planning with flexibility.",
+      "weakness": "The planning-oriented person may feel the other is disorganized or noncommittal, while the flexible person may feel boxed in or rushed to decide too early.",
+      "conflict": "Tension often shows up as \"we need to lock this in\" versus \"let's keep our options open\", with both people feeling the other isn't respecting how they work best."
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "ISTJ": {
+    "label": "The Steady Organizer",
+    "overview": "ISTJs are grounded, practical, and dependable. They trust what they can observe and verify, and they carry a strong sense of duty toward the people and systems they are responsible for. Once they commit to something, they see it through with quiet, consistent effort.",
+    "bestConditions": "They excel in structured environments with clear expectations, defined processes, and enough lead time to prepare properly. They do their best work when they can plan step by step and are trusted to follow through without being second-guessed.",
+    "challenges": "Sudden changes in plan, ambiguous instructions, and being rushed into decisions without enough information drain them. They can also struggle when their steady effort goes unnoticed, or when they are pushed to improvise without a clear framework.",
+    "communicationStyle": "Direct, factual, and to the point. They prefer concrete details over abstract possibilities, and they say what they mean without much embellishment. They earn trust through reliability more than through words.",
+    "workStyle": "Methodical and thorough. They prepare well in advance, follow through on commitments, and prefer to finish one task properly before starting the next."
+  },
+  "ISFJ": {
+    "label": "The Quiet Supporter",
+    "overview": "ISFJs are warm, attentive, and deeply loyal. They notice what others need before being asked and take real satisfaction in making sure the people around them are taken care of. Their steadiness often goes unnoticed simply because it is so consistent.",
+    "bestConditions": "They excel when their contributions are genuinely appreciated, when there is harmony in the team, and when they have a clear, practical role to play in supporting a shared goal. Stability and personal connection matter a great deal to them.",
+    "challenges": "Conflict, criticism, and feeling taken for granted drain them quickly. They can also struggle to say no or to advocate for their own needs, which leaves them quietly overextended.",
+    "communicationStyle": "Gentle, considerate, and detail-oriented. They tend to soften difficult messages and read the emotional undercurrent of a conversation closely, sometimes more closely than what is actually said out loud.",
+    "workStyle": "Careful and service-oriented. They keep track of the practical details others overlook and prefer working within a stable, well-defined structure."
+  },
+  "INFJ": {
+    "label": "The Quiet Idealist",
+    "overview": "INFJs combine deep conviction with quiet intensity. They are drawn to meaning and purpose, and they tend to see patterns and possibilities in people and situations that others miss. Their insight is genuine, though they often keep it to themselves until they trust the room.",
+    "bestConditions": "They excel when their work connects to a larger purpose and when they have enough autonomy and quiet space to think things through. Environments built on authenticity and mutual respect bring out their best.",
+    "challenges": "Superficiality, conflict, and environments that feel purposeless or dishonest drain them fast. They can also overcommit emotionally to people or causes and burn out quietly before anyone notices.",
+    "communicationStyle": "Thoughtful and layered. They often choose words carefully and prefer meaningful one-on-one conversation over small talk or group debate. When they do speak up, it usually carries weight.",
+    "workStyle": "Vision-driven and self-directed. They like to work independently toward a clear sense of purpose, and they bring quiet, sustained focus once they are convinced something matters."
+  },
+  "INTJ": {
+    "label": "The Independent Strategist",
+    "overview": "INTJs are analytical, independent, and future-focused. They naturally build long-range plans and are comfortable challenging the status quo when logic points somewhere else. Competence, to them, matters more than consensus.",
+    "bestConditions": "They excel with autonomy, intellectual challenge, and the freedom to pursue a well-reasoned strategy without excessive oversight. They do their best work when judged on results rather than process.",
+    "challenges": "Inefficiency, illogical decision-making, and being micromanaged drain them quickly. They can also struggle in environments that prioritize consensus-building over clear thinking, and may come across as blunt when they are simply being precise.",
+    "communicationStyle": "Direct and idea-focused. They value efficiency in conversation and would rather debate the merits of an idea than manage feelings around it, though they do care more than they let on.",
+    "workStyle": "Strategic and independent. They prefer to set their own systems, think several steps ahead, and revise plans decisively when new information changes the picture."
+  },
+  "ISTP": {
+    "label": "The Practical Troubleshooter",
+    "overview": "ISTPs are calm, capable, and hands-on. They like to understand how things actually work, and they are at their best solving a concrete problem in the moment rather than theorizing about it in advance.",
+    "bestConditions": "They excel with practical, hands-on challenges, a good amount of independence, and the flexibility to solve problems in their own way. Too much structure or oversight tends to hold them back.",
+    "challenges": "Rigid rules, long meetings, and being forced to explain their reasoning before they have had a chance to test it out drain them. They can also seem detached when they are actually just processing internally.",
+    "communicationStyle": "Economical and matter-of-fact. They say what is useful and skip the rest, and they would generally rather show something than talk about it.",
+    "workStyle": "Adaptive and hands-on. They troubleshoot in real time, stay calm under pressure, and prefer to keep their options open rather than lock into a rigid plan too early."
+  },
+  "ISFP": {
+    "label": "The Gentle Creator",
+    "overview": "ISFPs are gentle, observant, and quietly authentic. They value personal freedom and tend to lead with their own sense of what feels right rather than what others expect of them.",
+    "bestConditions": "They excel in low-pressure environments that respect their individuality, with room for creativity and enough flexibility to work in their own way and their own time.",
+    "challenges": "Rigid structure, harsh criticism, and conflict-heavy environments drain them. They can also struggle to assert themselves when their values are being quietly overridden by louder voices.",
+    "communicationStyle": "Understated and sincere. They rarely push their opinions on others, but when something matters deeply to them, they will hold their ground quietly and firmly.",
+    "workStyle": "Flexible and present-focused. They prefer to respond to what is in front of them rather than follow a rigid long-term plan, and they do their best work when given room to work their own way."
+  },
+  "INFP": {
+    "label": "The Thoughtful Idealist",
+    "overview": "INFPs are guided by a strong inner sense of values and possibility. They care deeply about authenticity and meaning, and they often see the potential in people and ideas before anyone else does.",
+    "bestConditions": "They excel when their work aligns with their personal values and when they have creative freedom and enough quiet space to process ideas at their own pace.",
+    "challenges": "Conflict, harsh criticism, and rigid environments that leave no room for personal meaning drain them significantly. They can also struggle with follow-through once the initial inspiration fades.",
+    "communicationStyle": "Warm and reflective, often more articulate in writing than in the moment. They tend to hold back their honest opinion until they trust the person or the setting.",
+    "workStyle": "Idea-driven and values-led. They work in bursts of inspiration rather than a steady grind, and they need to feel personally connected to what they are doing."
+  },
+  "INTP": {
+    "label": "The Curious Analyst",
+    "overview": "INTPs are curious, logical, and endlessly analytical. They are drawn to complex ideas for their own sake and enjoy taking a concept apart to understand exactly how it works.",
+    "bestConditions": "They excel with intellectual freedom, few unnecessary rules, and problems complex enough to be genuinely interesting. They do their best work when left alone to think deeply.",
+    "challenges": "Repetitive tasks, excessive small talk, and being pushed to decide before they have fully thought something through drain them. They can also come across as detached when they are actually deep in thought.",
+    "communicationStyle": "Precise and idea-focused. They enjoy debating concepts and will happily explore a tangent if it is intellectually interesting, sometimes losing the thread of practical next steps.",
+    "workStyle": "Exploratory and independent. They like to understand the underlying logic of a problem before committing to a solution, and they prefer flexible thinking time over rigid deadlines."
+  },
+  "ESTP": {
+    "label": "The Energetic Doer",
+    "overview": "ESTPs are energetic, practical, and quick on their feet. They thrive on action and tend to learn by doing rather than by planning things out in advance.",
+    "bestConditions": "They excel in fast-paced, hands-on environments where they can respond to real situations as they happen, with enough freedom to act without waiting for lengthy approval.",
+    "challenges": "Slow-moving processes, excessive theory, and being boxed into rigid rules drain them quickly. They can also grow restless in environments that reward patience over action.",
+    "communicationStyle": "Direct, lively, and grounded in real examples. They read a room quickly and adjust on the fly, preferring practical conversation over abstract debate.",
+    "workStyle": "Fast-moving and adaptive. They respond well to pressure, prefer action over prolonged planning, and are comfortable making decisions with incomplete information."
+  },
+  "ESFP": {
+    "label": "The Warm Connector",
+    "overview": "ESFPs are warm, spontaneous, and genuinely present. They bring energy into a room and connect easily with the people around them, often lifting the mood without even trying.",
+    "bestConditions": "They excel in social, hands-on environments with variety, positive feedback, and enough freedom to bring their own energy to the work.",
+    "challenges": "Rigid routines, cold or overly critical environments, and long stretches of isolated, theoretical work drain them. They can also take criticism personally, even when it is not meant harshly.",
+    "communicationStyle": "Warm, expressive, and people-focused. They read emotional cues easily and prefer conversation that feels personal and alive over formal or abstract discussion.",
+    "workStyle": "Energetic and people-oriented. They work best in the moment, adapt easily to changing circumstances, and bring enthusiasm that others often feed off of."
+  },
+  "ENFP": {
+    "label": "The Enthusiastic Explorer",
+    "overview": "ENFPs are enthusiastic, imaginative, and genuinely curious about people and possibilities. They see connections others miss and bring warmth and energy to almost everything they engage with.",
+    "bestConditions": "They excel with variety, creative freedom, and meaningful human connection. They do their best work when they are genuinely excited about what they are doing.",
+    "challenges": "Rigid routine, excessive detail work, and environments that feel emotionally flat drain them quickly. They can also struggle to finish what they start once the initial excitement fades.",
+    "communicationStyle": "Warm, expressive, and idea-rich. They think out loud, enjoy exploring possibilities in conversation, and connect with people quickly and genuinely.",
+    "workStyle": "Idea-driven and adaptable. They generate possibilities easily and work best when paired with someone who can help turn those ideas into a structured plan."
+  },
+  "ENTP": {
+    "label": "The Quick-Witted Debater",
+    "overview": "ENTPs are quick-witted, inventive, and drawn to a good intellectual challenge. They enjoy questioning assumptions and exploring new angles, often for the sheer enjoyment of the debate itself.",
+    "bestConditions": "They excel with novelty, intellectual challenge, and enough freedom to explore new ideas without being locked into one approach too early.",
+    "challenges": "Repetitive routine, rigid rules for their own sake, and being shut down before an idea has been fully explored drain them. They can also come across as argumentative when they are simply testing an idea out loud.",
+    "communicationStyle": "Quick, playful, and provocative in a good-natured way. They enjoy debate and will happily argue a position just to see where the logic leads.",
+    "workStyle": "Idea-generating and fast-moving. They are strong at spotting new possibilities and connections, though they often need a partner to help carry ideas through to completion."
+  },
+  "ESTJ": {
+    "label": "The Decisive Organizer",
+    "overview": "ESTJs are decisive, organized, and results-oriented. They bring clear structure to a group and take pride in getting things done properly, on time, and according to a plan that makes sense.",
+    "bestConditions": "They excel with clear goals, defined authority, and an environment where competence and follow-through are recognized and rewarded.",
+    "challenges": "Inefficiency, unclear expectations, and unreliable people drain them quickly. They can also struggle when a plan needs to change suddenly, and may come across as blunt when they are pushing for a decision.",
+    "communicationStyle": "Direct, clear, and outcome-focused. They say what needs to be said, expect the same in return, and move conversations toward a decision efficiently.",
+    "workStyle": "Structured and results-driven. They organize people and tasks efficiently, follow through reliably, and prefer a clear chain of accountability."
+  },
+  "ESFJ": {
+    "label": "The Caring Coordinator",
+    "overview": "ESFJs are warm, organized, and genuinely attentive to the people around them. They take real pride in keeping a group running smoothly and making sure everyone feels included.",
+    "bestConditions": "They excel in cooperative environments with clear roles, regular positive feedback, and genuine appreciation for the effort they put into supporting others.",
+    "challenges": "Conflict, criticism, and being excluded or unappreciated drain them quickly. They can also overextend themselves trying to keep everyone happy at once.",
+    "communicationStyle": "Warm, attentive, and harmony-seeking. They read the room carefully, check in on how people are doing, and prefer to smooth over tension rather than let it sit.",
+    "workStyle": "Cooperative and dependable. They keep teams organized and connected, and they take practical responsibility seriously."
+  },
+  "ENFJ": {
+    "label": "The Inspiring Guide",
+    "overview": "ENFJs are warm, persuasive, and genuinely invested in helping others grow. They read people well and naturally step into a role of encouraging and organizing those around them toward something meaningful.",
+    "bestConditions": "They excel when their work involves developing people or a shared cause, with genuine connection and a sense that their efforts are making a real difference.",
+    "challenges": "Conflict, disingenuous environments, and neglecting their own needs while focused on everyone else's drain them. They can also take criticism of their vision personally.",
+    "communicationStyle": "Warm, persuasive, and encouraging. They naturally motivate others in conversation and tend to pick up on unspoken tension quickly.",
+    "workStyle": "People-centered and purpose-driven. They organize and motivate others effectively, and they do their best work when leading toward a cause they believe in."
+  },
+  "ENTJ": {
+    "label": "The Bold Strategist",
+    "overview": "ENTJs are bold, strategic, and naturally decisive. They see the big picture quickly, organize people and resources efficiently, and are comfortable taking charge when a clear direction is needed.",
+    "bestConditions": "They excel with ambitious goals, real authority, and a team that can keep pace with their drive. They do their best work when given the room to lead.",
+    "challenges": "Inefficiency, indecision, and incompetence drain them quickly. They can also come across as overly forceful when they are simply focused on moving things forward.",
+    "communicationStyle": "Direct, confident, and outcome-focused. They value efficient debate and expect people to bring their best argument rather than defer automatically.",
+    "workStyle": "Strategic and driven. They set ambitious plans, delegate decisively, and push hard toward long-term goals."
+  }
+}
