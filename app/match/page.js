@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername, isMatchUnlocked } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
-import { getTypeProfile, quickMatch } from "../../lib/mbti";
+import { getTypeProfile, quickMatch, getCommunicationFeel } from "../../lib/mbti";
 import { unlockMatchAction } from "../actions";
 import NavTabs from "../components/NavTabs";
 import PasswordGate from "../components/PasswordGate";
@@ -93,6 +93,7 @@ function MatchResult({ me, colleague }) {
   const meProfile = getTypeProfile(me.mbtiType);
   const colleagueProfile = getTypeProfile(colleague.mbtiType);
   const result = quickMatch(me.mbtiType, colleague.mbtiType);
+  const feel = getCommunicationFeel(me.mbtiType, colleague.mbtiType);
 
   return (
     <>
@@ -170,6 +171,16 @@ function MatchResult({ me, colleague }) {
           <div className="card">
             <div className="section-label">How to bring out their best</div>
             <p>{colleagueProfile.teamDynamics.bringOutBest}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">How {colleague.username} likely feels communicating with you</div>
+            <p>{feel.howTheyFeelWithYou}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">How you likely feel communicating with {colleague.username}</div>
+            <p>{feel.howYouFeelWithThem}</p>
           </div>
         </>
       )}

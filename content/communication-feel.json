@@ -1,0 +1,14 @@
+{
+  "EI": {
+    "bothE": "You're both energized by talking things through out loud, so conversation between you tends to feel easy, fast-moving, and comfortable to jump straight into.",
+    "bothI": "You both prefer to think before speaking, so conversation between you tends to feel calm and unhurried, with room to consider before responding.",
+    "E_with_I": "You may feel like you have to work a little to draw them out, or that they're harder to read in the moment. Give them a beat to gather their thoughts rather than filling every pause yourself.",
+    "I_with_E": "You may feel swept along, or a little rushed to respond before you've fully formed your thought. It's fine to ask for a moment before jumping in."
+  },
+  "TF": {
+    "bothT": "You're both comfortable with direct, logical feedback, so conversation between you tends to feel efficient and unfiltered, without needing to soften the message.",
+    "bothF": "You're both attentive to tone and impact, so conversation between you tends to feel warm and considerate, with real care taken not to bruise feelings.",
+    "T_with_F": "You may feel like they're reading more into your tone than you intended, or taking something personally that was only meant as information. A little more warmth in how you phrase things goes a long way.",
+    "F_with_T": "You may feel their feedback lands a bit blunt or cold, even when it isn't meant unkindly. It can help to ask directly whether something was meant as criticism or just a fact."
+  }
+}
