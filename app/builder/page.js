@@ -11,6 +11,7 @@ import {
   getActivities,
   getActivity,
   evaluateActivityFit,
+  suggestIdealPeople,
 } from "../../lib/mbti";
 import { unlockBuilderAction } from "../actions";
 import NavTabs from "../components/NavTabs";
@@ -82,6 +83,7 @@ export default async function BuilderPage({ searchParams }) {
   const activities = getActivities();
   const activityKey = typeof searchParams?.activity === "string" ? searchParams.activity : "";
   const activity = getActivity(activityKey);
+  const idealPeople = activity ? suggestIdealPeople(activity, [me, ...eligibleColleagues]).slice(0, 5) : null;
 
   const selected = normalizeMembers(searchParams?.members).filter((name) =>
     eligibleColleagues.some((c) => c.username === name)
@@ -215,6 +217,39 @@ export default async function BuilderPage({ searchParams }) {
           </form>
         )}
       </div>
+
+      {activity && (
+        <div className="card">
+          <span className="pill">Ideal profile</span>
+          <h2 style={{ marginTop: 10 }}>Who tends to excel at {activity.label.toLowerCase()}</h2>
+          <p className="hint" style={{ marginTop: -4 }}>
+            {activity.idealTypes.map((t, i) => (
+              <span key={t}>
+                {i > 0 ? ", " : ""}
+                {getTypeProfile(t)?.archetype} ({t})
+              </span>
+            ))}
+          </p>
+          <p>{activity.excelsAt}</p>
+
+          <div className="section-label" style={{ marginTop: 14 }}>From your roster</div>
+          {!idealPeople || idealPeople.length === 0 ? (
+            <p className="hint">No one on the roster closely matches this profile yet.</p>
+          ) : (
+            idealPeople.map((c) => (
+              <div key={c.username} className="user-row">
+                <span>
+                  {c.username}{c.username === me.username ? " (you)" : ""}{" "}
+                  <span className="hint" style={{ display: "inline", marginTop: 0 }}>
+                    {getTypeProfile(c.mbtiType)?.archetype}
+                  </span>
+                </span>
+                <span className="pill">{c.mbtiType} &middot; {c.matchScore === 4 ? "ideal match" : "close match"}</span>
+              </div>
+            ))
+          )}
+        </div>
+      )}
 
       {group && analysis && (
         <>

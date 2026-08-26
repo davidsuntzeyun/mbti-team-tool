@@ -4,69 +4,89 @@
     "group": "Ideation & Planning",
     "description": "Wide-open idea generation, no constraints yet.",
     "skillsNeeded": "Needs people comfortable generating and building on ideas quickly: Intuition for spotting new possibilities, Perceiving for staying open before locking in too early, and enough Extraversion in the room to keep energy and momentum going.",
-    "ideal": { "EI": { "E": 60 }, "SN": { "S": 20 }, "TF": { "T": 50 }, "JP": { "J": 20 } }
+    "ideal": { "EI": { "E": 60 }, "SN": { "S": 20 }, "TF": { "T": 50 }, "JP": { "J": 20 } },
+    "idealTypes": ["ENFP", "ENTP", "INFP", "INTP"],
+    "excelsAt": "A group built from these types moves fast between ideas, plays well off each other's tangents, and rarely runs out of new angles to explore. The risk is polish: without someone willing to eventually narrow the list down, the ideas can stay ideas."
   },
   "process-brainstorming": {
     "label": "Process brainstorming",
     "group": "Ideation & Planning",
     "description": "Improving or fixing something that already exists.",
     "skillsNeeded": "Needs people who can take a known problem and actually land on a workable fix: Sensing for staying grounded in what's really happening, and Judging for turning ideas into a concrete next step rather than leaving them open-ended.",
-    "ideal": { "EI": { "E": 50 }, "SN": { "S": 65 }, "TF": { "T": 55 }, "JP": { "J": 65 } }
+    "ideal": { "EI": { "E": 50 }, "SN": { "S": 65 }, "TF": { "T": 55 }, "JP": { "J": 65 } },
+    "idealTypes": ["ISTJ", "ESTJ", "ISFJ", "ESFJ"],
+    "excelsAt": "A group like this stays grounded in what's actually broken and pushes toward a fix that will hold up in practice, not just on paper. The risk is getting so anchored to how things currently work that a genuinely better approach gets overlooked."
   },
   "strategic-planning": {
     "label": "Strategic planning",
     "group": "Ideation & Planning",
     "description": "Setting direction and prioritizing what's next.",
     "skillsNeeded": "Needs people who can see where things are headed and commit to a direction: Intuition for spotting the bigger picture and what it implies down the road, and Judging for actually deciding and locking in a plan rather than exploring indefinitely.",
-    "ideal": { "EI": { "E": 50 }, "SN": { "S": 25 }, "TF": { "T": 55 }, "JP": { "J": 70 } }
+    "ideal": { "EI": { "E": 50 }, "SN": { "S": 25 }, "TF": { "T": 55 }, "JP": { "J": 70 } },
+    "idealTypes": ["INTJ", "ENTJ", "INFJ", "ENFJ"],
+    "excelsAt": "A group like this sees several moves ahead and is comfortable committing to a direction rather than endlessly revisiting it. The risk is moving too fast past the people who'll actually have to execute the plan day to day."
   },
   "data-analysis": {
     "label": "Data & analysis",
     "group": "Analysis & Execution",
     "description": "Digging into numbers, patterns, and root causes.",
     "skillsNeeded": "Needs people who can sit with numbers and draw a sound conclusion: Thinking for objective, logic-first reasoning, Sensing for staying with what the data actually shows rather than assumptions, and enough Introversion to focus deeply without needing constant interaction.",
-    "ideal": { "EI": { "E": 35 }, "SN": { "S": 70 }, "TF": { "T": 75 }, "JP": { "J": 55 } }
+    "ideal": { "EI": { "E": 35 }, "SN": { "S": 70 }, "TF": { "T": 75 }, "JP": { "J": 55 } },
+    "idealTypes": ["ISTJ", "INTJ", "ISTP", "INTP"],
+    "excelsAt": "A group like this is comfortable sitting with a problem until the numbers actually make sense, and won't take a conclusion at face value without checking it. The risk is spending so long validating the data that a decision never actually gets made."
   },
   "operational": {
     "label": "Operational execution",
     "group": "Analysis & Execution",
     "description": "Turning a plan into consistent, reliable delivery.",
     "skillsNeeded": "Needs people who turn plans into steady execution: Sensing for practical, on-the-ground detail, and Judging for structure and follow-through. Thinking and Feeling both work here, depending on whether the work is more process-heavy or more people-heavy.",
-    "ideal": { "EI": { "E": 50 }, "SN": { "S": 75 }, "TF": { "T": 50 }, "JP": { "J": 75 } }
+    "ideal": { "EI": { "E": 50 }, "SN": { "S": 75 }, "TF": { "T": 50 }, "JP": { "J": 75 } },
+    "idealTypes": ["ISTJ", "ESTJ", "ISFJ", "ESFJ"],
+    "excelsAt": "A group like this delivers what it commits to, on schedule, without much drama. The risk is rigidity: once the plan is set, this kind of group can be slow to adjust when the situation genuinely changes."
   },
   "quality-review": {
     "label": "Quality review",
     "group": "Analysis & Execution",
     "description": "Catching errors and making sure nothing's missed.",
     "skillsNeeded": "Needs people with a sharp eye for what's wrong or missing: Sensing for catching concrete detail, and a strong pull toward Judging, since this kind of work has little tolerance for leaving things open-ended or half-checked.",
-    "ideal": { "EI": { "E": 35 }, "SN": { "S": 75 }, "TF": { "T": 60 }, "JP": { "J": 80 } }
+    "ideal": { "EI": { "E": 35 }, "SN": { "S": 75 }, "TF": { "T": 60 }, "JP": { "J": 80 } },
+    "idealTypes": ["ISTJ", "ISFJ", "ESTJ"],
+    "excelsAt": "A group like this catches what everyone else missed and rarely lets something half-finished slide through. The risk is that the bar can get so high that good-enough work gets held back longer than it needs to be."
   },
   "client-facing": {
     "label": "Client-facing",
     "group": "People-Facing",
     "description": "Working directly with clients or stakeholders.",
     "skillsNeeded": "Needs people comfortable reading and responding to others: Feeling for empathy and rapport, and enough Extraversion to carry a conversation and build trust. Sensing or Intuition both work, depending on whether the client wants concrete answers or big-picture vision.",
-    "ideal": { "EI": { "E": 65 }, "SN": { "S": 50 }, "TF": { "T": 35 }, "JP": { "J": 50 } }
+    "ideal": { "EI": { "E": 65 }, "SN": { "S": 50 }, "TF": { "T": 35 }, "JP": { "J": 50 } },
+    "idealTypes": ["ESFJ", "ENFJ", "ESFP", "ENFP"],
+    "excelsAt": "A group like this builds trust quickly and makes the people on the other side of the table feel genuinely heard. The risk is over-promising, or softening bad news the client actually needs to hear."
   },
   "sales-pitching": {
     "label": "Sales & pitching",
     "group": "People-Facing",
     "description": "Persuading and building excitement for an idea.",
     "skillsNeeded": "Needs people who can build excitement and sell a vision: Extraversion for carrying the energy of a pitch, Intuition for painting the bigger possibility rather than just listing facts, and enough Feeling to read how the room is responding.",
-    "ideal": { "EI": { "E": 75 }, "SN": { "S": 35 }, "TF": { "T": 40 }, "JP": { "J": 35 } }
+    "ideal": { "EI": { "E": 75 }, "SN": { "S": 35 }, "TF": { "T": 40 }, "JP": { "J": 35 } },
+    "idealTypes": ["ENFP", "ENTP", "ESFP", "ESTP"],
+    "excelsAt": "A group like this brings energy and conviction that's hard to fake, and adapts the pitch on the fly based on how the room is reacting. The risk is getting ahead of the details the buyer will eventually ask about."
   },
   "conflict-resolution": {
     "label": "People & conflict resolution",
     "group": "People-Facing",
     "description": "Mediating tension and giving hard feedback fairly.",
     "skillsNeeded": "Needs people who can mediate fairly: Feeling for genuine empathy toward everyone involved, balanced with enough Thinking to stay objective rather than just smoothing things over to keep the peace.",
-    "ideal": { "EI": { "E": 45 }, "SN": { "S": 50 }, "TF": { "T": 40 }, "JP": { "J": 50 } }
+    "ideal": { "EI": { "E": 45 }, "SN": { "S": 50 }, "TF": { "T": 40 }, "JP": { "J": 50 } },
+    "idealTypes": ["ENFJ", "ISFJ", "INFJ", "ESFJ"],
+    "excelsAt": "A group like this can sit with tension without rushing to smooth it over, and tends to leave people feeling fairly heard on both sides. The risk is prioritizing harmony over actually naming the hard truth that needs to be said."
   },
   "crisis": {
     "label": "Crisis response",
     "group": "Pressure",
     "description": "Reacting fast and adapting under real pressure.",
     "skillsNeeded": "Needs people who can decide quickly under pressure: Thinking for fast, logical calls, Sensing for reading the real situation in front of them rather than theorizing, and Perceiving for adapting as things keep changing.",
-    "ideal": { "EI": { "E": 55 }, "SN": { "S": 65 }, "TF": { "T": 65 }, "JP": { "J": 35 } }
+    "ideal": { "EI": { "E": 55 }, "SN": { "S": 65 }, "TF": { "T": 65 }, "JP": { "J": 35 } },
+    "idealTypes": ["ESTP", "ISTP", "ESTJ"],
+    "excelsAt": "A group like this stays calm, reads the real situation fast, and acts without waiting for perfect information. The risk is moving so quickly that longer-term consequences don't get enough consideration."
   }
 }
