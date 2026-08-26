@@ -20,6 +20,17 @@ const DICHOTOMY_LABELS = {
   JP: "Structure: Judging vs. Perceiving",
 };
 
+const LETTER_MEANINGS = {
+  E: "Extraversion, draws energy from people and action.",
+  I: "Introversion, draws energy from reflection and quiet.",
+  S: "Sensing, focuses on concrete facts and present reality.",
+  N: "Intuition, focuses on patterns and future possibilities.",
+  T: "Thinking, decides based on logic and consistency.",
+  F: "Feeling, decides based on values and impact on people.",
+  J: "Judging, prefers structure, plans, and closure.",
+  P: "Perceiving, prefers flexibility and staying open.",
+};
+
 function normalizeMembers(raw) {
   if (!raw) return [];
   return Array.isArray(raw) ? raw : [raw];
@@ -215,23 +226,28 @@ export default async function BuilderPage({ searchParams }) {
                 strokeWidth="2"
               />
               {radar.labels.map((l) => (
-                <text
-                  key={l.letter}
-                  x={l.x}
-                  y={l.y}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize="12"
-                  fontWeight="700"
-                  fill="#203c6c"
-                >
-                  {l.letter} {l.percent}%
-                </text>
+                <g key={l.letter} style={{ cursor: "help" }}>
+                  <title>{`${l.letter}: ${LETTER_MEANINGS[l.letter]} ${l.percent}% of this group.`}</title>
+                  <circle cx={l.x} cy={l.y} r="16" fill="transparent" />
+                  <text
+                    x={l.x}
+                    y={l.y}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="12"
+                    fontWeight="700"
+                    fill="#203c6c"
+                    style={{ textDecoration: "underline", textDecorationStyle: "dotted" }}
+                  >
+                    {l.letter} {l.percent}%
+                  </text>
+                </g>
               ))}
             </svg>
             <p className="hint" style={{ textAlign: "center" }}>
               Each point shows the share of the group with that letter. A
-              lopsided shape means the group leans heavily one way on that trait.
+              lopsided shape means the group leans heavily one way on that
+              trait, hover a letter on the chart for what it stands for.
             </p>
           </div>
 
