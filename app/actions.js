@@ -16,8 +16,10 @@ import {
   getSessionUsername,
   checkGuessPassword,
   checkMatchPassword,
+  checkTeamPassword,
   unlockGuess,
   unlockMatch,
+  unlockTeam,
 } from "../lib/session";
 import { isValidType } from "../lib/mbti";
 
@@ -136,6 +138,15 @@ export async function unlockMatchAction(formData) {
   }
   unlockMatch();
   redirect("/match");
+}
+
+export async function unlockTeamAction(formData) {
+  const password = String(formData.get("password") || "");
+  if (!checkTeamPassword(password)) {
+    redirect("/team?gateError=" + encodeURIComponent("That's not quite it, try again."));
+  }
+  unlockTeam();
+  redirect("/team");
 }
 
 export async function removeGuessAction(formData) {

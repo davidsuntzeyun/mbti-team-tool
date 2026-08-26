@@ -1,0 +1,165 @@
+import { redirect } from "next/navigation";
+import { getSessionUsername, isTeamUnlocked } from "../../lib/session";
+import { getAllUsers, getUser } from "../../lib/db";
+import { getTypeProfile, analyzeGroup } from "../../lib/mbti";
+import { unlockTeamAction } from "../actions";
+import NavTabs from "../components/NavTabs";
+import PasswordGate from "../components/PasswordGate";
+
+const DICHOTOMY_LABELS = {
+  EI: "Energy: Extraversion vs. Introversion",
+  SN: "Focus: Sensing vs. Intuition",
+  TF: "Decisions: Thinking vs. Feeling",
+  JP: "Structure: Judging vs. Perceiving",
+};
+
+function normalizeMembers(raw) {
+  if (!raw) return [];
+  return Array.isArray(raw) ? raw : [raw];
+}
+
+export default async function TeamPage({ searchParams }) {
+  const username = getSessionUsername();
+  if (!username) redirect("/");
+
+  if (!isTeamUnlocked()) {
+    return (
+      <>
+        <NavTabs active="/team" username={username} />
+        <PasswordGate
+          action={unlockTeamAction}
+          title="Team Dynamic"
+          description="This part of the tool is locked until the live session. Ask your facilitator for the password."
+          error={searchParams?.gateError}
+        />
+      </>
+    );
+  }
+
+  const me = await getUser(username);
+  const allUsers = await getAllUsers();
+
+  const eligibleColleagues = allUsers.filter(
+    (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
+  );
+
+  if (!me?.mbtiType) {
+    return (
+      <>
+        <NavTabs active="/team" username={username} />
+        <div className="card">
+          <p>Set your own MBTI type on your profile first, then come back here to build a group.</p>
+          <a className="btn" href="/profile">Go to your profile</a>
+        </div>
+      </>
+    );
+  }
+
+  const selected = normalizeMembers(searchParams?.members).filter((name) =>
+    eligibleColleagues.some((c) => c.username === name)
+  );
+
+  const hasSelection = normalizeMembers(searchParams?.members).length > 0;
+  const validCount = selected.length >= 2 && selected.length <= 4;
+
+  let group = null;
+  let analysis = null;
+  if (hasSelection && validCount) {
+    const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
+    group = members;
+    analysis = analyzeGroup(members.map((m) => m.mbtiType));
+  }
+
+  return (
+    <>
+      <NavTabs active="/team" username={username} />
+
+      <div className="card">
+        <span className="pill">3 to 5 people</span>
+        <h1 style={{ marginTop: 10 }}>Team Dynamic</h1>
+        <p>
+          Build a group of 3 to 5 people (you're automatically included) and
+          see how the group tends to work together as a whole: where you're
+          naturally aligned, where the group might be lopsided, and what to
+          watch for when you're all in a room together.
+        </p>
+      </div>
+
+      <div className="card">
+        <h2>Build your group</h2>
+        <p className="hint" style={{ marginTop: -4 }}>
+          You ({getTypeProfile(me.mbtiType)?.archetype}, {me.mbtiType}) are
+          already in. Pick 2 to 4 more colleagues to complete a group of 3 to 5.
+        </p>
+        {hasSelection && !validCount && (
+          <p className="error">
+            Pick between 2 and 4 colleagues (a group of 3 to 5 including you). You picked {selected.length}.
+          </p>
+        )}
+        {eligibleColleagues.length === 0 ? (
+          <p>No colleagues with a saved MBTI type yet, ask them to set their type on their profile first.</p>
+        ) : (
+          <form method="get">
+            <div className="type-grid" style={{ gridTemplateColumns: "1fr" }}>
+              {eligibleColleagues.map((c) => {
+                const profile = getTypeProfile(c.mbtiType);
+                const id = `member-${c.username}`;
+                return (
+                  <div key={c.username} className="user-row" style={{ padding: "6px 0" }}>
+                    <label htmlFor={id} style={{ display: "flex", alignItems: "center", gap: 10, margin: 0, fontWeight: 500 }}>
+                      <input
+                        type="checkbox"
+                        id={id}
+                        name="members"
+                        value={c.username}
+                        defaultChecked={selected.includes(c.username)}
+                        style={{ width: "auto" }}
+                      />
+                      {c.username}{" "}
+                      <span className="pill" style={{ marginLeft: "auto" }}>
+                        {profile?.archetype} &middot; {c.mbtiType}
+                      </span>
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+            <button className="btn" type="submit">See group dynamic</button>
+          </form>
+        )}
+      </div>
+
+      {group && analysis && (
+        <>
+          <div className="card">
+            <div className="section-label">Your group ({analysis.size})</div>
+            {group.map((m) => {
+              const profile = getTypeProfile(m.mbtiType);
+              return (
+                <div key={m.username} className="user-row">
+                  <span>{m.username}{m.username === me.username ? " (you)" : ""}</span>
+                  <span className="pill">{profile?.archetype} &middot; {m.mbtiType}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          {analysis.dichotomyResults.map((d) => (
+            <div key={d.key} className="card">
+              <div className="section-label">{DICHOTOMY_LABELS[d.key]}</div>
+              <p className="hint" style={{ marginTop: -6 }}>
+                {Object.entries(d.counts).map(([letter, count], i, arr) => (
+                  <span key={letter}>
+                    {letter}: {count}
+                    {i < arr.length - 1 ? <span style={{ margin: "0 8px" }}>&middot;</span> : null}
+                  </span>
+                ))}
+              </p>
+              <p>{d.text}</p>
+            </div>
+          ))}
+        </>
+      )}
+    </>
+  );
+}

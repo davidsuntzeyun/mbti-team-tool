@@ -1,0 +1,30 @@
+{
+  "EI": {
+    "uniformE": "Everyone in this group draws energy from talking things through out loud. Meetings will have energy and momentum, but make a deliberate effort to build in quiet reflection time before big decisions, since no one in the group will naturally slow things down to do that.",
+    "uniformI": "Everyone in this group prefers to think before speaking. Decisions will tend to be well-considered, but the group may need a deliberate push to actually say things out loud rather than defaulting to silence, don't mistake quiet for agreement.",
+    "balanced": "This group has a healthy mix of people who think out loud and people who think things through quietly first. Build in both open discussion time and quiet reflection time so both styles get a real chance to contribute.",
+    "leaningE": "This group leans toward people who process out loud. Watch for the quieter members getting talked over, and build in deliberate pauses so they have room to speak up.",
+    "leaningI": "This group leans toward people who think before speaking. Meetings may feel quieter than the amount of thinking actually happening in the room, invite input directly rather than assuming silence means agreement."
+  },
+  "SN": {
+    "uniformS": "Everyone in this group stays grounded in facts and practical detail. Plans will be realistic and well-checked, but the group may miss a genuinely novel idea or a bigger opportunity because no one is naturally pulled toward the big picture.",
+    "uniformN": "Everyone in this group is drawn to ideas and possibilities. Brainstorming will be genuinely creative, but plans can stay abstract for too long, assign someone deliberately to track the practical, on-the-ground details.",
+    "balanced": "This group has a healthy mix of practical, detail-focused thinking and big-picture, possibility-focused thinking. That combination tends to produce plans that are both ambitious and realistic.",
+    "leaningS": "This group leans toward practical, detail-focused thinking. Make space for the possibility-minded voices in the room, new ideas can get dismissed too quickly as \"unrealistic\" before they've been properly explored.",
+    "leaningN": "This group leans toward big-picture, possibility-focused thinking. Make sure someone is deliberately tracking practical execution, ideas can pile up faster than the group's ability to actually deliver on them."
+  },
+  "TF": {
+    "uniformT": "Everyone in this group makes decisions primarily on logic and evidence. Debate will be efficient and unfiltered, but the human impact of a decision can get overlooked, build in a deliberate check on how a decision will land with the people affected.",
+    "uniformF": "Everyone in this group weighs how decisions affect people. Morale and fairness will be well looked after, but hard, necessary decisions can get delayed or softened past the point of usefulness, someone will need to be willing to name the difficult truth.",
+    "balanced": "This group has a healthy mix of logic-driven and people-focused decision making. That combination tends to produce decisions that are both sound and considerate of the people involved.",
+    "leaningT": "This group leans toward logic-driven decision making. Make a deliberate effort to check in on how decisions will land with the people involved, not just whether they're the most efficient call.",
+    "leaningF": "This group leans toward people-focused decision making. Hard calls may take longer than they need to, it can help to name explicitly when a decision needs to be made on facts rather than smoothed over for harmony."
+  },
+  "JP": {
+    "uniformJ": "Everyone in this group likes a clear plan and a defined timeline. The group will stay organized and hit deadlines, but may resist changing course even when new information suggests it should, build in a deliberate checkpoint to revisit the plan.",
+    "uniformP": "Everyone in this group stays flexible and comfortable adapting as things change. The group will handle surprises well, but deadlines and decisions can drift without a clear finish line, someone will need to deliberately push for closure.",
+    "balanced": "This group has a healthy mix of planners and adapters. That combination tends to balance structure with flexibility, plans stay organized without becoming rigid.",
+    "leaningJ": "This group leans toward structure and planning. Leave deliberate room for new information to actually change the plan, rather than treating the original plan as fixed once it's set.",
+    "leaningP": "This group leans toward flexibility and adaptability. Assign someone, or set a deliberate deadline ritual, to actually close decisions out rather than leaving them open indefinitely."
+  }
+}
