@@ -5,6 +5,7 @@ const TABS = [
   { href: "/guess", label: "Guess" },
   { href: "/match", label: "Quick Match" },
   { href: "/team", label: "Team Dynamic" },
+  { href: "/builder", label: "Team Builder" },
 ];
 
 export default function NavTabs({ active, username }) {
