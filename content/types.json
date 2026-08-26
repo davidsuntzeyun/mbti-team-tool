@@ -7,7 +7,14 @@
     "communicationStyle": "Direct, factual, and to the point. They prefer concrete details over abstract possibilities, and they say what they mean without much embellishment. They earn trust through reliability more than through words.",
     "workStyle": "Methodical and thorough. They prepare well in advance, follow through on commitments, and prefer to finish one task properly before starting the next.",
     "archetype": "The Logistician",
-    "tagline": "Practical, dependable, and duty-driven."
+    "tagline": "Practical, dependable, and duty-driven.",
+    "teamDynamics": {
+      "asManager": "Sets clear expectations and rewards consistency. Give them advance notice of changes and come prepared, they respect people who follow through as reliably as they do.",
+      "asPeer": "A steady, dependable presence who does what they say. They appreciate peers who are equally reliable and communicate plans clearly rather than improvising on the fly.",
+      "asTeamMember": "Executes methodically and rarely misses a deadline. They need clear instructions and enough lead time to plan; last-minute changes throw them off more than most.",
+      "communicate": "Be direct and factual. Skip the small talk, lead with the practical details, and give them time to process before expecting a decision.",
+      "bringOutBest": "Give them structure, clear ownership, and credit for their consistency. Avoid rushing them into decisions without adequate information."
+    }
   },
   "ISFJ": {
     "label": "The Quiet Supporter",
@@ -17,7 +24,14 @@
     "communicationStyle": "Gentle, considerate, and detail-oriented. They tend to soften difficult messages and read the emotional undercurrent of a conversation closely, sometimes more closely than what is actually said out loud.",
     "workStyle": "Careful and service-oriented. They keep track of the practical details others overlook and prefer working within a stable, well-defined structure.",
     "archetype": "The Defender",
-    "tagline": "Warm, attentive, and quietly protective."
+    "tagline": "Warm, attentive, and quietly protective.",
+    "teamDynamics": {
+      "asManager": "Leads with genuine care and attention to each person's needs, quietly noticing what people need before they ask. Give them structure to work within and reassurance that their support is valued, not assumed.",
+      "asPeer": "Reliable and considerate, the kind of colleague who remembers the details that matter to you. Reciprocate by checking in on them too, they rarely ask for help even when they need it.",
+      "asTeamMember": "Dependable, thorough, and quick to pick up on team morale. They do their best when their contributions are acknowledged and the environment feels stable rather than combative.",
+      "communicate": "Keep a warm, considerate tone. Frame feedback gently and give them space to process criticism privately rather than in front of others.",
+      "bringOutBest": "Show appreciation often and specifically. Protect them from unnecessary conflict, and give them a clear, practical role in the bigger picture."
+    }
   },
   "INFJ": {
     "label": "The Quiet Idealist",
@@ -27,7 +41,14 @@
     "communicationStyle": "Thoughtful and layered. They often choose words carefully and prefer meaningful one-on-one conversation over small talk or group debate. When they do speak up, it usually carries weight.",
     "workStyle": "Vision-driven and self-directed. They like to work independently toward a clear sense of purpose, and they bring quiet, sustained focus once they are convinced something matters.",
     "archetype": "The Advocate",
-    "tagline": "Idealistic, insightful, and purpose-driven."
+    "tagline": "Idealistic, insightful, and purpose-driven.",
+    "teamDynamics": {
+      "asManager": "Leads with a strong sense of purpose and genuinely invests in your growth, though they may take time to open up. Show them you share their sense of meaning in the work and give them quiet space to think things through.",
+      "asPeer": "Insightful and quietly supportive, offering perspective that others miss. They open up more in one-on-one settings than in group discussion, so build trust there first.",
+      "asTeamMember": "Brings depth and conviction once they believe in what the team is doing. They need autonomy and a genuine sense of purpose; busywork without meaning drains them fast.",
+      "communicate": "One-on-one conversation works better than group debate. Be authentic, give them time to reflect, and do not expect an immediate answer to a big question.",
+      "bringOutBest": "Connect their work to a larger purpose and protect their need for quiet, focused time. Respect their insight even when it comes slowly."
+    }
   },
   "INTJ": {
     "label": "The Independent Strategist",
@@ -37,7 +58,14 @@
     "communicationStyle": "Direct and idea-focused. They value efficiency in conversation and would rather debate the merits of an idea than manage feelings around it, though they do care more than they let on.",
     "workStyle": "Strategic and independent. They prefer to set their own systems, think several steps ahead, and revise plans decisively when new information changes the picture.",
     "archetype": "The Architect",
-    "tagline": "Strategic, independent, and future-focused."
+    "tagline": "Strategic, independent, and future-focused.",
+    "teamDynamics": {
+      "asManager": "Leads with a clear long-term strategy and expects competence over consensus. Come with well-reasoned ideas rather than unfiltered opinions, and do not expect much hand-holding.",
+      "asPeer": "Independent and sharp, most engaged when debating the merits of an idea rather than managing feelings around it. They respect directness and precision more than diplomacy for its own sake.",
+      "asTeamMember": "Strategic and self-sufficient, often several steps ahead of the discussion. Give them autonomy and judge them on results rather than process.",
+      "communicate": "Be direct and lead with logic. Skip the padding, state your point clearly, and be ready to defend it, they will push back if the reasoning is not solid.",
+      "bringOutBest": "Give them ownership over how the work gets done, not just what needs doing. Avoid micromanaging, and bring them in early on decisions that affect the strategy."
+    }
   },
   "ISTP": {
     "label": "The Practical Troubleshooter",
@@ -47,7 +75,14 @@
     "communicationStyle": "Economical and matter-of-fact. They say what is useful and skip the rest, and they would generally rather show something than talk about it.",
     "workStyle": "Adaptive and hands-on. They troubleshoot in real time, stay calm under pressure, and prefer to keep their options open rather than lock into a rigid plan too early.",
     "archetype": "The Virtuoso",
-    "tagline": "Hands-on, calm, and quietly resourceful."
+    "tagline": "Hands-on, calm, and quietly resourceful.",
+    "teamDynamics": {
+      "asManager": "Leads by example and gives people room to solve problems their own way. They will not hover, but they also will not offer much reassurance, ask directly if you need it.",
+      "asPeer": "Calm under pressure and easy to work alongside as long as you do not over-explain. They would rather show you something than talk it through in a meeting.",
+      "asTeamMember": "Hands-on and adaptable, especially useful when something needs troubleshooting in the moment. They resist rigid process for its own sake, so give them the outcome and let them find the way.",
+      "communicate": "Keep it short and practical. Do not ask them to explain their reasoning before they have tested it out, and give them space to process internally.",
+      "bringOutBest": "Hand them a real problem and get out of the way. Too much oversight or too many meetings will wear them down fast."
+    }
   },
   "ISFP": {
     "label": "The Gentle Creator",
@@ -57,7 +92,14 @@
     "communicationStyle": "Understated and sincere. They rarely push their opinions on others, but when something matters deeply to them, they will hold their ground quietly and firmly.",
     "workStyle": "Flexible and present-focused. They prefer to respond to what is in front of them rather than follow a rigid long-term plan, and they do their best work when given room to work their own way.",
     "archetype": "The Adventurer",
-    "tagline": "Gentle, authentic, and quietly bold."
+    "tagline": "Gentle, authentic, and quietly bold.",
+    "teamDynamics": {
+      "asManager": "Leads gently and respects individuality, rarely imposing a rigid way of doing things. They lead best in low-pressure environments where people are trusted to work in their own way.",
+      "asPeer": "Easygoing and sincere, unlikely to push their opinions on you unless something truly matters to them. When they do speak up, it is worth listening closely.",
+      "asTeamMember": "Flexible and quietly committed, doing good work without needing the spotlight. They do best with room to work in their own time and their own way, and they disengage under harsh criticism.",
+      "communicate": "Keep feedback constructive and low-pressure. Give them space rather than putting them on the spot in front of the group.",
+      "bringOutBest": "Offer flexibility and creative room rather than a rigid script. Respect their values, even when they disagree quietly rather than arguing the point."
+    }
   },
   "INFP": {
     "label": "The Thoughtful Idealist",
@@ -67,7 +109,14 @@
     "communicationStyle": "Warm and reflective, often more articulate in writing than in the moment. They tend to hold back their honest opinion until they trust the person or the setting.",
     "workStyle": "Idea-driven and values-led. They work in bursts of inspiration rather than a steady grind, and they need to feel personally connected to what they are doing.",
     "archetype": "The Mediator",
-    "tagline": "Idealistic, values-driven, and imaginative."
+    "tagline": "Idealistic, values-driven, and imaginative.",
+    "teamDynamics": {
+      "asManager": "Leads by connecting work to shared values and genuinely cares about your growth, though they may be less directive than other managers. Give them time to reflect before expecting quick decisions.",
+      "asPeer": "Warm and idea-driven, often more articulate in writing than in a live discussion. They hold back their honest opinion until they trust you, so build that trust early.",
+      "asTeamMember": "Brings creativity and genuine investment when the work aligns with something they believe in. Follow-through can fade once the initial inspiration wears off, so check in without micromanaging.",
+      "communicate": "Be warm and give them space to think before responding. Written communication often works better for them than put-on-the-spot conversation.",
+      "bringOutBest": "Connect the work to a cause or value they care about. Give them creative latitude and check in periodically rather than demanding constant updates."
+    }
   },
   "INTP": {
     "label": "The Curious Analyst",
@@ -77,7 +126,14 @@
     "communicationStyle": "Precise and idea-focused. They enjoy debating concepts and will happily explore a tangent if it is intellectually interesting, sometimes losing the thread of practical next steps.",
     "workStyle": "Exploratory and independent. They like to understand the underlying logic of a problem before committing to a solution, and they prefer flexible thinking time over rigid deadlines.",
     "archetype": "The Logician",
-    "tagline": "Curious, analytical, and endlessly inquisitive."
+    "tagline": "Curious, analytical, and endlessly inquisitive.",
+    "teamDynamics": {
+      "asManager": "Leads with intellectual respect and gives people room to think things through their own way. They are less focused on hierarchy and more interested in whether your reasoning holds up.",
+      "asPeer": "Curious and analytical, happy to go down a tangent if it is interesting. Bring them a genuinely hard problem and you will have their full attention.",
+      "asTeamMember": "Independent and thorough once they understand the underlying logic, though they can lose the thread of practical next steps. Keep deadlines visible since they will happily think indefinitely.",
+      "communicate": "Lead with the idea, not the small talk. Be precise, and expect them to want to explore the reasoning rather than just accept the conclusion.",
+      "bringOutBest": "Give them genuinely interesting problems and the freedom to think them through. Avoid rigid rules that exist for their own sake."
+    }
   },
   "ESTP": {
     "label": "The Energetic Doer",
@@ -87,7 +143,14 @@
     "communicationStyle": "Direct, lively, and grounded in real examples. They read a room quickly and adjust on the fly, preferring practical conversation over abstract debate.",
     "workStyle": "Fast-moving and adaptive. They respond well to pressure, prefer action over prolonged planning, and are comfortable making decisions with incomplete information.",
     "archetype": "The Entrepreneur",
-    "tagline": "Energetic, practical, and quick to act."
+    "tagline": "Energetic, practical, and quick to act.",
+    "teamDynamics": {
+      "asManager": "Leads with energy and expects people to keep pace, making decisions quickly rather than waiting for lengthy approval. Bring them practical options, not abstract theory.",
+      "asPeer": "Direct and quick on their feet, good in a crisis and easily bored by slow-moving process. Keep conversations grounded in real examples rather than hypotheticals.",
+      "asTeamMember": "Fast-moving and comfortable acting on incomplete information. Give them room to respond to real situations rather than boxing them into a rigid plan.",
+      "communicate": "Be direct, brief, and practical. Skip the theory and get to what needs to happen next.",
+      "bringOutBest": "Give them action and autonomy, not prolonged planning. Trust them to adjust on the fly rather than requiring approval for every step."
+    }
   },
   "ESFP": {
     "label": "The Warm Connector",
@@ -97,7 +160,14 @@
     "communicationStyle": "Warm, expressive, and people-focused. They read emotional cues easily and prefer conversation that feels personal and alive over formal or abstract discussion.",
     "workStyle": "Energetic and people-oriented. They work best in the moment, adapt easily to changing circumstances, and bring enthusiasm that others often feed off of.",
     "archetype": "The Entertainer",
-    "tagline": "Warm, spontaneous, and full of energy."
+    "tagline": "Warm, spontaneous, and full of energy.",
+    "teamDynamics": {
+      "asManager": "Leads with warmth and energy, quick to notice how people are feeling and eager to keep morale up. They lead best with variety and positive feedback rather than rigid routine.",
+      "asPeer": "Warm and spontaneous, the kind of colleague who lifts the mood of a room. They take criticism personally even when it is not meant harshly, so frame feedback with care.",
+      "asTeamMember": "Energetic and people-oriented, adapting easily to changing circumstances. Long stretches of isolated, theoretical work will wear them down.",
+      "communicate": "Keep it warm and personal. Deliver feedback with encouragement built in, and expect them to read the emotional tone of the conversation closely.",
+      "bringOutBest": "Give them variety, social interaction, and genuine positive feedback. Avoid cold, overly critical environments."
+    }
   },
   "ENFP": {
     "label": "The Enthusiastic Explorer",
@@ -107,7 +177,14 @@
     "communicationStyle": "Warm, expressive, and idea-rich. They think out loud, enjoy exploring possibilities in conversation, and connect with people quickly and genuinely.",
     "workStyle": "Idea-driven and adaptable. They generate possibilities easily and work best when paired with someone who can help turn those ideas into a structured plan.",
     "archetype": "The Campaigner",
-    "tagline": "Enthusiastic, imaginative, and people-focused."
+    "tagline": "Enthusiastic, imaginative, and people-focused.",
+    "teamDynamics": {
+      "asManager": "Leads with enthusiasm and genuine belief in people's potential, often more inspiring than procedural. Pair them with someone detail-oriented to help ideas become concrete plans.",
+      "asPeer": "Warm, idea-rich, and quick to connect. Great for brainstorming, though they may need a nudge to follow an idea all the way through.",
+      "asTeamMember": "Brings energy and creative possibility, especially early in a project. Excitement can fade once the details set in, so check in as momentum shifts.",
+      "communicate": "Match their energy and let them think out loud. Give them room to explore possibilities before pinning down the final plan.",
+      "bringOutBest": "Give them variety, genuine connection, and something to be excited about. Pair them with someone who can help turn ideas into structured follow-through."
+    }
   },
   "ENTP": {
     "label": "The Quick-Witted Debater",
@@ -117,7 +194,14 @@
     "communicationStyle": "Quick, playful, and provocative in a good-natured way. They enjoy debate and will happily argue a position just to see where the logic leads.",
     "workStyle": "Idea-generating and fast-moving. They are strong at spotting new possibilities and connections, though they often need a partner to help carry ideas through to completion.",
     "archetype": "The Debater",
-    "tagline": "Quick-witted, inventive, and loves a challenge."
+    "tagline": "Quick-witted, inventive, and loves a challenge.",
+    "teamDynamics": {
+      "asManager": "Leads by challenging assumptions and pushing the team to think harder, comfortable with debate as a normal part of the process. Bring your best argument, they respect being pushed back on.",
+      "asPeer": "Quick-witted and provocative in a good-natured way, happiest testing an idea out loud. Do not mistake their debate for personal conflict.",
+      "asTeamMember": "Strong at spotting new angles and possibilities, though they often need a partner to carry ideas through to completion. Give them room to explore before locking into one approach.",
+      "communicate": "Be ready for debate and do not take it personally. State your position clearly and expect them to stress-test it.",
+      "bringOutBest": "Give them novelty and intellectual challenge. Pair them with someone who can help execute once the idea has been explored."
+    }
   },
   "ESTJ": {
     "label": "The Decisive Organizer",
@@ -127,7 +211,14 @@
     "communicationStyle": "Direct, clear, and outcome-focused. They say what needs to be said, expect the same in return, and move conversations toward a decision efficiently.",
     "workStyle": "Structured and results-driven. They organize people and tasks efficiently, follow through reliably, and prefer a clear chain of accountability.",
     "archetype": "The Executive",
-    "tagline": "Decisive, organized, and results-driven."
+    "tagline": "Decisive, organized, and results-driven.",
+    "teamDynamics": {
+      "asManager": "Leads with clear structure, defined authority, and an expectation that people follow through. They reward competence and reliability, and they will call out inefficiency directly.",
+      "asPeer": "Direct and outcome-focused, easy to work with once expectations are clear. They expect the same directness in return, not hedging.",
+      "asTeamMember": "Organized and reliable, taking ownership and pushing things toward completion. They can come across as blunt when pushing for a decision, it usually is not personal.",
+      "communicate": "Be clear, direct, and get to the point. Bring solutions, not just problems, and expect a fast decision.",
+      "bringOutBest": "Give them clear goals, defined authority, and recognition for follow-through. Avoid unclear expectations or unreliable teammates around them."
+    }
   },
   "ESFJ": {
     "label": "The Caring Coordinator",
@@ -137,7 +228,14 @@
     "communicationStyle": "Warm, attentive, and harmony-seeking. They read the room carefully, check in on how people are doing, and prefer to smooth over tension rather than let it sit.",
     "workStyle": "Cooperative and dependable. They keep teams organized and connected, and they take practical responsibility seriously.",
     "archetype": "The Consul",
-    "tagline": "Caring, organized, and community-minded."
+    "tagline": "Caring, organized, and community-minded.",
+    "teamDynamics": {
+      "asManager": "Leads with warmth and genuine attention to how the team is doing, working hard to keep everyone included. They lead best in cooperative environments with clear roles.",
+      "asPeer": "Organized and dependable, the kind of colleague who checks in and keeps things running smoothly. Reciprocate their care, they can overextend trying to keep everyone happy.",
+      "asTeamMember": "Cooperative and practical, taking real pride in supporting the group. Conflict and lack of appreciation drain them quickly, so acknowledge their effort.",
+      "communicate": "Keep the tone warm and appreciative. Address any tension early and directly rather than letting it sit unspoken.",
+      "bringOutBest": "Give them clear roles, regular positive feedback, and a cooperative environment. Protect them from being stretched too thin trying to please everyone."
+    }
   },
   "ENFJ": {
     "label": "The Inspiring Guide",
@@ -147,7 +245,14 @@
     "communicationStyle": "Warm, persuasive, and encouraging. They naturally motivate others in conversation and tend to pick up on unspoken tension quickly.",
     "workStyle": "People-centered and purpose-driven. They organize and motivate others effectively, and they do their best work when leading toward a cause they believe in.",
     "archetype": "The Protagonist",
-    "tagline": "Inspiring, warm, and a natural motivator."
+    "tagline": "Inspiring, warm, and a natural motivator.",
+    "teamDynamics": {
+      "asManager": "Leads by genuinely investing in your growth and reading the room well, naturally motivating people toward a shared goal. They take criticism of their vision personally, so frame pushback constructively.",
+      "asPeer": "Warm and persuasive, quick to notice unspoken tension and smooth it over. They bring people together naturally and appreciate a peer who shares that sense of purpose.",
+      "asTeamMember": "People-centered and purpose-driven, often stepping into an organizing role even without the title. Watch that they are not neglecting their own needs while looking after everyone else's.",
+      "communicate": "Be warm and genuine, they read insincerity quickly. Connect your point to the bigger picture and the people it affects.",
+      "bringOutBest": "Give them a cause worth believing in and genuine connection with the team. Encourage them to protect their own energy, not just everyone else's."
+    }
   },
   "ENTJ": {
     "label": "The Bold Strategist",
@@ -157,6 +262,13 @@
     "communicationStyle": "Direct, confident, and outcome-focused. They value efficient debate and expect people to bring their best argument rather than defer automatically.",
     "workStyle": "Strategic and driven. They set ambitious plans, delegate decisively, and push hard toward long-term goals.",
     "archetype": "The Commander",
-    "tagline": "Bold, strategic, and a natural leader."
+    "tagline": "Bold, strategic, and a natural leader.",
+    "teamDynamics": {
+      "asManager": "Leads with clear vision and decisive authority, moving fast and expecting the team to keep pace. Bring your best argument, they respect people who can hold their ground.",
+      "asPeer": "Confident and outcome-focused, most engaged in efficient debate. They expect directness and can come across as forceful when they are simply pushing things forward.",
+      "asTeamMember": "Strategic and driven, often taking the lead even without being asked. Give them real ownership and ambitious goals rather than routine tasks.",
+      "communicate": "Be direct and confident. Bring a clear argument and expect efficient, fast-moving conversation.",
+      "bringOutBest": "Give them ambitious goals, real authority, and a team that can keep pace. Avoid indecision or unnecessary process around them."
+    }
   }
 }

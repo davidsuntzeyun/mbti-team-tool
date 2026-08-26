@@ -1,14 +1,29 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername } from "../../lib/session";
+import { getSessionUsername, isGuessUnlocked } from "../../lib/session";
 import { getAllUsers, getGuessesByUser } from "../../lib/db";
 import { getTypeProfile } from "../../lib/mbti";
-import { saveGuessAction, removeGuessAction } from "../actions";
+import { saveGuessAction, removeGuessAction, unlockGuessAction } from "../actions";
 import TypePicker from "../components/TypePicker";
 import NavTabs from "../components/NavTabs";
+import PasswordGate from "../components/PasswordGate";
 
 export default async function GuessPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
+
+  if (!isGuessUnlocked()) {
+    return (
+      <>
+        <NavTabs active="/guess" username={username} />
+        <PasswordGate
+          action={unlockGuessAction}
+          title="Guess your colleagues"
+          description="This part of the tool is locked until the live session. Ask your facilitator for the password."
+          error={searchParams?.gateError}
+        />
+      </>
+    );
+  }
 
   const error = searchParams?.error;
   const editTarget = searchParams?.edit;
@@ -29,43 +44,44 @@ export default async function GuessPage({ searchParams }) {
         <span className="pill">Just for fun</span>
         <h1 style={{ marginTop: 10 }}>Guess your colleagues</h1>
         <p>
-          Pick a few colleagues and guess their MBTI type, with your
+          Type in anyone's name and guess their MBTI type, with your
           reasoning. There's no pressure to be right, the actual answers get
           revealed live in the session. Explaining your reasoning is what
           makes this useful, not the score.
         </p>
       </div>
 
-      {colleagues.length === 0 ? (
-        <div className="card">
-          <p>No other colleagues have created an account yet. Check back once more of the team has joined.</p>
-        </div>
-      ) : (
-        <div className="card">
-          <h2>{editing ? `Update your guess for ${editTarget}` : "Add a guess"}</h2>
-          {error && <p className="error">{decodeURIComponent(error)}</p>}
-          <form action={saveGuessAction}>
-            <label>Colleague</label>
-            <select name="guessedUsername" defaultValue={editTarget || ""} required>
-              <option value="" disabled>Select a colleague&hellip;</option>
+      <div className="card">
+        <h2>{editing ? `Update your guess for ${editTarget}` : "Add a guess"}</h2>
+        {error && <p className="error">{decodeURIComponent(error)}</p>}
+        <form action={saveGuessAction}>
+          <label>Name</label>
+          <input
+            type="text"
+            name="guessedUsername"
+            list="colleague-suggestions"
+            defaultValue={editTarget || ""}
+            placeholder="Type a name..."
+            required
+          />
+          {colleagues.length > 0 && (
+            <datalist id="colleague-suggestions">
               {colleagues.map((c) => (
-                <option key={c.username} value={c.username}>
-                  {c.username}{guessMap[c.username] ? " (already guessed)" : ""}
-                </option>
+                <option key={c.username} value={c.username} />
               ))}
-            </select>
-            <label>Your guess</label>
-            <TypePicker name="guessedType" defaultValue={editing?.guessedType || ""} required />
-            <label>Why do you think so?</label>
-            <textarea
-              name="reasoning"
-              defaultValue={editing?.reasoning || ""}
-              placeholder="e.g. they're always the one keeping our meetings on schedule..."
-            />
-            <button className="btn" type="submit">{editing ? "Update guess" : "Save guess"}</button>
-          </form>
-        </div>
-      )}
+            </datalist>
+          )}
+          <label>Your guess</label>
+          <TypePicker name="guessedType" defaultValue={editing?.guessedType || ""} required />
+          <label>Why do you think so?</label>
+          <textarea
+            name="reasoning"
+            defaultValue={editing?.reasoning || ""}
+            placeholder="e.g. they're always the one keeping our meetings on schedule..."
+          />
+          <button className="btn" type="submit">{editing ? "Update guess" : "Save guess"}</button>
+        </form>
+      </div>
 
       <div className="card">
         <h2>Your guesses so far ({myGuesses.length})</h2>

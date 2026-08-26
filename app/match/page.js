@@ -1,12 +1,28 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername } from "../../lib/session";
+import { getSessionUsername, isMatchUnlocked } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
 import { getTypeProfile, quickMatch } from "../../lib/mbti";
+import { unlockMatchAction } from "../actions";
 import NavTabs from "../components/NavTabs";
+import PasswordGate from "../components/PasswordGate";
 
 export default async function MatchPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
+
+  if (!isMatchUnlocked()) {
+    return (
+      <>
+        <NavTabs active="/match" username={username} />
+        <PasswordGate
+          action={unlockMatchAction}
+          title="Quick Match"
+          description="This part of the tool is locked until the live session. Ask your facilitator for the password."
+          error={searchParams?.gateError}
+        />
+      </>
+    );
+  }
 
   const me = await getUser(username);
   const allUsers = await getAllUsers();
@@ -117,6 +133,46 @@ function MatchResult({ me, colleague }) {
           ))}
         </ul>
       </div>
+
+      {colleagueProfile.teamDynamics && (
+        <>
+          <div className="card">
+            <div className="section-label">Team dynamics</div>
+            <h2 style={{ marginTop: 0 }}>Working well with {colleague.username}</h2>
+            <p>
+              The intention here is simple: make sure you are working well
+              together. Understanding your communication style and theirs
+              helps the two of you get the most out of the team, whatever
+              the reporting line looks like.
+            </p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">If they are your manager</div>
+            <p>{colleagueProfile.teamDynamics.asManager}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">If they are your peer</div>
+            <p>{colleagueProfile.teamDynamics.asPeer}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">If they are your team member</div>
+            <p>{colleagueProfile.teamDynamics.asTeamMember}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">How to communicate with them</div>
+            <p>{colleagueProfile.teamDynamics.communicate}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">How to bring out their best</div>
+            <p>{colleagueProfile.teamDynamics.bringOutBest}</p>
+          </div>
+        </>
+      )}
     </>
   );
 }

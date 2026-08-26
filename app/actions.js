@@ -9,9 +9,16 @@ import {
   deleteUser,
   upsertGuess,
   deleteGuess,
-  getUser,
 } from "../lib/db";
-import { setSessionCookie, clearSessionCookie, getSessionUsername } from "../lib/session";
+import {
+  setSessionCookie,
+  clearSessionCookie,
+  getSessionUsername,
+  checkGuessPassword,
+  checkMatchPassword,
+  unlockGuess,
+  unlockMatch,
+} from "../lib/session";
 import { isValidType } from "../lib/mbti";
 
 // Errors are passed back via a `?error=` query param and rendered by the
@@ -97,23 +104,38 @@ export async function saveGuessAction(formData) {
   const guesserUsername = getSessionUsername();
   if (!guesserUsername) redirect("/");
 
-  const guessedUsername = String(formData.get("guessedUsername") || "");
+  const guessedUsername = String(formData.get("guessedUsername") || "").trim();
   const guessedType = String(formData.get("guessedType") || "").toUpperCase();
   const reasoning = String(formData.get("reasoning") || "").trim();
 
   if (!guessedUsername || !isValidType(guessedType)) {
-    redirect("/guess?error=" + encodeURIComponent("Pick a colleague and a valid MBTI type."));
+    redirect("/guess?error=" + encodeURIComponent("Enter a name and pick a valid MBTI type."));
   }
   if (guessedUsername.toLowerCase() === guesserUsername.toLowerCase()) {
     redirect("/guess?error=" + encodeURIComponent("You can't guess yourself, that's the easy one."));
-  }
-  if (!(await getUser(guessedUsername))) {
-    redirect("/guess?error=" + encodeURIComponent("That colleague isn't on the roster."));
   }
 
   await upsertGuess({ guesserUsername, guessedUsername, guessedType, reasoning });
   revalidatePath("/guess");
   redirect("/guess");
+}
+
+export async function unlockGuessAction(formData) {
+  const password = String(formData.get("password") || "");
+  if (!checkGuessPassword(password)) {
+    redirect("/guess?gateError=" + encodeURIComponent("That's not quite it, try again."));
+  }
+  unlockGuess();
+  redirect("/guess");
+}
+
+export async function unlockMatchAction(formData) {
+  const password = String(formData.get("password") || "");
+  if (!checkMatchPassword(password)) {
+    redirect("/match?gateError=" + encodeURIComponent("That's not quite it, try again."));
+  }
+  unlockMatch();
+  redirect("/match");
 }
 
 export async function removeGuessAction(formData) {
