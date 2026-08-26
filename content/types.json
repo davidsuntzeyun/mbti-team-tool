@@ -14,7 +14,12 @@
       "asTeamMember": "Executes methodically and rarely misses a deadline. They need clear instructions and enough lead time to plan; last-minute changes throw them off more than most.",
       "communicate": "Be direct and factual. Skip the small talk, lead with the practical details, and give them time to process before expecting a decision.",
       "bringOutBest": "Give them structure, clear ownership, and credit for their consistency. Avoid rushing them into decisions without adequate information."
-    }
+    },
+    "petPeeves": "Being asked to bend the rules for no clear reason, having their preparation second-guessed, and people who commit to something and then don't follow through.",
+    "growthEdge": "Practice sitting with a plan that hasn't been finalized yet. Not every situation needs a fixed answer right away, and pushing for closure too early can shut out useful input from people who think more slowly or differently than you do.",
+    "underPressure": "They tend to double down on structure, work longer hours, and go quiet rather than ask for help. Watch for them getting rigid or short-tempered when things stop going according to plan.",
+    "feedbackReceiving": "Give it to them directly and specifically, with concrete examples, not a vague impression. They'd rather hear it plainly than have it softened into something unclear.",
+    "feedbackGiving": "They tend to give feedback matter-of-factly, focused on what didn't work and what should change. It's rarely personal, even when it comes across a little blunt."
   },
   "ISFJ": {
     "label": "The Quiet Supporter",
@@ -31,7 +36,12 @@
       "asTeamMember": "Dependable, thorough, and quick to pick up on team morale. They do their best when their contributions are acknowledged and the environment feels stable rather than combative.",
       "communicate": "Keep a warm, considerate tone. Frame feedback gently and give them space to process criticism privately rather than in front of others.",
       "bringOutBest": "Show appreciation often and specifically. Protect them from unnecessary conflict, and give them a clear, practical role in the bigger picture."
-    }
+    },
+    "petPeeves": "Being taken for granted, sudden last-minute changes, and people who are careless with things that clearly mattered to someone else.",
+    "growthEdge": "Practice saying no, or at least saying what you actually need, before resentment builds quietly underneath the surface. Not every request deserves a yes just because you're capable of delivering it.",
+    "underPressure": "They tend to overextend themselves trying to keep everyone comfortable, then withdraw quietly once they're depleted. Watch for them going unusually quiet or self-critical.",
+    "feedbackReceiving": "Frame it gently and privately, and lead with what's working before what needs to change. Public criticism, or feedback that feels like an attack on their effort, will land much harder than intended.",
+    "feedbackGiving": "They tend to soften feedback quite a bit, sometimes so much that the actual point gets lost. If they're being unusually direct, take it seriously, it means it matters."
   },
   "INFJ": {
     "label": "The Quiet Idealist",
@@ -48,7 +58,12 @@
       "asTeamMember": "Brings depth and conviction once they believe in what the team is doing. They need autonomy and a genuine sense of purpose; busywork without meaning drains them fast.",
       "communicate": "One-on-one conversation works better than group debate. Be authentic, give them time to reflect, and do not expect an immediate answer to a big question.",
       "bringOutBest": "Connect their work to a larger purpose and protect their need for quiet, focused time. Respect their insight even when it comes slowly."
-    }
+    },
+    "petPeeves": "Superficial small talk, people who say one thing and mean another, and being pushed to decide before they've had space to think it through.",
+    "growthEdge": "Practice speaking up earlier, before frustration has had time to build into full withdrawal. Your insight is more useful to people while it's still fresh, not after you've quietly decided the conversation isn't worth having.",
+    "underPressure": "They tend to withdraw sharply and can go from warm to distant with little warning. Watch for them shutting a door on a relationship or project rather than raising the issue directly.",
+    "feedbackReceiving": "Give it in a quiet, one-on-one setting, and make it clear it comes from genuine care, not just correction. They'll turn it over for a long time afterward, so weigh your words with that in mind.",
+    "feedbackGiving": "They tend to hold feedback in until they're sure it's worth saying, then deliver it thoughtfully and with real insight. If they've gone quiet instead of speaking up, something is probably still unsaid."
   },
   "INTJ": {
     "label": "The Independent Strategist",
@@ -65,7 +80,12 @@
       "asTeamMember": "Strategic and self-sufficient, often several steps ahead of the discussion. Give them autonomy and judge them on results rather than process.",
       "communicate": "Be direct and lead with logic. Skip the padding, state your point clearly, and be ready to defend it, they will push back if the reasoning is not solid.",
       "bringOutBest": "Give them ownership over how the work gets done, not just what needs doing. Avoid micromanaging, and bring them in early on decisions that affect the strategy."
-    }
+    },
+    "petPeeves": "Inefficiency, being asked to explain themselves before they've had a chance to think something through, and decisions made by consensus instead of by the best argument.",
+    "growthEdge": "Practice patience with people who need to think out loud, or who process more slowly than you do. Not everyone reaches the same conclusion the same way, and dismissing the process can cost you good ideas along the way.",
+    "underPressure": "They tend to withdraw into their own head and can come across as cold or dismissive. Watch for them cutting people out of the conversation entirely rather than working through the friction.",
+    "feedbackReceiving": "Be direct and specific, and back it with reasoning. They don't need it softened, they need it to be accurate, vague praise or vague criticism is equally unhelpful to them.",
+    "feedbackGiving": "They tend to give feedback plainly and logically, focused on the idea rather than the person. It can come across as blunt, but it's rarely meant personally."
   },
   "ISTP": {
     "label": "The Practical Troubleshooter",
@@ -82,7 +102,12 @@
       "asTeamMember": "Hands-on and adaptable, especially useful when something needs troubleshooting in the moment. They resist rigid process for its own sake, so give them the outcome and let them find the way.",
       "communicate": "Keep it short and practical. Do not ask them to explain their reasoning before they have tested it out, and give them space to process internally.",
       "bringOutBest": "Hand them a real problem and get out of the way. Too much oversight or too many meetings will wear them down fast."
-    }
+    },
+    "petPeeves": "Being micromanaged, long meetings that could have been a message, and being asked to explain their reasoning before they've actually tested it.",
+    "growthEdge": "Practice narrating your thinking a little more, even when it feels unnecessary. People around you can't always tell the difference between you working through a problem and you checking out of it.",
+    "underPressure": "They tend to go quiet and disengage rather than escalate, sometimes disappearing from a conversation or project altogether. Watch for a sudden drop-off in communication.",
+    "feedbackReceiving": "Keep it short, concrete, and practical, tell them what to do differently rather than how it made you feel. They'll take it in and process it on their own time.",
+    "feedbackGiving": "They tend to say very little unless asked directly, then give a brief, practical answer. If they're not offering feedback, ask, they often have more to say than they volunteer."
   },
   "ISFP": {
     "label": "The Gentle Creator",
@@ -99,7 +124,12 @@
       "asTeamMember": "Flexible and quietly committed, doing good work without needing the spotlight. They do best with room to work in their own time and their own way, and they disengage under harsh criticism.",
       "communicate": "Keep feedback constructive and low-pressure. Give them space rather than putting them on the spot in front of the group.",
       "bringOutBest": "Offer flexibility and creative room rather than a rigid script. Respect their values, even when they disagree quietly rather than arguing the point."
-    }
+    },
+    "petPeeves": "Being micromanaged, harsh or public criticism, and people who push their own opinions onto how you should live or work.",
+    "growthEdge": "Practice raising a disagreement in the moment instead of holding it quietly and hoping it resolves on its own. Your perspective deserves airtime too, not just internal processing.",
+    "underPressure": "They tend to withdraw and go quiet rather than confront what's bothering them. Watch for them physically or emotionally checking out of a room.",
+    "feedbackReceiving": "Deliver it gently and privately, and give them room to respond in their own time. Harsh or public criticism can shut them down rather than open a real conversation.",
+    "feedbackGiving": "They tend to hold back unless something genuinely matters to them, then deliver it quietly but firmly. Their silence isn't always agreement."
   },
   "INFP": {
     "label": "The Thoughtful Idealist",
@@ -116,7 +146,12 @@
       "asTeamMember": "Brings creativity and genuine investment when the work aligns with something they believe in. Follow-through can fade once the initial inspiration wears off, so check in without micromanaging.",
       "communicate": "Be warm and give them space to think before responding. Written communication often works better for them than put-on-the-spot conversation.",
       "bringOutBest": "Connect the work to a cause or value they care about. Give them creative latitude and check in periodically rather than demanding constant updates."
-    }
+    },
+    "petPeeves": "Conflict for its own sake, being asked to justify their values on the spot, and environments that feel fake or transactional.",
+    "growthEdge": "Practice following through after the initial inspiration fades. Not every project stays exciting the whole way through, and finishing well matters as much as starting well.",
+    "underPressure": "They tend to spiral into self-doubt and can take feedback more personally than it was intended. Watch for them going quiet, or being unusually hard on themselves.",
+    "feedbackReceiving": "Lead with genuine care and be specific rather than harsh, they can take feedback more personally than intended. Give them space to sit with it before expecting a response.",
+    "feedbackGiving": "They tend to hold back critical feedback until it's clearly needed, then deliver it warmly and thoughtfully. It usually comes from a real place of wanting to help."
   },
   "INTP": {
     "label": "The Curious Analyst",
@@ -133,7 +168,12 @@
       "asTeamMember": "Independent and thorough once they understand the underlying logic, though they can lose the thread of practical next steps. Keep deadlines visible since they will happily think indefinitely.",
       "communicate": "Lead with the idea, not the small talk. Be precise, and expect them to want to explore the reasoning rather than just accept the conclusion.",
       "bringOutBest": "Give them genuinely interesting problems and the freedom to think them through. Avoid rigid rules that exist for their own sake."
-    }
+    },
+    "petPeeves": "Repeating themselves, being rushed to a conclusion before they've thought it through, and small talk that doesn't go anywhere interesting.",
+    "growthEdge": "Practice closing the loop, sharing your conclusion even when you haven't fully polished the reasoning behind it yet. Waiting for the perfect explanation can leave people waiting longer than they need to.",
+    "underPressure": "They tend to retreat further into analysis rather than act, sometimes over-thinking a decision well past the point it was useful. Watch for them getting stuck rather than stressed.",
+    "feedbackReceiving": "Make the logic clear, they respond better to a well-reasoned point than an emotional one. Give them space to think it through rather than expecting an answer on the spot.",
+    "feedbackGiving": "They tend to give feedback focused on the idea or the logic, sometimes without much thought to delivery. It's rarely personal, even when it sounds clinical."
   },
   "ESTP": {
     "label": "The Energetic Doer",
@@ -150,7 +190,12 @@
       "asTeamMember": "Fast-moving and comfortable acting on incomplete information. Give them room to respond to real situations rather than boxing them into a rigid plan.",
       "communicate": "Be direct, brief, and practical. Skip the theory and get to what needs to happen next.",
       "bringOutBest": "Give them action and autonomy, not prolonged planning. Trust them to adjust on the fly rather than requiring approval for every step."
-    }
+    },
+    "petPeeves": "Slow decision-making, excessive theory without a clear point, and being told to wait when there's an obvious next step.",
+    "growthEdge": "Practice pausing before you act, especially on decisions that are hard to undo. Not every situation rewards speed, and a beat of patience can save a lot of cleanup later.",
+    "underPressure": "They tend to push even harder into action, sometimes at the cost of thinking things through. Watch for them making a fast call that skips people who needed to be consulted.",
+    "feedbackReceiving": "Keep it quick, direct, and practical. They'd rather hear it straight and move on than have it drawn out into a long, careful conversation.",
+    "feedbackGiving": "They tend to say it straight, in the moment, without much cushioning. It's not meant to sting, they just don't see the point in delaying it."
   },
   "ESFP": {
     "label": "The Warm Connector",
@@ -167,7 +212,12 @@
       "asTeamMember": "Energetic and people-oriented, adapting easily to changing circumstances. Long stretches of isolated, theoretical work will wear them down.",
       "communicate": "Keep it warm and personal. Deliver feedback with encouragement built in, and expect them to read the emotional tone of the conversation closely.",
       "bringOutBest": "Give them variety, social interaction, and genuine positive feedback. Avoid cold, overly critical environments."
-    }
+    },
+    "petPeeves": "Being ignored, cold or overly clinical environments, and criticism delivered without any warmth attached to it.",
+    "growthEdge": "Practice sitting with a hard conversation instead of deflecting it with humor or changing the subject. Not everything needs to be lightened, sometimes it just needs to be heard.",
+    "underPressure": "They tend to take setbacks personally and can swing between forced positivity and real discouragement. Watch for them overcompensating with enthusiasm that doesn't quite match the room.",
+    "feedbackReceiving": "Lead with warmth and be specific, they can take criticism personally even when it's not meant that way. Deliver it privately rather than in front of others.",
+    "feedbackGiving": "They tend to give feedback warmly and with real encouragement built in. If something is genuinely wrong, they may soften it more than the situation calls for."
   },
   "ENFP": {
     "label": "The Enthusiastic Explorer",
@@ -184,7 +234,12 @@
       "asTeamMember": "Brings energy and creative possibility, especially early in a project. Excitement can fade once the details set in, so check in as momentum shifts.",
       "communicate": "Match their energy and let them think out loud. Give them room to explore possibilities before pinning down the final plan.",
       "bringOutBest": "Give them variety, genuine connection, and something to be excited about. Pair them with someone who can help turn ideas into structured follow-through."
-    }
+    },
+    "petPeeves": "Rigid routine, being boxed into one narrow role, and conversations that stay purely factual with no room for possibility.",
+    "growthEdge": "Practice finishing what you start, even after the excitement of a new idea has faded. Follow-through is often what turns a good idea into something real.",
+    "underPressure": "They tend to scatter, jumping between things rather than focusing on one. Watch for them losing steam quickly or avoiding a hard conversation by starting something new instead.",
+    "feedbackReceiving": "Frame it with genuine warmth and be specific about what to change, not just what went wrong. They respond better to encouragement paired with clear direction than criticism alone.",
+    "feedbackGiving": "They tend to give feedback enthusiastically and with a lot of encouragement, sometimes softening the harder parts more than necessary."
   },
   "ENTP": {
     "label": "The Quick-Witted Debater",
@@ -201,7 +256,12 @@
       "asTeamMember": "Strong at spotting new angles and possibilities, though they often need a partner to carry ideas through to completion. Give them room to explore before locking into one approach.",
       "communicate": "Be ready for debate and do not take it personally. State your position clearly and expect them to stress-test it.",
       "bringOutBest": "Give them novelty and intellectual challenge. Pair them with someone who can help execute once the idea has been explored."
-    }
+    },
+    "petPeeves": "Being told \"because that's how it's always been done\", slow-moving process, and people who won't engage with a counterargument.",
+    "growthEdge": "Practice letting a debate go before it turns into a battle of ego. Not every disagreement needs to be won, sometimes the relationship matters more than being right.",
+    "underPressure": "They tend to get argumentative or restless, pushing back on anything that feels like an unnecessary constraint. Watch for them picking fights that aren't really about the actual issue.",
+    "feedbackReceiving": "Be direct, they can handle a real debate about it and often prefer that to a softened version. Come with reasoning, they'll want to understand the why, not just the what.",
+    "feedbackGiving": "They tend to give feedback candidly, sometimes bluntly, and enjoy debating the merits of it. It's not personal, they genuinely mean it as useful."
   },
   "ESTJ": {
     "label": "The Decisive Organizer",
@@ -218,7 +278,12 @@
       "asTeamMember": "Organized and reliable, taking ownership and pushing things toward completion. They can come across as blunt when pushing for a decision, it usually is not personal.",
       "communicate": "Be clear, direct, and get to the point. Bring solutions, not just problems, and expect a fast decision.",
       "bringOutBest": "Give them clear goals, defined authority, and recognition for follow-through. Avoid unclear expectations or unreliable teammates around them."
-    }
+    },
+    "petPeeves": "Missed deadlines, vague instructions, and people who don't pull their weight.",
+    "growthEdge": "Practice pausing before delivering a correction, especially in the moment something goes wrong. What feels like clear, efficient feedback to you can land as harsh if it's not tempered with a beat of warmth first.",
+    "underPressure": "They tend to become more controlling and blunt, pushing harder for structure exactly when others need flexibility most. Watch for them steamrolling a conversation rather than pausing to listen.",
+    "feedbackReceiving": "Be clear, specific, and get to the point. They'd rather hear exactly what needs to change than have it wrapped in a lot of context.",
+    "feedbackGiving": "They tend to give feedback directly and efficiently, focused on results. It can land as blunt, even though it's meant constructively."
   },
   "ESFJ": {
     "label": "The Caring Coordinator",
@@ -235,7 +300,12 @@
       "asTeamMember": "Cooperative and practical, taking real pride in supporting the group. Conflict and lack of appreciation drain them quickly, so acknowledge their effort.",
       "communicate": "Keep the tone warm and appreciative. Address any tension early and directly rather than letting it sit unspoken.",
       "bringOutBest": "Give them clear roles, regular positive feedback, and a cooperative environment. Protect them from being stretched too thin trying to please everyone."
-    }
+    },
+    "petPeeves": "Conflict, being excluded, and people who don't acknowledge the effort that went into something.",
+    "growthEdge": "Practice tolerating some tension instead of rushing to smooth it over. Not every disagreement needs to be resolved immediately, sometimes it needs to be sat with a little longer.",
+    "underPressure": "They tend to overextend themselves trying to keep everyone happy, then feel quietly resentful when it isn't reciprocated. Watch for them taking on too much rather than saying they're stretched thin.",
+    "feedbackReceiving": "Lead with appreciation for their effort before raising what needs to change. Public criticism, or feedback that feels like it questions their intentions, will land hard.",
+    "feedbackGiving": "They tend to soften feedback with a lot of warmth and positive framing, sometimes to the point where the actual ask gets buried."
   },
   "ENFJ": {
     "label": "The Inspiring Guide",
@@ -252,7 +322,12 @@
       "asTeamMember": "People-centered and purpose-driven, often stepping into an organizing role even without the title. Watch that they are not neglecting their own needs while looking after everyone else's.",
       "communicate": "Be warm and genuine, they read insincerity quickly. Connect your point to the bigger picture and the people it affects.",
       "bringOutBest": "Give them a cause worth believing in and genuine connection with the team. Encourage them to protect their own energy, not just everyone else's."
-    }
+    },
+    "petPeeves": "Insincerity, being dismissed after offering genuine feedback, and people who don't seem invested in their own growth.",
+    "growthEdge": "Practice letting people fail a little without stepping in to rescue them. Not everyone wants to be helped in the moment, and growth sometimes needs room you're not giving it.",
+    "underPressure": "They tend to take on everyone else's stress as their own, and can push their own needs aside entirely. Watch for them running on empty while still showing up for everyone else.",
+    "feedbackReceiving": "Frame it as part of their growth, not just a correction, they take feedback on their vision or intentions personally. Be honest, but pair it with genuine belief in them.",
+    "feedbackGiving": "They tend to give feedback warmly and with real investment in the other person's growth, sometimes wrapping the hard part in a lot of encouragement."
   },
   "ENTJ": {
     "label": "The Bold Strategist",
@@ -269,6 +344,11 @@
       "asTeamMember": "Strategic and driven, often taking the lead even without being asked. Give them real ownership and ambitious goals rather than routine tasks.",
       "communicate": "Be direct and confident. Bring a clear argument and expect efficient, fast-moving conversation.",
       "bringOutBest": "Give them ambitious goals, real authority, and a team that can keep pace. Avoid indecision or unnecessary process around them."
-    }
+    },
+    "petPeeves": "Indecision, incompetence, and people who won't commit to a position when asked.",
+    "growthEdge": "Practice slowing down enough to actually listen before responding, especially with people who need more time to get to their point. Being right faster isn't the same as being right.",
+    "underPressure": "They tend to become more forceful and less patient, pushing decisions through rather than pausing to bring people along. Watch for them steamrolling consensus in favor of speed.",
+    "feedbackReceiving": "Be direct and back it with logic, they respect a well-argued point even when it's critical. Vague or overly soft feedback won't really land.",
+    "feedbackGiving": "They tend to give feedback quickly, directly, and with high expectations attached. It's rarely personal, even when it feels pointed."
   }
 }

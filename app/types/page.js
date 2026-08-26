@@ -63,6 +63,32 @@ export default function TypesPage({ searchParams }) {
             </div>
           </div>
 
+          <div className="card">
+            <div className="section-label">Pet peeves</div>
+            <p>{profile.petPeeves}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">Their growth edge</div>
+            <p>{profile.growthEdge}</p>
+          </div>
+
+          <div className="card">
+            <div className="section-label">Under pressure</div>
+            <p>{profile.underPressure}</p>
+          </div>
+
+          <div className="grid-2">
+            <div className="card">
+              <h3>Receiving feedback</h3>
+              <p>{profile.feedbackReceiving}</p>
+            </div>
+            <div className="card">
+              <h3>Giving feedback</h3>
+              <p>{profile.feedbackGiving}</p>
+            </div>
+          </div>
+
           {profile.teamDynamics && (
             <>
               <div className="card">
