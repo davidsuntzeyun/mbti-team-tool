@@ -6,6 +6,7 @@ const TABS = [
   { href: "/match", label: "Quick Match" },
   { href: "/team", label: "Team Dynamic" },
   { href: "/builder", label: "Team Builder" },
+  { href: "/types", label: "Explore Types" },
   { href: "/faq", label: "FAQ" },
 ];
 
