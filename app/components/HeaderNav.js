@@ -17,6 +17,7 @@ export default function HeaderNav({ username }) {
           <Link href="/match">Quick Match</Link>
           <Link href="/team">Team Dynamic</Link>
           <Link href="/builder">Team Builder</Link>
+          <Link href="/faq">FAQ</Link>
           {isAdminUsername(username) && <Link href="/admin">Roster</Link>}
           <form action={logoutAction} style={{ display: "inline" }}>
             <button type="submit">Log out</button>

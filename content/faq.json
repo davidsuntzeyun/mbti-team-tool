@@ -1,0 +1,62 @@
+{
+  "Understanding Your Type": [
+    {
+      "q": "Doesn't this box me into a category?",
+      "a": "Not really. Your four letters describe a preference, which way you tend to lean, not a fixed identity or a cage. Everyone uses all eight traits at different times; your type just points to which ones come more naturally to you. Stress, growth, a new role, even the season you're in can shift how your type shows up day to day. Treat it as a starting point for understanding yourself, not a permanent label."
+    },
+    {
+      "q": "Can my type change over time?",
+      "a": "Yes, and that's completely normal. People often test differently after a big life change, a new job, a stretch of personal growth, or even just a particularly demanding season. If your answers feel different than they did a year ago, that's not a bug, it usually means you've grown or your circumstances have shifted. You can update your type on your Profile anytime, nothing here is locked in."
+    },
+    {
+      "q": "What if I don't fully relate to my type, or feel like a mix of two?",
+      "a": "That's common, and honestly expected. Most people sit close to the middle on at least one of the four dichotomies, so picking the archetype that fits best is often a judgment call, not a perfect match. Read the type description as a rough sketch, not a mirror. If two archetypes both feel partly true, that's useful information in itself."
+    },
+    {
+      "q": "Is one type better than another?",
+      "a": "No. Every type on this tool has its own strengths and its own blind spots, on purpose, that's the whole point of the Where you excel and What drains you sections on your Profile. A team that's all one type isn't automatically stronger than a mixed one, it's just strong in a narrower range of ways. Different work calls for different strengths."
+    }
+  ],
+  "Using This at Work": [
+    {
+      "q": "Should we use this to screen or judge candidates?",
+      "a": "No, this tool isn't built or intended for hiring decisions, performance reviews, or ranking people against each other. It's meant for self-reflection and for helping colleagues understand how to work well together, not for deciding who gets hired, promoted, or let go."
+    },
+    {
+      "q": "Can two people with the same type still be really different?",
+      "a": "Definitely. Two ENFPs can look and act quite differently depending on their upbringing, culture, life experience, and the skills they've built over the years. Type describes a tendency, not the whole person. Use it as one lens among many, not the full picture."
+    },
+    {
+      "q": "Isn't this just an excuse to stereotype colleagues?",
+      "a": "It can become that if it's used carelessly, so try to use it as a conversation starter instead of a label. \"Because you're an ISTJ\" is a lazy way to end a conversation; \"I noticed you like more lead time on decisions, is that a general preference?\" is a better way to start one. The goal is understanding someone better, not filing them away."
+    },
+    {
+      "q": "Why is Beyond Insights using this for team building specifically?",
+      "a": "Because how a team communicates and manages conflict often matters as much as the plan itself. This ties into the psychology-first thinking behind our S.V.S. framework: at Beyond Insights, we believe consistent results come from 90% psychology and money management, and only 10% mechanics. The same holds true for teams, understanding each other well is most of the work."
+    }
+  ],
+  "Accuracy & Rigor": [
+    {
+      "q": "Is MBTI scientifically proven?",
+      "a": "Being honest here: MBTI isn't a clinical diagnostic tool, and psychologists disagree on how rigorously it holds up as science. What it is good for is structured self-reflection and giving a team a shared, low-stakes vocabulary for talking about how people work differently. Treat it as a useful lens, not a scientific verdict on who you are."
+    },
+    {
+      "q": "What if I get a different result if I retake a real test?",
+      "a": "That happens fairly often, especially for anyone who lands close to the middle on one of the four dichotomies. A different mood, a different season of life, or just how a question is worded can nudge the answer. If you're genuinely torn between two letters, that itself tells you something, you probably use both, depending on the situation."
+    },
+    {
+      "q": "How is this different from Big Five, DISC, or Enneagram?",
+      "a": "They're all trying to describe personality, just from different angles. Big Five measures traits on a spectrum instead of sorting into categories, DISC focuses mostly on behavior style at work, and Enneagram digs into core motivations and fears. MBTI focuses on cognitive preferences, how you take in information and make decisions. None of them is the single correct model, they're just different lenses on the same person."
+    }
+  ],
+  "Practical": [
+    {
+      "q": "I don't know my type, where do I find a real test?",
+      "a": "This tool doesn't administer a full MBTI assessment, it's built for people who already have a rough sense of their type, whether from a formal assessment, a past workshop, or just self-recognition. If you want a proper assessment, the official MBTI instrument is available through the Myers-Briggs Company, and free approximations are widely available online, just hold those free versions a little loosely."
+    },
+    {
+      "q": "Can I update my type on this tool anytime?",
+      "a": "Yes. Head to your Profile and open Not feeling accurate?, and you can change your type as often as you like. Nothing here is locked in, and updating it doesn't erase your guesses or your account."
+    }
+  ]
+}
