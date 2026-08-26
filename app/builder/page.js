@@ -8,6 +8,9 @@ import {
   getGapLetters,
   suggestGapFillers,
   buildRadarChart,
+  getActivities,
+  getActivity,
+  evaluateActivityFit,
 } from "../../lib/mbti";
 import { unlockBuilderAction } from "../actions";
 import NavTabs from "../components/NavTabs";
@@ -74,6 +77,10 @@ export default async function BuilderPage({ searchParams }) {
 
   const { mostComplementary, mostCompatible } = rankComplements(me.mbtiType, eligibleColleagues);
 
+  const activities = getActivities();
+  const activityKey = typeof searchParams?.activity === "string" ? searchParams.activity : "";
+  const activity = getActivity(activityKey);
+
   const selected = normalizeMembers(searchParams?.members).filter((name) =>
     eligibleColleagues.some((c) => c.username === name)
   );
@@ -85,6 +92,8 @@ export default async function BuilderPage({ searchParams }) {
   let radar = null;
   let gaps = null;
   let fillers = null;
+  let activityFit = null;
+  let activityFillers = null;
 
   if (hasSelection && validCount) {
     const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
@@ -94,6 +103,11 @@ export default async function BuilderPage({ searchParams }) {
     gaps = getGapLetters(analysis);
     const remaining = eligibleColleagues.filter((c) => !selected.includes(c.username));
     fillers = suggestGapFillers(gaps, remaining).slice(0, 3);
+
+    if (activity) {
+      activityFit = evaluateActivityFit(analysis, activity);
+      activityFillers = suggestGapFillers(activityFit.gapLetters, remaining).slice(0, 3);
+    }
   }
 
   return (
@@ -153,7 +167,19 @@ export default async function BuilderPage({ searchParams }) {
           <p>No colleagues with a saved MBTI type yet.</p>
         ) : (
           <form method="get">
-            <div className="type-grid" style={{ gridTemplateColumns: "1fr" }}>
+            <label>What's this group for?</label>
+            <select name="activity" defaultValue={activityKey}>
+              <option value="">General balance (no specific activity)</option>
+              {activities.map((a) => (
+                <option key={a.key} value={a.key}>{a.label}</option>
+              ))}
+            </select>
+            <p className="hint" style={{ marginTop: 6 }}>
+              {activity
+                ? activity.description
+                : "Pick an activity to compare this group against the ideal mix for that kind of work, or leave it general for an overall balance check."}
+            </p>
+            <div className="type-grid" style={{ gridTemplateColumns: "1fr", marginTop: 16 }}>
               {eligibleColleagues.map((c) => {
                 const profile = getTypeProfile(c.mbtiType);
                 const id = `builder-member-${c.username}`;
@@ -251,6 +277,50 @@ export default async function BuilderPage({ searchParams }) {
             </p>
           </div>
 
+          {activity && activityFit && (
+            <div className="card">
+              <span className="pill">{activityFit.fitPercent}% fit</span>
+              <h2 style={{ marginTop: 10 }}>Fit for {activity.label}</h2>
+              <p>{activity.skillsNeeded}</p>
+
+              {activityFit.rows.map((r) => (
+                <div key={r.key} className="user-row" style={{ alignItems: "flex-start" }}>
+                  <span>
+                    {DICHOTOMY_LABELS[r.key]}
+                    <br />
+                    <span className="hint" style={{ display: "inline", marginTop: 0 }}>
+                      Group: {r.actualA}% {r.letterA} / {r.actualB}% {r.letterB} &middot; Ideal: {r.idealA}% {r.letterA} / {r.idealB}% {r.letterB}
+                    </span>
+                  </span>
+                  <span className="pill">
+                    {r.neededLetter ? `needs more ${r.neededLetter}` : "good fit"}
+                  </span>
+                </div>
+              ))}
+
+              {activityFit.gapLetters.length === 0 ? (
+                <p style={{ marginTop: 14 }}>This group is already a good match for {activity.label.toLowerCase()}, nice fit.</p>
+              ) : activityFillers.length === 0 ? (
+                <p className="hint" style={{ marginTop: 14 }}>No one left on the roster closes that gap for {activity.label.toLowerCase()} right now.</p>
+              ) : (
+                <>
+                  <div className="section-label" style={{ marginTop: 18 }}>Best fits for {activity.label}</div>
+                  {activityFillers.map((c) => (
+                    <div key={c.username} className="user-row" style={{ alignItems: "flex-start" }}>
+                      <span>
+                        {c.username}{" "}
+                        <span className="hint" style={{ display: "inline", marginTop: 0 }}>
+                          {getTypeProfile(c.mbtiType)?.archetype}
+                        </span>
+                      </span>
+                      <span className="pill">{c.mbtiType} &middot; adds {c.fills.map((f) => f.letter).join(", ")}</span>
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+          )}
+
           {analysis.dichotomyResults.map((d) => (
             <div key={d.key} className="card">
               <div className="section-label">{DICHOTOMY_LABELS[d.key]}</div>
@@ -267,7 +337,7 @@ export default async function BuilderPage({ searchParams }) {
           ))}
 
           <div className="card">
-            <div className="section-label">What would balance this group</div>
+            <div className="section-label">General balance (regardless of activity)</div>
             {gaps.length === 0 ? (
               <p>This group is already reasonably balanced across all four traits, nice mix.</p>
             ) : (

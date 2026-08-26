@@ -1,0 +1,26 @@
+{
+  "brainstorming": {
+    "label": "Brainstorming",
+    "description": "Generating new ideas and possibilities together.",
+    "skillsNeeded": "Needs people comfortable generating and building on ideas quickly: Intuition for spotting new possibilities, Perceiving for staying open before locking in too early, and enough Extraversion in the room to keep energy and momentum going.",
+    "ideal": { "EI": { "E": 60 }, "SN": { "S": 25 }, "TF": { "T": 50 }, "JP": { "J": 25 } }
+  },
+  "operational": {
+    "label": "Operational execution",
+    "description": "Turning a plan into consistent, reliable delivery.",
+    "skillsNeeded": "Needs people who turn plans into steady execution: Sensing for practical, on-the-ground detail, and Judging for structure and follow-through. Thinking and Feeling both work here, depending on whether the work is more process-heavy or more people-heavy.",
+    "ideal": { "EI": { "E": 50 }, "SN": { "S": 75 }, "TF": { "T": 50 }, "JP": { "J": 75 } }
+  },
+  "client-facing": {
+    "label": "Client-facing",
+    "description": "Working directly with clients or stakeholders.",
+    "skillsNeeded": "Needs people comfortable reading and responding to others: Feeling for empathy and rapport, and enough Extraversion to carry a conversation and build trust. Sensing or Intuition both work, depending on whether the client wants concrete answers or big-picture vision.",
+    "ideal": { "EI": { "E": 65 }, "SN": { "S": 50 }, "TF": { "T": 35 }, "JP": { "J": 50 } }
+  },
+  "crisis": {
+    "label": "Crisis response",
+    "description": "Reacting fast and adapting under real pressure.",
+    "skillsNeeded": "Needs people who can decide quickly under pressure: Thinking for fast, logical calls, Sensing for reading the real situation in front of them rather than theorizing, and Perceiving for adapting as things keep changing.",
+    "ideal": { "EI": { "E": 55 }, "SN": { "S": 65 }, "TF": { "T": 65 }, "JP": { "J": 35 } }
+  }
+}
