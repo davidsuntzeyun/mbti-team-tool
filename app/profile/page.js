@@ -4,6 +4,7 @@ import { getUser } from "../../lib/db";
 import { getTypeProfile } from "../../lib/mbti";
 import { setMyTypeAction, deleteMyAccountAction } from "../actions";
 import TypePicker from "../components/TypePicker";
+import NavTabs from "../components/NavTabs";
 
 export default async function ProfilePage({ searchParams }) {
   const username = getSessionUsername();
@@ -17,12 +18,7 @@ export default async function ProfilePage({ searchParams }) {
 
   return (
     <>
-      <div className="nav-tabs">
-        <a href="/profile" className="active">Your Profile</a>
-        <a href="/guess">Guess</a>
-        <a href="/match">Quick Match</a>
-        <a href="/admin">Roster</a>
-      </div>
+      <NavTabs active="/profile" username={username} />
 
       {!user.mbtiType ? (
         <div className="card">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { logoutAction } from "../actions";
+import { isAdminUsername } from "../../lib/session";
 
 export default function HeaderNav({ username }) {
   return (
@@ -14,7 +15,7 @@ export default function HeaderNav({ username }) {
           <Link href="/profile">Profile</Link>
           <Link href="/guess">Guess</Link>
           <Link href="/match">Quick Match</Link>
-          <Link href="/admin">Roster</Link>
+          {isAdminUsername(username) && <Link href="/admin">Roster</Link>}
           <form action={logoutAction} style={{ display: "inline" }}>
             <button type="submit">Log out</button>
           </form>

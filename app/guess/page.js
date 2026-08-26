@@ -4,6 +4,7 @@ import { getAllUsers, getGuessesByUser } from "../../lib/db";
 import { getTypeProfile } from "../../lib/mbti";
 import { saveGuessAction, removeGuessAction } from "../actions";
 import TypePicker from "../components/TypePicker";
+import NavTabs from "../components/NavTabs";
 
 export default async function GuessPage({ searchParams }) {
   const username = getSessionUsername();
@@ -22,12 +23,7 @@ export default async function GuessPage({ searchParams }) {
 
   return (
     <>
-      <div className="nav-tabs">
-        <a href="/profile">Your Profile</a>
-        <a href="/guess" className="active">Guess</a>
-        <a href="/match">Quick Match</a>
-        <a href="/admin">Roster</a>
-      </div>
+      <NavTabs active="/guess" username={username} />
 
       <div className="card">
         <span className="pill">Just for fun</span>

@@ -1,31 +1,28 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername } from "../../lib/session";
+import { getSessionUsername, isAdminUsername } from "../../lib/session";
 import { getAllUsers } from "../../lib/db";
 import { adminDeleteUserAction } from "../actions";
+import NavTabs from "../components/NavTabs";
 
 export default async function AdminPage() {
   const username = getSessionUsername();
   if (!username) redirect("/");
+  if (!isAdminUsername(username)) redirect("/profile");
 
   const allUsers = await getAllUsers();
   const users = allUsers.sort((a, b) => a.username.localeCompare(b.username));
 
   return (
     <>
-      <div className="nav-tabs">
-        <a href="/profile">Your Profile</a>
-        <a href="/guess">Guess</a>
-        <a href="/match">Quick Match</a>
-        <a href="/admin" className="active">Roster</a>
-      </div>
+      <NavTabs active="/admin" username={username} />
 
       <div className="card">
         <span className="pill">{users.length} on the roster</span>
         <h1 style={{ marginTop: 10 }}>Team roster</h1>
         <p>
-          Everyone who has created an account. Remove your own entry
-          anytime from your profile, or clean up someone else's here if
-          they made a mistake or asked you to.
+          Everyone who has created an account. Anyone can remove their own
+          account anytime from their Profile page, this view is for cleaning
+          up someone else's entry if they made a mistake or asked you to.
         </p>
       </div>
 

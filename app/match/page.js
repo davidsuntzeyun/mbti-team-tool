@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getSessionUsername } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
 import { getTypeProfile, quickMatch } from "../../lib/mbti";
+import NavTabs from "../components/NavTabs";
 
 export default async function MatchPage({ searchParams }) {
   const username = getSessionUsername();
@@ -18,12 +19,7 @@ export default async function MatchPage({ searchParams }) {
 
   return (
     <>
-      <div className="nav-tabs">
-        <a href="/profile">Your Profile</a>
-        <a href="/guess">Guess</a>
-        <a href="/match" className="active">Quick Match</a>
-        <a href="/admin">Roster</a>
-      </div>
+      <NavTabs active="/match" username={username} />
 
       <div className="card">
         <span className="pill">Anytime</span>
