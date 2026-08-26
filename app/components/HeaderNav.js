@@ -12,6 +12,7 @@ export default function HeaderNav({ username }) {
       {username && (
         <nav>
           <span style={{ marginRight: 4, opacity: 0.85, fontSize: 13.5 }}>Hi, {username}</span>
+          <Link href="/start">Getting Started</Link>
           <Link href="/profile">Profile</Link>
           <Link href="/guess">Guess</Link>
           <Link href="/match">Quick Match</Link>

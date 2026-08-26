@@ -1,6 +1,7 @@
 import { isAdminUsername } from "../../lib/session";
 
 const TABS = [
+  { href: "/start", label: "Getting Started" },
   { href: "/profile", label: "Your Profile" },
   { href: "/guess", label: "Guess" },
   { href: "/match", label: "Quick Match" },
