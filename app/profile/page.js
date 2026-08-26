@@ -61,15 +61,17 @@ export default async function ProfilePage({ searchParams }) {
             </div>
           </div>
 
-          <div className="card">
-            <h2>Not feeling accurate?</h2>
+          <details className="card" open={Boolean(error)}>
+            <summary className="collapsible-summary">
+              <h2 style={{ display: "inline" }}>Not feeling accurate?</h2>
+            </summary>
             <p>You can update your type anytime, nothing is locked in.</p>
             {error && <p className="error">{decodeURIComponent(error)}</p>}
             <form action={setMyTypeAction}>
               <TypePicker name="mbtiType" defaultValue={user.mbtiType} />
               <button className="btn btn-outline" type="submit">Update my type</button>
             </form>
-          </div>
+          </details>
 
           <div className="card">
             <h2>Account</h2>
