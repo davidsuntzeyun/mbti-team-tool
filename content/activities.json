@@ -1,24 +1,70 @@
 {
-  "brainstorming": {
-    "label": "Brainstorming",
-    "description": "Generating new ideas and possibilities together.",
+  "creative-brainstorming": {
+    "label": "Creative brainstorming",
+    "group": "Ideation & Planning",
+    "description": "Wide-open idea generation, no constraints yet.",
     "skillsNeeded": "Needs people comfortable generating and building on ideas quickly: Intuition for spotting new possibilities, Perceiving for staying open before locking in too early, and enough Extraversion in the room to keep energy and momentum going.",
-    "ideal": { "EI": { "E": 60 }, "SN": { "S": 25 }, "TF": { "T": 50 }, "JP": { "J": 25 } }
+    "ideal": { "EI": { "E": 60 }, "SN": { "S": 20 }, "TF": { "T": 50 }, "JP": { "J": 20 } }
+  },
+  "process-brainstorming": {
+    "label": "Process brainstorming",
+    "group": "Ideation & Planning",
+    "description": "Improving or fixing something that already exists.",
+    "skillsNeeded": "Needs people who can take a known problem and actually land on a workable fix: Sensing for staying grounded in what's really happening, and Judging for turning ideas into a concrete next step rather than leaving them open-ended.",
+    "ideal": { "EI": { "E": 50 }, "SN": { "S": 65 }, "TF": { "T": 55 }, "JP": { "J": 65 } }
+  },
+  "strategic-planning": {
+    "label": "Strategic planning",
+    "group": "Ideation & Planning",
+    "description": "Setting direction and prioritizing what's next.",
+    "skillsNeeded": "Needs people who can see where things are headed and commit to a direction: Intuition for spotting the bigger picture and what it implies down the road, and Judging for actually deciding and locking in a plan rather than exploring indefinitely.",
+    "ideal": { "EI": { "E": 50 }, "SN": { "S": 25 }, "TF": { "T": 55 }, "JP": { "J": 70 } }
+  },
+  "data-analysis": {
+    "label": "Data & analysis",
+    "group": "Analysis & Execution",
+    "description": "Digging into numbers, patterns, and root causes.",
+    "skillsNeeded": "Needs people who can sit with numbers and draw a sound conclusion: Thinking for objective, logic-first reasoning, Sensing for staying with what the data actually shows rather than assumptions, and enough Introversion to focus deeply without needing constant interaction.",
+    "ideal": { "EI": { "E": 35 }, "SN": { "S": 70 }, "TF": { "T": 75 }, "JP": { "J": 55 } }
   },
   "operational": {
     "label": "Operational execution",
+    "group": "Analysis & Execution",
     "description": "Turning a plan into consistent, reliable delivery.",
     "skillsNeeded": "Needs people who turn plans into steady execution: Sensing for practical, on-the-ground detail, and Judging for structure and follow-through. Thinking and Feeling both work here, depending on whether the work is more process-heavy or more people-heavy.",
     "ideal": { "EI": { "E": 50 }, "SN": { "S": 75 }, "TF": { "T": 50 }, "JP": { "J": 75 } }
   },
+  "quality-review": {
+    "label": "Quality review",
+    "group": "Analysis & Execution",
+    "description": "Catching errors and making sure nothing's missed.",
+    "skillsNeeded": "Needs people with a sharp eye for what's wrong or missing: Sensing for catching concrete detail, and a strong pull toward Judging, since this kind of work has little tolerance for leaving things open-ended or half-checked.",
+    "ideal": { "EI": { "E": 35 }, "SN": { "S": 75 }, "TF": { "T": 60 }, "JP": { "J": 80 } }
+  },
   "client-facing": {
     "label": "Client-facing",
+    "group": "People-Facing",
     "description": "Working directly with clients or stakeholders.",
     "skillsNeeded": "Needs people comfortable reading and responding to others: Feeling for empathy and rapport, and enough Extraversion to carry a conversation and build trust. Sensing or Intuition both work, depending on whether the client wants concrete answers or big-picture vision.",
     "ideal": { "EI": { "E": 65 }, "SN": { "S": 50 }, "TF": { "T": 35 }, "JP": { "J": 50 } }
   },
+  "sales-pitching": {
+    "label": "Sales & pitching",
+    "group": "People-Facing",
+    "description": "Persuading and building excitement for an idea.",
+    "skillsNeeded": "Needs people who can build excitement and sell a vision: Extraversion for carrying the energy of a pitch, Intuition for painting the bigger possibility rather than just listing facts, and enough Feeling to read how the room is responding.",
+    "ideal": { "EI": { "E": 75 }, "SN": { "S": 35 }, "TF": { "T": 40 }, "JP": { "J": 35 } }
+  },
+  "conflict-resolution": {
+    "label": "People & conflict resolution",
+    "group": "People-Facing",
+    "description": "Mediating tension and giving hard feedback fairly.",
+    "skillsNeeded": "Needs people who can mediate fairly: Feeling for genuine empathy toward everyone involved, balanced with enough Thinking to stay objective rather than just smoothing things over to keep the peace.",
+    "ideal": { "EI": { "E": 45 }, "SN": { "S": 50 }, "TF": { "T": 40 }, "JP": { "J": 50 } }
+  },
   "crisis": {
     "label": "Crisis response",
+    "group": "Pressure",
     "description": "Reacting fast and adapting under real pressure.",
     "skillsNeeded": "Needs people who can decide quickly under pressure: Thinking for fast, logical calls, Sensing for reading the real situation in front of them rather than theorizing, and Perceiving for adapting as things keep changing.",
     "ideal": { "EI": { "E": 55 }, "SN": { "S": 65 }, "TF": { "T": 65 }, "JP": { "J": 35 } }

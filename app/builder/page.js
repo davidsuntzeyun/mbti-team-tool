@@ -23,6 +23,8 @@ const DICHOTOMY_LABELS = {
   JP: "Structure: Judging vs. Perceiving",
 };
 
+const ACTIVITY_GROUPS = ["Ideation & Planning", "Analysis & Execution", "People-Facing", "Pressure"];
+
 const LETTER_MEANINGS = {
   E: "Extraversion, draws energy from people and action.",
   I: "Introversion, draws energy from reflection and quiet.",
@@ -170,8 +172,14 @@ export default async function BuilderPage({ searchParams }) {
             <label>What's this group for?</label>
             <select name="activity" defaultValue={activityKey}>
               <option value="">General balance (no specific activity)</option>
-              {activities.map((a) => (
-                <option key={a.key} value={a.key}>{a.label}</option>
+              {ACTIVITY_GROUPS.map((groupName) => (
+                <optgroup key={groupName} label={groupName}>
+                  {activities
+                    .filter((a) => a.group === groupName)
+                    .map((a) => (
+                      <option key={a.key} value={a.key}>{a.label}</option>
+                    ))}
+                </optgroup>
               ))}
             </select>
             <p className="hint" style={{ marginTop: 6 }}>
