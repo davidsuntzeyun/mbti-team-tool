@@ -3,7 +3,6 @@ import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
 import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
 import { getTypeProfile, analyzeGroup, analyzeGroupIdentity, formatTypeCode } from "../../lib/mbti";
 import NavTabs from "../components/NavTabs";
-import LockedNotice from "../components/LockedNotice";
 
 const DICHOTOMY_LABELS = {
   EI: "Energy: Extraversion vs. Introversion",
@@ -24,13 +23,13 @@ export default async function TeamPage({ searchParams }) {
   const unlocked = isRosterUnlocked();
   const me = await getUser(username);
 
-  let eligibleColleagues = [];
-  if (unlocked) {
-    const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
-    eligibleColleagues = [...allUsers, ...officialRoster].filter(
-      (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
-    );
-  }
+  const [allUsers, officialRoster] = await Promise.all([
+    getAllUsers(),
+    unlocked ? getOfficialRoster() : Promise.resolve([]),
+  ]);
+  const eligibleColleagues = [...allUsers, ...officialRoster].filter(
+    (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
+  );
 
   const selected = normalizeMembers(searchParams?.members).filter((name) =>
     eligibleColleagues.some((c) => c.username === name)
@@ -42,7 +41,7 @@ export default async function TeamPage({ searchParams }) {
   let group = null;
   let analysis = null;
   let identityAnalysis = null;
-  if (unlocked && hasSelection && validCount) {
+  if (hasSelection && validCount) {
     const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
     group = members;
     analysis = analyzeGroup(members.map((m) => m.mbtiType));
@@ -64,9 +63,7 @@ export default async function TeamPage({ searchParams }) {
         </p>
       </div>
 
-      {!unlocked ? (
-        <LockedNotice what="Team Dynamic" />
-      ) : !me?.mbtiType ? (
+      {!me?.mbtiType ? (
         <div className="card">
           <p>Set your own MBTI type on your profile first, then come back here to build a group.</p>
           <a className="btn" href="/profile">Go to your profile</a>
@@ -78,6 +75,11 @@ export default async function TeamPage({ searchParams }) {
             You ({getTypeProfile(me.mbtiType)?.archetype}, {formatTypeCode(me.mbtiType, me.identity)}) are
             already in. Pick 2 to 4 more colleagues to complete a group of 3 to 5.
           </p>
+          {!unlocked && (
+            <p className="hint" style={{ marginTop: -4 }}>
+              Showing colleagues who've set up their own profile. Unlock the roster (top right) to also include the official pre-loaded roster.
+            </p>
+          )}
           {hasSelection && !validCount && (
             <p className="error">
               Pick between 2 and 4 colleagues (a group of 3 to 5 including you). You picked {selected.length}.

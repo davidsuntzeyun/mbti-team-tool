@@ -95,8 +95,10 @@ export default function LockToggle({ isUnlocked, unlockAction, lockAction }) {
           <span className="pill">Locked</span>
           <h2 style={{ marginTop: 10 }}>Unlock the roster</h2>
           <p className="hint" style={{ marginTop: -4 }}>
-            Matching, building, and viewing a real colleague's actual type
-            needs the shared password. Ask whoever shared this tool with you.
+            You can already match, build, and compare using everyone who's
+            filled in their own profile. Unlocking adds the official
+            pre-loaded roster on top. Ask whoever shared this tool with you
+            for the password.
           </p>
           {error && <p className="error">{decodeURIComponent(error)}</p>}
           <form action={unlockAction}>

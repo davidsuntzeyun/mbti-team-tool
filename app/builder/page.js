@@ -17,7 +17,6 @@ import {
   formatTypeCode,
 } from "../../lib/mbti";
 import NavTabs from "../components/NavTabs";
-import LockedNotice from "../components/LockedNotice";
 
 const DICHOTOMY_LABELS = {
   EI: "Energy: Extraversion vs. Introversion",
@@ -72,8 +71,11 @@ export default async function BuilderPage({ searchParams }) {
   let activityFillers = null;
   let identityAnalysis = null;
 
-  if (unlocked && me?.mbtiType) {
-    const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
+  if (me?.mbtiType) {
+    const [allUsers, officialRoster] = await Promise.all([
+      getAllUsers(),
+      unlocked ? getOfficialRoster() : Promise.resolve([]),
+    ]);
     eligibleColleagues = [...allUsers, ...officialRoster].filter(
       (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
     );
@@ -119,9 +121,7 @@ export default async function BuilderPage({ searchParams }) {
         </p>
       </div>
 
-      {!unlocked ? (
-        <LockedNotice what="Team Builder" />
-      ) : !me?.mbtiType ? (
+      {!me?.mbtiType ? (
         <div className="card">
           <p>Set your own MBTI type on your profile first, then come back here.</p>
           <a className="btn" href="/profile">Go to your profile</a>
@@ -133,6 +133,11 @@ export default async function BuilderPage({ searchParams }) {
         <p className="hint" style={{ marginTop: -4 }}>
           Based on your type, {getTypeProfile(me.mbtiType)?.archetype} ({formatTypeCode(me.mbtiType, me.identity)}).
         </p>
+        {!unlocked && (
+          <p className="hint" style={{ marginTop: 0 }}>
+            Showing colleagues who've set up their own profile. Unlock the roster (top right) to also include the official pre-loaded roster.
+          </p>
+        )}
         {eligibleColleagues.length === 0 ? (
           <p>No colleagues with a saved MBTI type yet.</p>
         ) : (

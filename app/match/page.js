@@ -3,7 +3,6 @@ import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
 import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
 import { getTypeProfile, quickMatch, getCommunicationFeel, getIdentityMatch, formatTypeCode } from "../../lib/mbti";
 import NavTabs from "../components/NavTabs";
-import LockedNotice from "../components/LockedNotice";
 
 export default async function MatchPage({ searchParams }) {
   const username = getSessionUsername();
@@ -12,18 +11,16 @@ export default async function MatchPage({ searchParams }) {
   const unlocked = isRosterUnlocked();
   const me = await getUser(username);
 
-  let colleagues = [];
-  let colleague = null;
+  const [allUsers, officialRoster] = await Promise.all([
+    getAllUsers(),
+    unlocked ? getOfficialRoster() : Promise.resolve([]),
+  ]);
+  const allColleagues = [...allUsers, ...officialRoster];
+  const colleagues = allColleagues.filter((u) => u.username.toLowerCase() !== username.toLowerCase());
   const withUsername = searchParams?.with;
-
-  if (unlocked) {
-    const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
-    const allColleagues = [...allUsers, ...officialRoster];
-    colleagues = allColleagues.filter((u) => u.username.toLowerCase() !== username.toLowerCase());
-    colleague = withUsername
-      ? allColleagues.find((u) => u.username.toLowerCase() === withUsername.toLowerCase())
-      : null;
-  }
+  const colleague = withUsername
+    ? allColleagues.find((u) => u.username.toLowerCase() === withUsername.toLowerCase())
+    : null;
 
   return (
     <>
@@ -40,9 +37,7 @@ export default async function MatchPage({ searchParams }) {
         </p>
       </div>
 
-      {!unlocked ? (
-        <LockedNotice what="Quick Match" />
-      ) : !me?.mbtiType ? (
+      {!me?.mbtiType ? (
         <div className="card">
           <p>Set your own MBTI type on your profile first, then come back here.</p>
           <a className="btn" href="/profile">Go to your profile</a>
@@ -50,6 +45,11 @@ export default async function MatchPage({ searchParams }) {
       ) : (
         <>
           <div className="card">
+            {!unlocked && (
+              <p className="hint" style={{ marginTop: 0 }}>
+                Showing colleagues who've set up their own profile. Unlock the roster (top right) to also include the official pre-loaded roster.
+              </p>
+            )}
             <form method="get">
               <label>Match with</label>
               <select name="with" defaultValue={withUsername || ""}>
