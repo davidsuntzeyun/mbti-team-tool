@@ -17,8 +17,8 @@ import {
   setSessionCookie,
   clearSessionCookie,
   getSessionUsername,
-  checkTypesPassword,
-  unlockTypes,
+  checkRosterPassword,
+  unlockRoster,
 } from "../lib/session";
 import { isValidType, isValidIdentity, isValidRole } from "../lib/mbti";
 
@@ -156,13 +156,22 @@ export async function setMyRoleAction(formData) {
   redirect("/profile");
 }
 
-export async function unlockTypesAction(formData) {
+// Shared by Quick Match, Team Dynamic, Department Dynamic, and Team
+// Builder — one password unlocks all four, since they all expose a real
+// colleague's actual MBTI data from the roster. `redirectTo` sends the
+// user back to whichever of those pages they unlocked from.
+const ROSTER_GATED_PAGES = ["/match", "/team", "/department", "/builder"];
+
+export async function unlockRosterAction(formData) {
   const password = String(formData.get("password") || "");
-  if (!checkTypesPassword(password)) {
-    redirect("/types?gateError=" + encodeURIComponent("That's not quite it, try again."));
+  const redirectTo = String(formData.get("redirectTo") || "");
+  const target = ROSTER_GATED_PAGES.includes(redirectTo) ? redirectTo : "/match";
+
+  if (!checkRosterPassword(password)) {
+    redirect(`${target}?gateError=` + encodeURIComponent("That's not quite it, try again."));
   }
-  unlockTypes();
-  redirect("/types");
+  unlockRoster();
+  redirect(target);
 }
 
 export async function deleteMyAccountAction() {

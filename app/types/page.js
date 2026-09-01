@@ -1,28 +1,12 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername, isTypesUnlocked } from "../../lib/session";
+import { getSessionUsername } from "../../lib/session";
 import { getTypeProfile, isValidType } from "../../lib/mbti";
-import { unlockTypesAction } from "../actions";
 import NavTabs from "../components/NavTabs";
 import TypePicker from "../components/TypePicker";
-import PasswordGate from "../components/PasswordGate";
 
 export default function TypesPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
-
-  if (!isTypesUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/types" username={username} />
-        <PasswordGate
-          action={unlockTypesAction}
-          title="Explore Types"
-          description="The full 16 type profiles are locked. Ask whoever shared this tool with you for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
 
   const selectedCode = typeof searchParams?.type === "string" ? searchParams.type.toUpperCase() : "";
   const profile = isValidType(selectedCode) ? getTypeProfile(selectedCode) : null;

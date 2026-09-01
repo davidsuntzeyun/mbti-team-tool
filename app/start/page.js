@@ -15,7 +15,7 @@ const STEPS = [
     title: "Read up on any type",
     href: "/types",
     label: "Explore Types",
-    body: "Curious what a colleague's type actually means, or just want to understand a type better? Pick any of the 16 archetypes and read its full profile. This one's locked behind its own password, since it's the full write-up for every type, not just yours, ask whoever shared this tool with you.",
+    body: "Curious what a colleague's type actually means, or just want to understand a type better? Pick any of the 16 archetypes and read its full profile, no setup or password needed, this is generic reference material, not anyone's real data.",
   },
   {
     step: "3",
@@ -29,28 +29,28 @@ const STEPS = [
     title: "See how you and a colleague work together",
     href: "/match",
     label: "Quick Match",
-    body: "Pick a colleague who's already set their type on this tool, and get a breakdown of your strengths, friction points, and how communicating with each other actually feels from both sides.",
+    body: "Pick a colleague who's already set their type on this tool, and get a breakdown of your strengths, friction points, and how communicating with each other actually feels from both sides. This one's locked, since it's built on a real colleague's actual type, ask whoever shared this tool with you for the password.",
   },
   {
     step: "5",
     title: "Check a group's overall dynamic",
     href: "/team",
     label: "Team Dynamic",
-    body: "Build a group of 3 to 5 people, you're automatically included, and see where the group is naturally aligned and where it might be lopsided.",
+    body: "Build a group of 3 to 5 people, you're automatically included, and see where the group is naturally aligned and where it might be lopsided. Shares the same lock and password as Quick Match.",
   },
   {
     step: "6",
     title: "Manage your whole department, not just a group",
     href: "/department",
     label: "Department Dynamic",
-    body: "The manager's version of Team Dynamic, no size cap. Pick everyone who reports to you and get both the department's overall balance and a personalized note on how to manage each person.",
+    body: "The manager's version of Team Dynamic, no size cap. Pick everyone who reports to you and get both the department's overall balance and a personalized note on how to manage each person. Same lock and password as Quick Match.",
   },
   {
     step: "7",
     title: "Build the right team for the job",
     href: "/builder",
     label: "Team Builder",
-    body: "See who on the roster naturally complements you, or build a group for a specific kind of work, brainstorming, operational execution, client-facing, and more, and see how well it fits.",
+    body: "See who on the roster naturally complements you, or build a group for a specific kind of work, brainstorming, operational execution, client-facing, and more, and see how well it fits. Same lock and password as Quick Match.",
   },
   {
     step: "8",
@@ -97,6 +97,12 @@ export default function StartPage() {
 
       <div className="card">
         <div className="section-label">A few things worth knowing</div>
+        <p>
+          Quick Match, Team Dynamic, Department Dynamic, and Team Builder
+          share one password, since all four let you see a real colleague's
+          actual type. Explore Types and Guess don't need it, neither one
+          exposes anyone's real data.
+        </p>
         <p style={{ marginBottom: 0 }}>
           Nothing in this tool is confidential, and none of it is meant to
           be used for hiring or performance decisions. If you're ever

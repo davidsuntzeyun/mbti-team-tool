@@ -1,12 +1,29 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername } from "../../lib/session";
+import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
 import { getTypeProfile, quickMatch, getCommunicationFeel, getIdentityMatch, formatTypeCode } from "../../lib/mbti";
+import { unlockRosterAction } from "../actions";
 import NavTabs from "../components/NavTabs";
+import PasswordGate from "../components/PasswordGate";
 
 export default async function MatchPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
+
+  if (!isRosterUnlocked()) {
+    return (
+      <>
+        <NavTabs active="/match" username={username} />
+        <PasswordGate
+          action={unlockRosterAction}
+          redirectTo="/match"
+          title="Quick Match"
+          description="Matching against a real colleague's actual type is locked. Ask whoever shared this tool with you for the password."
+          error={searchParams?.gateError}
+        />
+      </>
+    );
+  }
 
   const me = await getUser(username);
   const allUsers = await getAllUsers();

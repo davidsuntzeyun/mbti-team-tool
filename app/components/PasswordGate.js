@@ -1,4 +1,4 @@
-export default function PasswordGate({ action, title, description, error }) {
+export default function PasswordGate({ action, title, description, error, redirectTo }) {
   return (
     <div className="card">
       <span className="pill">Locked</span>
@@ -6,6 +6,7 @@ export default function PasswordGate({ action, title, description, error }) {
       <p>{description}</p>
       {error && <p className="error">{decodeURIComponent(error)}</p>}
       <form action={action}>
+        {redirectTo && <input type="hidden" name="redirectTo" value={redirectTo} />}
         <label>Password</label>
         <input type="password" name="password" required autoFocus />
         <button className="btn" type="submit">Unlock</button>

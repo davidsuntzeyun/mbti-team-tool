@@ -1,8 +1,10 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername } from "../../lib/session";
+import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
 import { getTypeProfile, analyzeGroup, analyzeGroupIdentity, formatTypeCode } from "../../lib/mbti";
+import { unlockRosterAction } from "../actions";
 import NavTabs from "../components/NavTabs";
+import PasswordGate from "../components/PasswordGate";
 
 const DICHOTOMY_LABELS = {
   EI: "Energy: Extraversion vs. Introversion",
@@ -19,6 +21,21 @@ function normalizeMembers(raw) {
 export default async function TeamPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
+
+  if (!isRosterUnlocked()) {
+    return (
+      <>
+        <NavTabs active="/team" username={username} />
+        <PasswordGate
+          action={unlockRosterAction}
+          redirectTo="/team"
+          title="Team Dynamic"
+          description="Building a group from real colleagues' actual types is locked. Ask whoever shared this tool with you for the password."
+          error={searchParams?.gateError}
+        />
+      </>
+    );
+  }
 
   const me = await getUser(username);
   const allUsers = await getAllUsers();
