@@ -1,28 +1,12 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername, isMatchUnlocked } from "../../lib/session";
+import { getSessionUsername } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
-import { getTypeProfile, quickMatch, getCommunicationFeel } from "../../lib/mbti";
-import { unlockMatchAction } from "../actions";
+import { getTypeProfile, quickMatch, getCommunicationFeel, getIdentityMatch, formatTypeCode } from "../../lib/mbti";
 import NavTabs from "../components/NavTabs";
-import PasswordGate from "../components/PasswordGate";
 
 export default async function MatchPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
-
-  if (!isMatchUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/match" username={username} />
-        <PasswordGate
-          action={unlockMatchAction}
-          title="Quick Match"
-          description="This part of the tool is locked until the live session. Ask your facilitator for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
 
   const me = await getUser(username);
   const allUsers = await getAllUsers();
@@ -94,14 +78,15 @@ function MatchResult({ me, colleague }) {
   const colleagueProfile = getTypeProfile(colleague.mbtiType);
   const result = quickMatch(me.mbtiType, colleague.mbtiType);
   const feel = getCommunicationFeel(me.mbtiType, colleague.mbtiType);
+  const identityMatch = getIdentityMatch(me.identity, colleague.identity);
 
   return (
     <>
       <div className="card">
         <h2>
-          {meProfile.archetype} ({me.mbtiType}){" "}
+          {meProfile.archetype} ({formatTypeCode(me.mbtiType, me.identity)}){" "}
           <span style={{ color: "#c6c6c6", fontWeight: 400 }}>&times;</span>{" "}
-          {colleagueProfile.archetype} ({colleague.mbtiType})
+          {colleagueProfile.archetype} ({formatTypeCode(colleague.mbtiType, colleague.identity)})
         </h2>
         <p>
           You ({meProfile.label}) and {colleague.username} ({colleagueProfile.label}).
@@ -134,6 +119,16 @@ function MatchResult({ me, colleague }) {
           ))}
         </ul>
       </div>
+
+      {identityMatch && (
+        <div className="card">
+          <span className="pill">Optional 5th trait</span>
+          <div className="section-label" style={{ marginTop: 10 }}>Under pressure together</div>
+          <p>{identityMatch.strength}</p>
+          <p>{identityMatch.weakness}</p>
+          <p className="hint">{identityMatch.conflict}</p>
+        </div>
+      )}
 
       {colleagueProfile.teamDynamics && (
         <>

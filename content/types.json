@@ -19,7 +19,17 @@
     "growthEdge": "Practice sitting with a plan that hasn't been finalized yet. Not every situation needs a fixed answer right away, and pushing for closure too early can shut out useful input from people who think more slowly or differently than you do.",
     "underPressure": "They tend to double down on structure, work longer hours, and go quiet rather than ask for help. Watch for them getting rigid or short-tempered when things stop going according to plan.",
     "feedbackReceiving": "Give it to them directly and specifically, with concrete examples, not a vague impression. They'd rather hear it plainly than have it softened into something unclear.",
-    "feedbackGiving": "They tend to give feedback matter-of-factly, focused on what didn't work and what should change. It's rarely personal, even when it comes across a little blunt."
+    "feedbackGiving": "They tend to give feedback matter-of-factly, focused on what didn't work and what should change. It's rarely personal, even when it comes across a little blunt.",
+    "identity": {
+      "A": {
+        "label": "Assertive Logistician",
+        "description": "An Assertive Logistician is confident their system is the right one and rarely needs it validated from the outside. They can weather criticism of their process without much sting, though that same calm can make them slower to notice when the system genuinely needs to change."
+      },
+      "T": {
+        "label": "Turbulent Logistician",
+        "description": "A Turbulent Logistician holds themselves to a high bar of preparation and quietly replays whether they did enough. A missed detail can stick with them longer than it should, and they often over-prepare to head off the discomfort of being caught out."
+      }
+    }
   },
   "ISFJ": {
     "label": "The Quiet Supporter",
@@ -41,7 +51,17 @@
     "growthEdge": "Practice saying no, or at least saying what you actually need, before resentment builds quietly underneath the surface. Not every request deserves a yes just because you're capable of delivering it.",
     "underPressure": "They tend to overextend themselves trying to keep everyone comfortable, then withdraw quietly once they're depleted. Watch for them going unusually quiet or self-critical.",
     "feedbackReceiving": "Frame it gently and privately, and lead with what's working before what needs to change. Public criticism, or feedback that feels like an attack on their effort, will land much harder than intended.",
-    "feedbackGiving": "They tend to soften feedback quite a bit, sometimes so much that the actual point gets lost. If they're being unusually direct, take it seriously, it means it matters."
+    "feedbackGiving": "They tend to soften feedback quite a bit, sometimes so much that the actual point gets lost. If they're being unusually direct, take it seriously, it means it matters.",
+    "identity": {
+      "A": {
+        "label": "Assertive Defender",
+        "description": "An Assertive Defender gives support freely without needing it acknowledged, and can say no without the guilt spiraling afterward. They stay steady even when their effort goes unnoticed."
+      },
+      "T": {
+        "label": "Turbulent Defender",
+        "description": "A Turbulent Defender quietly worries whether they are doing enough for the people they care about, and being overlooked can sting more than they let on. That worry often shows up as taking on more than they should, rather than naming what they need."
+      }
+    }
   },
   "INFJ": {
     "label": "The Quiet Idealist",
@@ -63,7 +83,17 @@
     "growthEdge": "Practice speaking up earlier, before frustration has had time to build into full withdrawal. Your insight is more useful to people while it's still fresh, not after you've quietly decided the conversation isn't worth having.",
     "underPressure": "They tend to withdraw sharply and can go from warm to distant with little warning. Watch for them shutting a door on a relationship or project rather than raising the issue directly.",
     "feedbackReceiving": "Give it in a quiet, one-on-one setting, and make it clear it comes from genuine care, not just correction. They'll turn it over for a long time afterward, so weigh your words with that in mind.",
-    "feedbackGiving": "They tend to hold feedback in until they're sure it's worth saying, then deliver it thoughtfully and with real insight. If they've gone quiet instead of speaking up, something is probably still unsaid."
+    "feedbackGiving": "They tend to hold feedback in until they're sure it's worth saying, then deliver it thoughtfully and with real insight. If they've gone quiet instead of speaking up, something is probably still unsaid.",
+    "identity": {
+      "A": {
+        "label": "Assertive Advocate",
+        "description": "An Assertive Advocate trusts their own read of a situation and sets a boundary without agonizing over it afterward. Having their insight questioned rarely shakes their sense of what they saw."
+      },
+      "T": {
+        "label": "Turbulent Advocate",
+        "description": "A Turbulent Advocate replays a conversation long after it's over, second-guessing whether they said the right thing. They can overcommit emotionally to a cause or a person and burn out quietly while still pushing to help."
+      }
+    }
   },
   "INTJ": {
     "label": "The Independent Strategist",
@@ -85,7 +115,17 @@
     "growthEdge": "Practice patience with people who need to think out loud, or who process more slowly than you do. Not everyone reaches the same conclusion the same way, and dismissing the process can cost you good ideas along the way.",
     "underPressure": "They tend to withdraw into their own head and can come across as cold or dismissive. Watch for them cutting people out of the conversation entirely rather than working through the friction.",
     "feedbackReceiving": "Be direct and specific, and back it with reasoning. They don't need it softened, they need it to be accurate, vague praise or vague criticism is equally unhelpful to them.",
-    "feedbackGiving": "They tend to give feedback plainly and logically, focused on the idea rather than the person. It can come across as blunt, but it's rarely meant personally."
+    "feedbackGiving": "They tend to give feedback plainly and logically, focused on the idea rather than the person. It can come across as blunt, but it's rarely meant personally.",
+    "identity": {
+      "A": {
+        "label": "Assertive Architect",
+        "description": "An Assertive Architect is calmly certain in their own reasoning and moves on quickly once a plan is challenged and defended. Being wrong occasionally doesn't rattle their overall sense of competence."
+      },
+      "T": {
+        "label": "Turbulent Architect",
+        "description": "A Turbulent Architect privately re-examines their own competence after a mistake, holding themselves to a standard that's genuinely hard to satisfy. They often over-prepare for a decision just to avoid being caught without an answer."
+      }
+    }
   },
   "ISTP": {
     "label": "The Practical Troubleshooter",
@@ -107,7 +147,17 @@
     "growthEdge": "Practice narrating your thinking a little more, even when it feels unnecessary. People around you can't always tell the difference between you working through a problem and you checking out of it.",
     "underPressure": "They tend to go quiet and disengage rather than escalate, sometimes disappearing from a conversation or project altogether. Watch for a sudden drop-off in communication.",
     "feedbackReceiving": "Keep it short, concrete, and practical, tell them what to do differently rather than how it made you feel. They'll take it in and process it on their own time.",
-    "feedbackGiving": "They tend to say very little unless asked directly, then give a brief, practical answer. If they're not offering feedback, ask, they often have more to say than they volunteer."
+    "feedbackGiving": "They tend to say very little unless asked directly, then give a brief, practical answer. If they're not offering feedback, ask, they often have more to say than they volunteer.",
+    "identity": {
+      "A": {
+        "label": "Assertive Virtuoso",
+        "description": "An Assertive Virtuoso is unbothered by how their process looks to anyone else, and improvises without needing the outcome to prove anything. An approach that doesn't work the first time doesn't rattle them."
+      },
+      "T": {
+        "label": "Turbulent Virtuoso",
+        "description": "A Turbulent Virtuoso gets quietly frustrated when something doesn't work on the first try, and would rather keep tinkering privately than admit they're stuck. That frustration rarely surfaces outwardly, but it's there."
+      }
+    }
   },
   "ISFP": {
     "label": "The Gentle Creator",
@@ -129,7 +179,17 @@
     "growthEdge": "Practice raising a disagreement in the moment instead of holding it quietly and hoping it resolves on its own. Your perspective deserves airtime too, not just internal processing.",
     "underPressure": "They tend to withdraw and go quiet rather than confront what's bothering them. Watch for them physically or emotionally checking out of a room.",
     "feedbackReceiving": "Deliver it gently and privately, and give them room to respond in their own time. Harsh or public criticism can shut them down rather than open a real conversation.",
-    "feedbackGiving": "They tend to hold back unless something genuinely matters to them, then deliver it quietly but firmly. Their silence isn't always agreement."
+    "feedbackGiving": "They tend to hold back unless something genuinely matters to them, then deliver it quietly but firmly. Their silence isn't always agreement.",
+    "identity": {
+      "A": {
+        "label": "Assertive Adventurer",
+        "description": "An Assertive Adventurer stays secure in their own values even when someone else disagrees loudly, and criticism rarely shakes that footing. They hold their ground quietly without needing to defend it at length."
+      },
+      "T": {
+        "label": "Turbulent Adventurer",
+        "description": "A Turbulent Adventurer takes criticism of their work as criticism of themselves, and is more likely to quietly walk away from something than stay and defend it. Their sense of self can hinge more than it should on how their work is received."
+      }
+    }
   },
   "INFP": {
     "label": "The Thoughtful Idealist",
@@ -151,7 +211,17 @@
     "growthEdge": "Practice following through after the initial inspiration fades. Not every project stays exciting the whole way through, and finishing well matters as much as starting well.",
     "underPressure": "They tend to spiral into self-doubt and can take feedback more personally than it was intended. Watch for them going quiet, or being unusually hard on themselves.",
     "feedbackReceiving": "Lead with genuine care and be specific rather than harsh, they can take feedback more personally than intended. Give them space to sit with it before expecting a response.",
-    "feedbackGiving": "They tend to hold back critical feedback until it's clearly needed, then deliver it warmly and thoughtfully. It usually comes from a real place of wanting to help."
+    "feedbackGiving": "They tend to hold back critical feedback until it's clearly needed, then deliver it warmly and thoughtfully. It usually comes from a real place of wanting to help.",
+    "identity": {
+      "A": {
+        "label": "Assertive Mediator",
+        "description": "An Assertive Mediator holds onto their own sense of meaning even when it's challenged, and recovers from a setback without spiraling into self-doubt. Feedback lands as information, not as a verdict on who they are."
+      },
+      "T": {
+        "label": "Turbulent Mediator",
+        "description": "A Turbulent Mediator can take feedback more personally than it was intended and replay it long after the conversation has ended. They often feel responsible for outcomes that were genuinely beyond their control."
+      }
+    }
   },
   "INTP": {
     "label": "The Curious Analyst",
@@ -173,7 +243,17 @@
     "growthEdge": "Practice closing the loop, sharing your conclusion even when you haven't fully polished the reasoning behind it yet. Waiting for the perfect explanation can leave people waiting longer than they need to.",
     "underPressure": "They tend to retreat further into analysis rather than act, sometimes over-thinking a decision well past the point it was useful. Watch for them getting stuck rather than stressed.",
     "feedbackReceiving": "Make the logic clear, they respond better to a well-reasoned point than an emotional one. Give them space to think it through rather than expecting an answer on the spot.",
-    "feedbackGiving": "They tend to give feedback focused on the idea or the logic, sometimes without much thought to delivery. It's rarely personal, even when it sounds clinical."
+    "feedbackGiving": "They tend to give feedback focused on the idea or the logic, sometimes without much thought to delivery. It's rarely personal, even when it sounds clinical.",
+    "identity": {
+      "A": {
+        "label": "Assertive Logician",
+        "description": "An Assertive Logician is comfortable presenting an idea before it's fully polished, and doesn't need the perfect answer to feel capable. Being wrong on a point rarely dents their confidence in their own reasoning."
+      },
+      "T": {
+        "label": "Turbulent Logician",
+        "description": "A Turbulent Logician privately doubts whether their reasoning actually holds up, and keeps refining a conclusion long after it was already good enough. Being wrong in front of others carries more weight for them than it probably should."
+      }
+    }
   },
   "ESTP": {
     "label": "The Energetic Doer",
@@ -195,7 +275,17 @@
     "growthEdge": "Practice pausing before you act, especially on decisions that are hard to undo. Not every situation rewards speed, and a beat of patience can save a lot of cleanup later.",
     "underPressure": "They tend to push even harder into action, sometimes at the cost of thinking things through. Watch for them making a fast call that skips people who needed to be consulted.",
     "feedbackReceiving": "Keep it quick, direct, and practical. They'd rather hear it straight and move on than have it drawn out into a long, careful conversation.",
-    "feedbackGiving": "They tend to say it straight, in the moment, without much cushioning. It's not meant to sting, they just don't see the point in delaying it."
+    "feedbackGiving": "They tend to say it straight, in the moment, without much cushioning. It's not meant to sting, they just don't see the point in delaying it.",
+    "identity": {
+      "A": {
+        "label": "Assertive Entrepreneur",
+        "description": "An Assertive Entrepreneur is confident in the calls they make in the moment and moves on quickly after a mistake without dwelling on it. A bad outcome rarely shakes their willingness to act again."
+      },
+      "T": {
+        "label": "Turbulent Entrepreneur",
+        "description": "A Turbulent Entrepreneur privately replays a decision that didn't land well, even while publicly doubling down on it. The gap between their outward confidence and their private second-guessing can be wider than people realize."
+      }
+    }
   },
   "ESFP": {
     "label": "The Warm Connector",
@@ -217,7 +307,17 @@
     "growthEdge": "Practice sitting with a hard conversation instead of deflecting it with humor or changing the subject. Not everything needs to be lightened, sometimes it just needs to be heard.",
     "underPressure": "They tend to take setbacks personally and can swing between forced positivity and real discouragement. Watch for them overcompensating with enthusiasm that doesn't quite match the room.",
     "feedbackReceiving": "Lead with warmth and be specific, they can take criticism personally even when it's not meant that way. Deliver it privately rather than in front of others.",
-    "feedbackGiving": "They tend to give feedback warmly and with real encouragement built in. If something is genuinely wrong, they may soften it more than the situation calls for."
+    "feedbackGiving": "They tend to give feedback warmly and with real encouragement built in. If something is genuinely wrong, they may soften it more than the situation calls for.",
+    "identity": {
+      "A": {
+        "label": "Assertive Entertainer",
+        "description": "An Assertive Entertainer bounces back from a flat room or a lukewarm reaction quickly, without needing constant reassurance that people are enjoying their energy. A bad moment rarely becomes a bad day."
+      },
+      "T": {
+        "label": "Turbulent Entertainer",
+        "description": "A Turbulent Entertainer can read a cool reaction as personal rejection, and works harder to be liked the moment they feel unsure of their footing. Criticism lands closer to home for them than it may have been intended."
+      }
+    }
   },
   "ENFP": {
     "label": "The Enthusiastic Explorer",
@@ -239,7 +339,17 @@
     "growthEdge": "Practice finishing what you start, even after the excitement of a new idea has faded. Follow-through is often what turns a good idea into something real.",
     "underPressure": "They tend to scatter, jumping between things rather than focusing on one. Watch for them losing steam quickly or avoiding a hard conversation by starting something new instead.",
     "feedbackReceiving": "Frame it with genuine warmth and be specific about what to change, not just what went wrong. They respond better to encouragement paired with clear direction than criticism alone.",
-    "feedbackGiving": "They tend to give feedback enthusiastically and with a lot of encouragement, sometimes softening the harder parts more than necessary."
+    "feedbackGiving": "They tend to give feedback enthusiastically and with a lot of encouragement, sometimes softening the harder parts more than necessary.",
+    "identity": {
+      "A": {
+        "label": "Assertive Campaigner",
+        "description": "An Assertive Campaigner can let an idea go without needing it to have worked out, and a lukewarm response doesn't stay with them for long. They move to the next possibility without much residue."
+      },
+      "T": {
+        "label": "Turbulent Campaigner",
+        "description": "A Turbulent Campaigner replays whether people were genuinely excited about their idea, and is more likely to abandon something the moment it stops feeling validated. Enthusiasm from others matters more to their follow-through than they'd probably admit."
+      }
+    }
   },
   "ENTP": {
     "label": "The Quick-Witted Debater",
@@ -261,7 +371,17 @@
     "growthEdge": "Practice letting a debate go before it turns into a battle of ego. Not every disagreement needs to be won, sometimes the relationship matters more than being right.",
     "underPressure": "They tend to get argumentative or restless, pushing back on anything that feels like an unnecessary constraint. Watch for them picking fights that aren't really about the actual issue.",
     "feedbackReceiving": "Be direct, they can handle a real debate about it and often prefer that to a softened version. Come with reasoning, they'll want to understand the why, not just the what.",
-    "feedbackGiving": "They tend to give feedback candidly, sometimes bluntly, and enjoy debating the merits of it. It's not personal, they genuinely mean it as useful."
+    "feedbackGiving": "They tend to give feedback candidly, sometimes bluntly, and enjoy debating the merits of it. It's not personal, they genuinely mean it as useful.",
+    "identity": {
+      "A": {
+        "label": "Assertive Debater",
+        "description": "An Assertive Debater enjoys the argument for its own sake and lets the outcome go once it's settled, win or lose. Losing a point rarely bruises their sense of being right."
+      },
+      "T": {
+        "label": "Turbulent Debater",
+        "description": "A Turbulent Debater replays an argument they didn't win cleanly, and is more likely to keep pushing a point past the point of usefulness because it still feels unresolved. Being wrong publicly can sit with them longer than the debate itself did."
+      }
+    }
   },
   "ESTJ": {
     "label": "The Decisive Organizer",
@@ -283,7 +403,17 @@
     "growthEdge": "Practice pausing before delivering a correction, especially in the moment something goes wrong. What feels like clear, efficient feedback to you can land as harsh if it's not tempered with a beat of warmth first.",
     "underPressure": "They tend to become more controlling and blunt, pushing harder for structure exactly when others need flexibility most. Watch for them steamrolling a conversation rather than pausing to listen.",
     "feedbackReceiving": "Be clear, specific, and get to the point. They'd rather hear exactly what needs to change than have it wrapped in a lot of context.",
-    "feedbackGiving": "They tend to give feedback directly and efficiently, focused on results. It can land as blunt, even though it's meant constructively."
+    "feedbackGiving": "They tend to give feedback directly and efficiently, focused on results. It can land as blunt, even though it's meant constructively.",
+    "identity": {
+      "A": {
+        "label": "Assertive Executive",
+        "description": "An Assertive Executive is confident their approach is the right one and moves on quickly once a decision is made, rarely revisiting it afterward. Pushback rolls off them without much residue."
+      },
+      "T": {
+        "label": "Turbulent Executive",
+        "description": "A Turbulent Executive privately worries that things will fall apart if they loosen their grip, and is more likely to over-manage the details when the stakes feel high. Their outward confidence can mask a real fear of falling short."
+      }
+    }
   },
   "ESFJ": {
     "label": "The Caring Coordinator",
@@ -305,7 +435,17 @@
     "growthEdge": "Practice tolerating some tension instead of rushing to smooth it over. Not every disagreement needs to be resolved immediately, sometimes it needs to be sat with a little longer.",
     "underPressure": "They tend to overextend themselves trying to keep everyone happy, then feel quietly resentful when it isn't reciprocated. Watch for them taking on too much rather than saying they're stretched thin.",
     "feedbackReceiving": "Lead with appreciation for their effort before raising what needs to change. Public criticism, or feedback that feels like it questions their intentions, will land hard.",
-    "feedbackGiving": "They tend to soften feedback with a lot of warmth and positive framing, sometimes to the point where the actual ask gets buried."
+    "feedbackGiving": "They tend to soften feedback with a lot of warmth and positive framing, sometimes to the point where the actual ask gets buried.",
+    "identity": {
+      "A": {
+        "label": "Assertive Consul",
+        "description": "An Assertive Consul gives support to the group without needing constant appreciation in return, and can set a limit without the guilt that usually follows. Being overlooked stings less than it might for others."
+      },
+      "T": {
+        "label": "Turbulent Consul",
+        "description": "A Turbulent Consul worries when they sense someone is unhappy with them, and is more likely to over-give trying to fix a mood that was never actually theirs to fix. Their own needs are the first thing they set aside under pressure."
+      }
+    }
   },
   "ENFJ": {
     "label": "The Inspiring Guide",
@@ -327,7 +467,17 @@
     "growthEdge": "Practice letting people fail a little without stepping in to rescue them. Not everyone wants to be helped in the moment, and growth sometimes needs room you're not giving it.",
     "underPressure": "They tend to take on everyone else's stress as their own, and can push their own needs aside entirely. Watch for them running on empty while still showing up for everyone else.",
     "feedbackReceiving": "Frame it as part of their growth, not just a correction, they take feedback on their vision or intentions personally. Be honest, but pair it with genuine belief in them.",
-    "feedbackGiving": "They tend to give feedback warmly and with real investment in the other person's growth, sometimes wrapping the hard part in a lot of encouragement."
+    "feedbackGiving": "They tend to give feedback warmly and with real investment in the other person's growth, sometimes wrapping the hard part in a lot of encouragement.",
+    "identity": {
+      "A": {
+        "label": "Assertive Protagonist",
+        "description": "An Assertive Protagonist trusts that people can handle their own growth without constant guidance, and recovers quickly when a plan doesn't land the way they hoped. Their own needs stay reasonably in view even while supporting everyone else's."
+      },
+      "T": {
+        "label": "Turbulent Protagonist",
+        "description": "A Turbulent Protagonist takes it personally when someone doesn't respond to their encouragement, and is more likely to keep pouring into a cause well after their own reserves are empty. Their own wellbeing is often the last thing they tend to."
+      }
+    }
   },
   "ENTJ": {
     "label": "The Bold Strategist",
@@ -349,6 +499,16 @@
     "growthEdge": "Practice slowing down enough to actually listen before responding, especially with people who need more time to get to their point. Being right faster isn't the same as being right.",
     "underPressure": "They tend to become more forceful and less patient, pushing decisions through rather than pausing to bring people along. Watch for them steamrolling consensus in favor of speed.",
     "feedbackReceiving": "Be direct and back it with logic, they respect a well-argued point even when it's critical. Vague or overly soft feedback won't really land.",
-    "feedbackGiving": "They tend to give feedback quickly, directly, and with high expectations attached. It's rarely personal, even when it feels pointed."
+    "feedbackGiving": "They tend to give feedback quickly, directly, and with high expectations attached. It's rarely personal, even when it feels pointed.",
+    "identity": {
+      "A": {
+        "label": "Assertive Commander",
+        "description": "An Assertive Commander is confident in their strategy and lets criticism roll off once they've decided it isn't valid, rarely revisiting a decision once it's made. Their sense of competence rarely wavers, even under real pushback."
+      },
+      "T": {
+        "label": "Turbulent Commander",
+        "description": "A Turbulent Commander privately re-litigates a decision that didn't go as planned, and pushes harder on execution the moment they sense their competence is being questioned. Outward confidence can sit right alongside real private doubt."
+      }
+    }
   }
 }

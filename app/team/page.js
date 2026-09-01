@@ -1,10 +1,8 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername, isTeamUnlocked } from "../../lib/session";
+import { getSessionUsername } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
-import { getTypeProfile, analyzeGroup } from "../../lib/mbti";
-import { unlockTeamAction } from "../actions";
+import { getTypeProfile, analyzeGroup, analyzeGroupIdentity, formatTypeCode } from "../../lib/mbti";
 import NavTabs from "../components/NavTabs";
-import PasswordGate from "../components/PasswordGate";
 
 const DICHOTOMY_LABELS = {
   EI: "Energy: Extraversion vs. Introversion",
@@ -21,20 +19,6 @@ function normalizeMembers(raw) {
 export default async function TeamPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
-
-  if (!isTeamUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/team" username={username} />
-        <PasswordGate
-          action={unlockTeamAction}
-          title="Team Dynamic"
-          description="This part of the tool is locked until the live session. Ask your facilitator for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
 
   const me = await getUser(username);
   const allUsers = await getAllUsers();
@@ -64,10 +48,12 @@ export default async function TeamPage({ searchParams }) {
 
   let group = null;
   let analysis = null;
+  let identityAnalysis = null;
   if (hasSelection && validCount) {
     const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
     group = members;
     analysis = analyzeGroup(members.map((m) => m.mbtiType));
+    identityAnalysis = analyzeGroupIdentity(members.map((m) => m.identity));
   }
 
   return (
@@ -88,7 +74,7 @@ export default async function TeamPage({ searchParams }) {
       <div className="card">
         <h2>Build your group</h2>
         <p className="hint" style={{ marginTop: -4 }}>
-          You ({getTypeProfile(me.mbtiType)?.archetype}, {me.mbtiType}) are
+          You ({getTypeProfile(me.mbtiType)?.archetype}, {formatTypeCode(me.mbtiType, me.identity)}) are
           already in. Pick 2 to 4 more colleagues to complete a group of 3 to 5.
         </p>
         {hasSelection && !validCount && (
@@ -117,7 +103,7 @@ export default async function TeamPage({ searchParams }) {
                       />
                       {c.username}{" "}
                       <span className="pill" style={{ marginLeft: "auto" }}>
-                        {profile?.archetype} &middot; {c.mbtiType}
+                        {profile?.archetype} &middot; {formatTypeCode(c.mbtiType, c.identity)}
                       </span>
                     </label>
                   </div>
@@ -138,7 +124,7 @@ export default async function TeamPage({ searchParams }) {
               return (
                 <div key={m.username} className="user-row">
                   <span>{m.username}{m.username === me.username ? " (you)" : ""}</span>
-                  <span className="pill">{profile?.archetype} &middot; {m.mbtiType}</span>
+                  <span className="pill">{profile?.archetype} &middot; {formatTypeCode(m.mbtiType, m.identity)}</span>
                 </div>
               );
             })}
@@ -158,6 +144,20 @@ export default async function TeamPage({ searchParams }) {
               <p>{d.text}</p>
             </div>
           ))}
+
+          {identityAnalysis && (
+            <div className="card">
+              <span className="pill">Optional 5th trait</span>
+              <div className="section-label" style={{ marginTop: 10 }}>Handling pressure: Assertive vs. Turbulent</div>
+              <p className="hint" style={{ marginTop: -6 }}>
+                A: {identityAnalysis.counts.A} &middot; T: {identityAnalysis.counts.T}
+                {identityAnalysis.consideredCount < identityAnalysis.totalSize
+                  ? ` (based on the ${identityAnalysis.consideredCount} of ${identityAnalysis.totalSize} who've set this)`
+                  : ""}
+              </p>
+              <p>{identityAnalysis.text}</p>
+            </div>
+          )}
         </>
       )}
     </>

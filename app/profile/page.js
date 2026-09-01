@@ -1,10 +1,19 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername } from "../../lib/session";
 import { getUser } from "../../lib/db";
-import { getTypeProfile } from "../../lib/mbti";
-import { setMyTypeAction, deleteMyAccountAction } from "../actions";
+import { getTypeProfile, getIdentityProfile, getTypeIdentityProfile, formatTypeCode } from "../../lib/mbti";
+import { setMyTypeAction, setMyIdentityAction, setMyScoresAction, deleteMyAccountAction } from "../actions";
 import TypePicker from "../components/TypePicker";
+import IdentityPicker from "../components/IdentityPicker";
 import NavTabs from "../components/NavTabs";
+
+const SCORE_FIELDS = [
+  { key: "EI", label: "Extraverted / Introverted", hint: "Positive = Extraverted, negative = Introverted." },
+  { key: "SN", label: "Intuitive / Observant", hint: "Positive = Intuitive, negative = Observant (Sensing)." },
+  { key: "TF", label: "Thinking / Feeling", hint: "Positive = Thinking, negative = Feeling." },
+  { key: "JP", label: "Judging / Prospecting", hint: "Positive = Judging, negative = Prospecting (Perceiving)." },
+  { key: "AT", label: "Assertive / Turbulent", hint: "Positive = Assertive, negative = Turbulent." },
+];
 
 export default async function ProfilePage({ searchParams }) {
   const username = getSessionUsername();
@@ -15,6 +24,8 @@ export default async function ProfilePage({ searchParams }) {
 
   const error = searchParams?.error;
   const profile = user.mbtiType ? getTypeProfile(user.mbtiType) : null;
+  const identityProfile = user.identity ? getIdentityProfile(user.identity) : null;
+  const typeIdentityProfile = user.identity ? getTypeIdentityProfile(user.mbtiType, user.identity) : null;
 
   return (
     <>
@@ -25,6 +36,11 @@ export default async function ProfilePage({ searchParams }) {
           <span className="pill">Step 1</span>
           <h1 style={{ marginTop: 10 }}>What's your MBTI type?</h1>
           <p>Pick the archetype that matches your MBTI profiling to unlock your personal breakdown. Know your letters instead? Each card shows its code too.</p>
+          <p className="hint" style={{ marginTop: -4 }}>
+            Don't have a result yet? Take the free quiz at{" "}
+            <a href="https://www.16personalities.com/" target="_blank" rel="noreferrer">16personalities.com</a>{" "}
+            and come back here with your archetype.
+          </p>
           {error && <p className="error">{decodeURIComponent(error)}</p>}
           <form action={setMyTypeAction}>
             <TypePicker name="mbtiType" required />
@@ -34,7 +50,7 @@ export default async function ProfilePage({ searchParams }) {
       ) : (
         <>
           <div className="card">
-            <span className="pill">{user.mbtiType}</span>
+            <span className="pill">{formatTypeCode(user.mbtiType, user.identity)}</span>
             <h1 style={{ marginTop: 10 }}>{profile.archetype}</h1>
             <p className="hint" style={{ marginTop: -8, marginBottom: 12 }}>{profile.label}</p>
             <p>{profile.overview}</p>
@@ -85,6 +101,65 @@ export default async function ProfilePage({ searchParams }) {
               <h3>Giving feedback</h3>
               <p>{profile.feedbackGiving}</p>
             </div>
+          </div>
+
+          <div className="card">
+            <span className="pill">Optional</span>
+            <h2 style={{ marginTop: 10 }}>Assertive or Turbulent?</h2>
+            <p className="hint" style={{ marginTop: -4 }}>
+              Not part of classic MBTI, this is a separate, optional trait
+              for how you tend to handle pressure and setbacks. Skip it if
+              you're not sure, you can always come back to it.
+            </p>
+            {identityProfile ? (
+              <>
+                <p>{identityProfile.overview}</p>
+                {typeIdentityProfile && <p>{typeIdentityProfile.description}</p>}
+                <details style={{ marginTop: 10 }}>
+                  <summary className="collapsible-summary">
+                    <h3 style={{ display: "inline", marginBottom: 0 }}>Change this</h3>
+                  </summary>
+                  <form action={setMyIdentityAction} style={{ marginTop: 10 }}>
+                    <IdentityPicker name="identity" defaultValue={user.identity} />
+                    <button className="btn btn-outline" type="submit">Update</button>
+                  </form>
+                </details>
+              </>
+            ) : (
+              <form action={setMyIdentityAction}>
+                <IdentityPicker name="identity" defaultValue={user.identity} />
+                <button className="btn" type="submit">Save</button>
+              </form>
+            )}
+          </div>
+
+          <div className="card">
+            <span className="pill">Optional</span>
+            <h2 style={{ marginTop: 10 }}>Your exact scores</h2>
+            <p className="hint" style={{ marginTop: -4 }}>
+              If you have your result from{" "}
+              <a href="https://www.16personalities.com/" target="_blank" rel="noreferrer">16personalities.com</a>,
+              add the exact percentage for each trait here. Every field is
+              optional, fill in as many or as few as you know, and leave the
+              rest blank.
+            </p>
+            <form action={setMyScoresAction}>
+              {SCORE_FIELDS.map((f) => (
+                <div key={f.key}>
+                  <label>{f.label}</label>
+                  <input
+                    type="number"
+                    name={`score${f.key}`}
+                    min={-100}
+                    max={100}
+                    defaultValue={user.scores?.[f.key] ?? ""}
+                    placeholder="e.g. -76"
+                  />
+                  <p className="hint" style={{ marginTop: 2 }}>{f.hint}</p>
+                </div>
+              ))}
+              <button className="btn" type="submit">Save scores</button>
+            </form>
           </div>
 
           <details className="card" open={Boolean(error)}>

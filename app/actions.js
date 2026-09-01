@@ -6,6 +6,8 @@ import {
   createUser,
   verifyLogin,
   updateUserType,
+  updateUserIdentity,
+  updateUserScores,
   deleteUser,
   upsertGuess,
   deleteGuess,
@@ -14,16 +16,10 @@ import {
   setSessionCookie,
   clearSessionCookie,
   getSessionUsername,
-  checkGuessPassword,
-  checkMatchPassword,
-  checkTeamPassword,
-  checkBuilderPassword,
-  unlockGuess,
-  unlockMatch,
-  unlockTeam,
-  unlockBuilder,
+  checkTypesPassword,
+  unlockTypes,
 } from "../lib/session";
-import { isValidType } from "../lib/mbti";
+import { isValidType, isValidIdentity } from "../lib/mbti";
 
 // Errors are passed back via a `?error=` query param and rendered by the
 // destination page's server component. This keeps forms working with
@@ -96,6 +92,60 @@ export async function setMyTypeAction(formData) {
   redirect("/profile");
 }
 
+// Identity (Assertive/Turbulent) is optional and separate from the 4-letter
+// type. An empty submission ("Skip for now" / clearing the choice) sets it
+// back to null rather than erroring, since this is meant to be low-friction.
+export async function setMyIdentityAction(formData) {
+  const username = getSessionUsername();
+  if (!username) redirect("/");
+
+  const raw = String(formData.get("identity") || "").toUpperCase();
+  if (raw && !isValidIdentity(raw)) {
+    redirect("/profile?error=" + encodeURIComponent("That doesn't look like a valid Identity (Assertive or Turbulent)."));
+  }
+
+  await updateUserIdentity(username, raw || null);
+  revalidatePath("/profile");
+  redirect("/profile");
+}
+
+// Exact scores from the 16personalities.com result (e.g. -76 for 76%
+// Introverted, 84 for 84% Intuitive) are entirely optional and independent
+// of each other, someone might only know a couple of them offhand. Any
+// field left blank is stored as null rather than blocking the others.
+const SCORE_KEYS = ["EI", "SN", "TF", "JP", "AT"];
+
+function parseScoreField(formData, key) {
+  const raw = String(formData.get(`score${key}`) || "").trim();
+  if (!raw) return null;
+  const n = Number(raw);
+  if (!Number.isFinite(n)) return null;
+  return Math.max(-100, Math.min(100, Math.round(n)));
+}
+
+export async function setMyScoresAction(formData) {
+  const username = getSessionUsername();
+  if (!username) redirect("/");
+
+  const scores = {};
+  for (const key of SCORE_KEYS) {
+    scores[key] = parseScoreField(formData, key);
+  }
+
+  await updateUserScores(username, scores);
+  revalidatePath("/profile");
+  redirect("/profile");
+}
+
+export async function unlockTypesAction(formData) {
+  const password = String(formData.get("password") || "");
+  if (!checkTypesPassword(password)) {
+    redirect("/types?gateError=" + encodeURIComponent("That's not quite it, try again."));
+  }
+  unlockTypes();
+  redirect("/types");
+}
+
 export async function deleteMyAccountAction() {
   const username = getSessionUsername();
   if (!username) redirect("/");
@@ -122,42 +172,6 @@ export async function saveGuessAction(formData) {
   await upsertGuess({ guesserUsername, guessedUsername, guessedType, reasoning });
   revalidatePath("/guess");
   redirect("/guess");
-}
-
-export async function unlockGuessAction(formData) {
-  const password = String(formData.get("password") || "");
-  if (!checkGuessPassword(password)) {
-    redirect("/guess?gateError=" + encodeURIComponent("That's not quite it, try again."));
-  }
-  unlockGuess();
-  redirect("/guess");
-}
-
-export async function unlockMatchAction(formData) {
-  const password = String(formData.get("password") || "");
-  if (!checkMatchPassword(password)) {
-    redirect("/match?gateError=" + encodeURIComponent("That's not quite it, try again."));
-  }
-  unlockMatch();
-  redirect("/match");
-}
-
-export async function unlockTeamAction(formData) {
-  const password = String(formData.get("password") || "");
-  if (!checkTeamPassword(password)) {
-    redirect("/team?gateError=" + encodeURIComponent("That's not quite it, try again."));
-  }
-  unlockTeam();
-  redirect("/team");
-}
-
-export async function unlockBuilderAction(formData) {
-  const password = String(formData.get("password") || "");
-  if (!checkBuilderPassword(password)) {
-    redirect("/builder?gateError=" + encodeURIComponent("That's not quite it, try again."));
-  }
-  unlockBuilder();
-  redirect("/builder");
 }
 
 export async function removeGuessAction(formData) {

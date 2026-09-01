@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername, isBuilderUnlocked } from "../../lib/session";
+import { getSessionUsername } from "../../lib/session";
 import { getAllUsers, getUser } from "../../lib/db";
 import {
   getTypeProfile,
@@ -8,14 +8,15 @@ import {
   getGapLetters,
   suggestGapFillers,
   buildRadarChart,
+  getIdealPercentByLetter,
   getActivities,
   getActivity,
   evaluateActivityFit,
   suggestIdealPeople,
+  analyzeGroupIdentity,
+  formatTypeCode,
 } from "../../lib/mbti";
-import { unlockBuilderAction } from "../actions";
 import NavTabs from "../components/NavTabs";
-import PasswordGate from "../components/PasswordGate";
 
 const DICHOTOMY_LABELS = {
   EI: "Energy: Extraversion vs. Introversion",
@@ -45,20 +46,6 @@ function normalizeMembers(raw) {
 export default async function BuilderPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
-
-  if (!isBuilderUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/builder" username={username} />
-        <PasswordGate
-          action={unlockBuilderAction}
-          title="Team Builder"
-          description="This part of the tool is locked until the live session. Ask your facilitator for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
 
   const me = await getUser(username);
   const allUsers = await getAllUsers();
@@ -98,12 +85,16 @@ export default async function BuilderPage({ searchParams }) {
   let fillers = null;
   let activityFit = null;
   let activityFillers = null;
+  let identityAnalysis = null;
 
   if (hasSelection && validCount) {
     const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
     group = members;
     analysis = analyzeGroup(members.map((m) => m.mbtiType));
-    radar = buildRadarChart(analysis);
+    identityAnalysis = analyzeGroupIdentity(members.map((m) => m.identity));
+    radar = buildRadarChart(analysis, {
+      idealPercentByLetter: activity ? getIdealPercentByLetter(activity) : null,
+    });
     gaps = getGapLetters(analysis);
     const remaining = eligibleColleagues.filter((c) => !selected.includes(c.username));
     fillers = suggestGapFillers(gaps, remaining).slice(0, 3);
@@ -131,7 +122,7 @@ export default async function BuilderPage({ searchParams }) {
       <div className="card">
         <h2>Who complements you</h2>
         <p className="hint" style={{ marginTop: -4 }}>
-          Based on your type, {getTypeProfile(me.mbtiType)?.archetype} ({me.mbtiType}).
+          Based on your type, {getTypeProfile(me.mbtiType)?.archetype} ({formatTypeCode(me.mbtiType, me.identity)}).
         </p>
         {eligibleColleagues.length === 0 ? (
           <p>No colleagues with a saved MBTI type yet.</p>
@@ -141,7 +132,7 @@ export default async function BuilderPage({ searchParams }) {
             {mostComplementary.slice(0, 5).map((c) => (
               <div key={`comp-${c.username}`} className="user-row">
                 <span>{c.username} <span className="hint" style={{ display: "inline", marginTop: 0 }}>{getTypeProfile(c.mbtiType)?.archetype}</span></span>
-                <span className="pill">{c.mbtiType} &middot; differs on {c.diffCount}/4</span>
+                <span className="pill">{formatTypeCode(c.mbtiType, c.identity)} &middot; differs on {c.diffCount}/4</span>
               </div>
             ))}
 
@@ -149,7 +140,7 @@ export default async function BuilderPage({ searchParams }) {
             {mostCompatible.slice(0, 5).map((c) => (
               <div key={`compat-${c.username}`} className="user-row">
                 <span>{c.username} <span className="hint" style={{ display: "inline", marginTop: 0 }}>{getTypeProfile(c.mbtiType)?.archetype}</span></span>
-                <span className="pill">{c.mbtiType} &middot; shares {c.sameCount}/4</span>
+                <span className="pill">{formatTypeCode(c.mbtiType, c.identity)} &middot; shares {c.sameCount}/4</span>
               </div>
             ))}
           </>
@@ -159,7 +150,7 @@ export default async function BuilderPage({ searchParams }) {
       <div className="card">
         <h2>Build a group and find the gaps</h2>
         <p className="hint" style={{ marginTop: -4 }}>
-          You ({getTypeProfile(me.mbtiType)?.archetype}, {me.mbtiType}) are
+          You ({getTypeProfile(me.mbtiType)?.archetype}, {formatTypeCode(me.mbtiType, me.identity)}) are
           already in. Pick 2 to 4 more colleagues to complete a group of 3 to 5.
         </p>
         {hasSelection && !validCount && (
@@ -206,7 +197,7 @@ export default async function BuilderPage({ searchParams }) {
                       />
                       {c.username}{" "}
                       <span className="pill" style={{ marginLeft: "auto" }}>
-                        {profile?.archetype} &middot; {c.mbtiType}
+                        {profile?.archetype} &middot; {formatTypeCode(c.mbtiType, c.identity)}
                       </span>
                     </label>
                   </div>
@@ -230,6 +221,17 @@ export default async function BuilderPage({ searchParams }) {
               </span>
             ))}
           </p>
+
+          <div className="section-label" style={{ marginTop: 14 }}>Why these types outshine here</div>
+          {activity.idealTypes.map((t) => (
+            <div key={t} style={{ marginBottom: 10 }}>
+              <div className="user-row" style={{ marginBottom: 2 }}>
+                <span><strong>{getTypeProfile(t)?.archetype}</strong> ({t})</span>
+              </div>
+              <p className="hint" style={{ marginTop: 0 }}>{activity.idealTypeReasons?.[t]}</p>
+            </div>
+          ))}
+
           <p>{activity.excelsAt}</p>
 
           <div className="section-label" style={{ marginTop: 14 }}>From your roster</div>
@@ -244,7 +246,7 @@ export default async function BuilderPage({ searchParams }) {
                     {getTypeProfile(c.mbtiType)?.archetype}
                   </span>
                 </span>
-                <span className="pill">{c.mbtiType} &middot; {c.matchScore === 4 ? "ideal match" : "close match"}</span>
+                <span className="pill">{formatTypeCode(c.mbtiType, c.identity)} &middot; {c.matchScore === 4 ? "ideal match" : "close match"}</span>
               </div>
             ))
           )}
@@ -260,7 +262,7 @@ export default async function BuilderPage({ searchParams }) {
               return (
                 <div key={m.username} className="user-row">
                   <span>{m.username}{m.username === me.username ? " (you)" : ""}</span>
-                  <span className="pill">{profile?.archetype} &middot; {m.mbtiType}</span>
+                  <span className="pill">{profile?.archetype} &middot; {formatTypeCode(m.mbtiType, m.identity)}</span>
                 </div>
               );
             })}
@@ -288,6 +290,15 @@ export default async function BuilderPage({ searchParams }) {
                   strokeWidth="1"
                 />
               ))}
+              {radar.idealPolygonPoints && (
+                <polygon
+                  points={radar.idealPolygonPoints}
+                  fill="none"
+                  stroke="#c6006f"
+                  strokeWidth="2"
+                  strokeDasharray="6 4"
+                />
+              )}
               <polygon
                 points={radar.dataPolygonPoints}
                 fill="rgba(0, 121, 193, 0.22)"
@@ -296,7 +307,7 @@ export default async function BuilderPage({ searchParams }) {
               />
               {radar.labels.map((l) => (
                 <g key={l.letter} style={{ cursor: "help" }}>
-                  <title>{`${l.letter}: ${LETTER_MEANINGS[l.letter]} ${l.percent}% of this group.`}</title>
+                  <title>{`${l.letter}: ${LETTER_MEANINGS[l.letter]} ${l.percent}% of this group.${l.idealPercent !== null ? ` Ideal for this activity: ${l.idealPercent}%.` : ""}`}</title>
                   <circle cx={l.x} cy={l.y} r="16" fill="transparent" />
                   <text
                     x={l.x}
@@ -313,6 +324,18 @@ export default async function BuilderPage({ searchParams }) {
                 </g>
               ))}
             </svg>
+            {radar.idealPolygonPoints && (
+              <div style={{ display: "flex", justifyContent: "center", gap: 18, marginTop: 2 }}>
+                <span className="hint" style={{ marginTop: 0, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span style={{ display: "inline-block", width: 14, height: 14, borderRadius: 3, background: "rgba(0, 121, 193, 0.22)", border: "2px solid #0079c1" }} />
+                  Your group
+                </span>
+                <span className="hint" style={{ marginTop: 0, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span style={{ display: "inline-block", width: 14, height: 0, borderTop: "2px dashed #c6006f" }} />
+                  Ideal mix for {activity.label.toLowerCase()}
+                </span>
+              </div>
+            )}
             <p className="hint" style={{ textAlign: "center" }}>
               Each point shows the share of the group with that letter. A
               lopsided shape means the group leans heavily one way on that
@@ -356,7 +379,7 @@ export default async function BuilderPage({ searchParams }) {
                           {getTypeProfile(c.mbtiType)?.archetype}
                         </span>
                       </span>
-                      <span className="pill">{c.mbtiType} &middot; adds {c.fills.map((f) => f.letter).join(", ")}</span>
+                      <span className="pill">{formatTypeCode(c.mbtiType, c.identity)} &middot; adds {c.fills.map((f) => f.letter).join(", ")}</span>
                     </div>
                   ))}
                 </>
@@ -408,7 +431,7 @@ export default async function BuilderPage({ searchParams }) {
                             {getTypeProfile(c.mbtiType)?.archetype}
                           </span>
                         </span>
-                        <span className="pill">{c.mbtiType} &middot; fills {c.fills.map((f) => f.letter).join(", ")}</span>
+                        <span className="pill">{formatTypeCode(c.mbtiType, c.identity)} &middot; fills {c.fills.map((f) => f.letter).join(", ")}</span>
                       </div>
                     ))}
                   </>
@@ -416,6 +439,20 @@ export default async function BuilderPage({ searchParams }) {
               </>
             )}
           </div>
+
+          {identityAnalysis && (
+            <div className="card">
+              <span className="pill">Optional 5th trait</span>
+              <div className="section-label" style={{ marginTop: 10 }}>Handling pressure: Assertive vs. Turbulent</div>
+              <p className="hint" style={{ marginTop: -6 }}>
+                A: {identityAnalysis.counts.A} &middot; T: {identityAnalysis.counts.T}
+                {identityAnalysis.consideredCount < identityAnalysis.totalSize
+                  ? ` (based on the ${identityAnalysis.consideredCount} of ${identityAnalysis.totalSize} who've set this)`
+                  : ""}
+              </p>
+              <p>{identityAnalysis.text}</p>
+            </div>
+          )}
         </>
       )}
     </>

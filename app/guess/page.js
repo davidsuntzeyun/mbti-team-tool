@@ -1,29 +1,14 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername, isGuessUnlocked } from "../../lib/session";
+import { getSessionUsername } from "../../lib/session";
 import { getAllUsers, getUser, getGuessesByUser } from "../../lib/db";
 import { getTypeProfile, quickMatch } from "../../lib/mbti";
-import { saveGuessAction, removeGuessAction, unlockGuessAction } from "../actions";
+import { saveGuessAction, removeGuessAction } from "../actions";
 import TypePicker from "../components/TypePicker";
 import NavTabs from "../components/NavTabs";
-import PasswordGate from "../components/PasswordGate";
 
 export default async function GuessPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
-
-  if (!isGuessUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/guess" username={username} />
-        <PasswordGate
-          action={unlockGuessAction}
-          title="Guess your colleagues"
-          description="This part of the tool is locked until the live session. Ask your facilitator for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
 
   const error = searchParams?.error;
   const editTarget = searchParams?.edit;

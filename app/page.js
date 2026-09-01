@@ -19,6 +19,11 @@ export default function HomePage({ searchParams }) {
           get a quick read on how the two of you work best together. Come
           back anytime, not just during the live session.
         </p>
+        <p className="hint" style={{ marginTop: -4 }}>
+          Don't have your MBTI type yet? Take the free quiz at{" "}
+          <a href="https://www.16personalities.com/" target="_blank" rel="noreferrer">16personalities.com</a>{" "}
+          first, then come back and create your account.
+        </p>
       </div>
 
       <div className="card">

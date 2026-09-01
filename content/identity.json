@@ -1,0 +1,10 @@
+{
+  "A": {
+    "label": "Assertive",
+    "overview": "Assertive types tend to be calm, self-assured, and even-keeled under pressure. They trust their own judgment, recover from setbacks quickly, and rarely need outside validation to feel confident in a decision they've already made. The tradeoff is that they can be slower to notice when something genuinely needs to change, since criticism and friction naturally rattle them less."
+  },
+  "T": {
+    "label": "Turbulent",
+    "overview": "Turbulent types tend to be more self-conscious, more emotionally invested in getting things right, and more sensitive to stress and criticism. That sensitivity often drives real growth and high personal standards, but it can also mean carrying more anxiety than a situation calls for. The tradeoff is a pull toward self-doubt or perfectionism, even when the work is already solid."
+  }
+}

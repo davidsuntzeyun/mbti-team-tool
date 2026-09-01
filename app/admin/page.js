@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getSessionUsername, isAdminUsername } from "../../lib/session";
 import { getAllUsers } from "../../lib/db";
 import { adminDeleteUserAction } from "../actions";
+import { formatTypeCode } from "../../lib/mbti";
 import NavTabs from "../components/NavTabs";
 
 export default async function AdminPage() {
@@ -35,7 +36,7 @@ export default async function AdminPage() {
               <div>
                 <strong>{u.username}</strong>{" "}
                 {u.mbtiType ? (
-                  <span className="pill">{u.mbtiType}</span>
+                  <span className="pill">{formatTypeCode(u.mbtiType, u.identity)}</span>
                 ) : (
                   <span className="hint" style={{ marginTop: 0 }}>hasn't set a type yet</span>
                 )}

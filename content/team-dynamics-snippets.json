@@ -26,5 +26,12 @@
     "balanced": "This group has a healthy mix of planners and adapters. That combination tends to balance structure with flexibility, plans stay organized without becoming rigid.",
     "leaningJ": "This group leans toward structure and planning. Leave deliberate room for new information to actually change the plan, rather than treating the original plan as fixed once it's set.",
     "leaningP": "This group leans toward flexibility and adaptability. Assign someone, or set a deliberate deadline ritual, to actually close decisions out rather than leaving them open indefinitely."
+  },
+  "AT": {
+    "uniformA": "Everyone in this group tends to stay calm and self-assured under pressure. Setbacks won't rattle the room, but that same steadiness can mean real problems get waved off before they're actually dealt with, someone should deliberately ask what's being underestimated.",
+    "uniformT": "Everyone in this group tends to feel pressure and criticism more sharply. That sensitivity can drive genuinely high standards, but it can also mean the group's stress compounds rather than settles, build in a deliberate way to name anxiety before it spreads.",
+    "balanced": "This group has a healthy mix of people who stay calm under pressure and people who feel it more sharply. The calmer voices can steady the room while the more sensitive ones catch what's actually at stake.",
+    "leaningA": "This group leans toward staying calm and self-assured under pressure. Make sure someone is deliberately asking what's being underestimated, since criticism and setbacks won't naturally register as urgent to most of the room.",
+    "leaningT": "This group leans toward feeling pressure and criticism more sharply. Watch for stress compounding rather than settling, and build in a deliberate way to acknowledge anxiety before it spreads through the group."
   }
 }

@@ -66,5 +66,22 @@
       "weakness": "The planning-oriented person may feel the other is disorganized or noncommittal, while the flexible person may feel boxed in or rushed to decide too early.",
       "conflict": "Tension often shows up as \"we need to lock this in\" versus \"let's keep our options open\", with both people feeling the other isn't respecting how they work best."
     }
+  },
+  "AT": {
+    "bothA": {
+      "strength": "You're both calm and self-assured under pressure, so setbacks rarely derail the working relationship, and neither of you needs much reassurance from the other to keep moving.",
+      "weakness": "Because criticism rolls off both of you fairly easily, real problems can go unaddressed longer than they should, since neither of you feels much urgency to revisit them.",
+      "conflict": "When you disagree, neither of you is inclined to back down or reopen the issue, so a disagreement can quietly calcify into two separate positions instead of getting resolved."
+    },
+    "bothT": {
+      "strength": "You both care deeply about getting it right, so you push each other toward real quality and neither of you settles for good enough.",
+      "weakness": "You can also feed each other's stress, each one's anxiety about a deadline or decision reinforcing the other's instead of calming it down.",
+      "conflict": "A disagreement between you can spiral, with both of you replaying it and reading more into a comment than was actually meant."
+    },
+    "mixed": {
+      "strength": "The steadier person can help calm the other down when stress builds, while the more turbulent person's sensitivity helps catch problems the calmer one might have shrugged off.",
+      "weakness": "The assertive person may not realize how much a comment landed with the other, while the turbulent person may read calm as not caring enough.",
+      "conflict": "The turbulent person may feel dismissed or unheard when the other doesn't react with the same urgency, while the assertive person may feel the other is making something bigger than it needs to be."
+    }
   }
 }

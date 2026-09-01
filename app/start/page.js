@@ -15,7 +15,7 @@ const STEPS = [
     title: "Read up on any type",
     href: "/types",
     label: "Explore Types",
-    body: "Curious what a colleague's type actually means, or just want to understand a type better? Pick any of the 16 archetypes and read its full profile, no setup needed, no login gate.",
+    body: "Curious what a colleague's type actually means, or just want to understand a type better? Pick any of the 16 archetypes and read its full profile. This one's locked behind its own password, since it's the full write-up for every type, not just yours, ask whoever shared this tool with you.",
   },
   {
     step: "3",
@@ -44,6 +44,17 @@ const STEPS = [
     href: "/builder",
     label: "Team Builder",
     body: "See who on the roster naturally complements you, or build a group for a specific kind of work, brainstorming, operational execution, client-facing, and more, and see how well it fits.",
+  },
+];
+
+const COMING_SOON = [
+  {
+    title: "Department Dynamic",
+    body: "A manager's view: pick your whole department, no size limit, and see both the group's overall balance and a personalized guide for how to manage each person on it.",
+  },
+  {
+    title: "Personal Growth Plan",
+    body: "A development card built from your type: what to lean into, what to actively manage, and concrete topics to research, tailored to whether you manage people, manage projects, or work as an individual contributor.",
   },
 ];
 
@@ -82,13 +93,22 @@ export default function StartPage() {
       ))}
 
       <div className="card">
-        <div className="section-label">A few things worth knowing</div>
-        <p>
-          Guess, Quick Match, Team Dynamic, and Team Builder are locked
-          behind a shared password, a bit of fun friction for a live
-          session, not real security. Your facilitator will share the
-          passwords when it's time to use them.
+        <span className="pill">Roadmap</span>
+        <h2 style={{ marginTop: 10 }}>Coming soon</h2>
+        <p className="hint" style={{ marginTop: -4 }}>
+          Not built yet, still being shaped, listed here so you know what's
+          on the way.
         </p>
+        {COMING_SOON.map((c) => (
+          <div key={c.title} style={{ marginBottom: 14 }}>
+            <h3 style={{ marginBottom: 2 }}>{c.title}</h3>
+            <p style={{ margin: 0 }}>{c.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="card">
+        <div className="section-label">A few things worth knowing</div>
         <p style={{ marginBottom: 0 }}>
           Nothing in this tool is confidential, and none of it is meant to
           be used for hiring or performance decisions. If you're ever

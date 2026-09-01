@@ -1,12 +1,28 @@
 import { redirect } from "next/navigation";
-import { getSessionUsername } from "../../lib/session";
+import { getSessionUsername, isTypesUnlocked } from "../../lib/session";
 import { getTypeProfile, isValidType } from "../../lib/mbti";
+import { unlockTypesAction } from "../actions";
 import NavTabs from "../components/NavTabs";
 import TypePicker from "../components/TypePicker";
+import PasswordGate from "../components/PasswordGate";
 
 export default function TypesPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
+
+  if (!isTypesUnlocked()) {
+    return (
+      <>
+        <NavTabs active="/types" username={username} />
+        <PasswordGate
+          action={unlockTypesAction}
+          title="Explore Types"
+          description="The full 16 type profiles are locked. Ask whoever shared this tool with you for the password."
+          error={searchParams?.gateError}
+        />
+      </>
+    );
+  }
 
   const selectedCode = typeof searchParams?.type === "string" ? searchParams.type.toUpperCase() : "";
   const profile = isValidType(selectedCode) ? getTypeProfile(selectedCode) : null;
@@ -88,6 +104,28 @@ export default function TypesPage({ searchParams }) {
               <p>{profile.feedbackGiving}</p>
             </div>
           </div>
+
+          {profile.identity && (
+            <div className="card">
+              <span className="pill">Optional 5th trait</span>
+              <h2 style={{ marginTop: 10 }}>Assertive vs. Turbulent</h2>
+              <p className="hint" style={{ marginTop: -4 }}>
+                Not part of classic MBTI, this is a separate trait for how
+                someone tends to handle pressure and setbacks, layered on
+                top of the 4-letter type.
+              </p>
+              <div className="grid-2">
+                <div>
+                  <h3>{profile.identity.A.label} ({selectedCode}-A)</h3>
+                  <p>{profile.identity.A.description}</p>
+                </div>
+                <div>
+                  <h3>{profile.identity.T.label} ({selectedCode}-T)</h3>
+                  <p>{profile.identity.T.description}</p>
+                </div>
+              </div>
+            </div>
+          )}
 
           {profile.teamDynamics && (
             <>
