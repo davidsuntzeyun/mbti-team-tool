@@ -19,6 +19,7 @@ import {
   getSessionUsername,
   checkRosterPassword,
   unlockRoster,
+  lockRoster,
 } from "../lib/session";
 import { isValidType, isValidIdentity, isValidRole } from "../lib/mbti";
 
@@ -156,21 +157,34 @@ export async function setMyRoleAction(formData) {
   redirect("/profile");
 }
 
-// Shared by Quick Match, Team Dynamic, Department Dynamic, and Team
-// Builder — one password unlocks all four, since they all expose a real
-// colleague's actual MBTI data from the roster. `redirectTo` sends the
-// user back to whichever of those pages they unlocked from.
-const ROSTER_GATED_PAGES = ["/match", "/team", "/department", "/builder"];
+// The padlock icon in the header appears on every page, so its unlock
+// popup needs to send the user back to wherever they actually were, not
+// a fixed page. Only accept a plain in-app path (starting with a single
+// "/", never "//" or an absolute URL) to avoid an open-redirect.
+function safeRedirectTarget(raw, fallback = "/profile") {
+  if (typeof raw === "string" && raw.startsWith("/") && !raw.startsWith("//")) {
+    return raw;
+  }
+  return fallback;
+}
 
+// Unlocks real colleague data across Quick Match, Team Dynamic, Department
+// Dynamic, and Team Builder — one shared password for all of them.
 export async function unlockRosterAction(formData) {
   const password = String(formData.get("password") || "");
-  const redirectTo = String(formData.get("redirectTo") || "");
-  const target = ROSTER_GATED_PAGES.includes(redirectTo) ? redirectTo : "/match";
+  const target = safeRedirectTarget(formData.get("redirectTo"));
 
   if (!checkRosterPassword(password)) {
     redirect(`${target}?gateError=` + encodeURIComponent("That's not quite it, try again."));
   }
   unlockRoster();
+  redirect(target);
+}
+
+// Re-locking never needs the password, same as closing a real padlock.
+export async function lockRosterAction(formData) {
+  const target = safeRedirectTarget(formData.get("redirectTo"));
+  lockRoster();
   redirect(target);
 }
 

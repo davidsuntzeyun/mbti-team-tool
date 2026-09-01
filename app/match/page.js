@@ -2,40 +2,28 @@ import { redirect } from "next/navigation";
 import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
 import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
 import { getTypeProfile, quickMatch, getCommunicationFeel, getIdentityMatch, formatTypeCode } from "../../lib/mbti";
-import { unlockRosterAction } from "../actions";
 import NavTabs from "../components/NavTabs";
-import PasswordGate from "../components/PasswordGate";
+import LockedNotice from "../components/LockedNotice";
 
 export default async function MatchPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
 
-  if (!isRosterUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/match" username={username} />
-        <PasswordGate
-          action={unlockRosterAction}
-          redirectTo="/match"
-          title="Quick Match"
-          description="Matching against a real colleague's actual type is locked. Ask whoever shared this tool with you for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
-
+  const unlocked = isRosterUnlocked();
   const me = await getUser(username);
-  const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
-  const allColleagues = [...allUsers, ...officialRoster];
-  const colleagues = allColleagues.filter(
-    (u) => u.username.toLowerCase() !== username.toLowerCase()
-  );
 
+  let colleagues = [];
+  let colleague = null;
   const withUsername = searchParams?.with;
-  const colleague = withUsername
-    ? allColleagues.find((u) => u.username.toLowerCase() === withUsername.toLowerCase())
-    : null;
+
+  if (unlocked) {
+    const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
+    const allColleagues = [...allUsers, ...officialRoster];
+    colleagues = allColleagues.filter((u) => u.username.toLowerCase() !== username.toLowerCase());
+    colleague = withUsername
+      ? allColleagues.find((u) => u.username.toLowerCase() === withUsername.toLowerCase())
+      : null;
+  }
 
   return (
     <>
@@ -52,36 +40,38 @@ export default async function MatchPage({ searchParams }) {
         </p>
       </div>
 
-      {!me?.mbtiType ? (
+      {!unlocked ? (
+        <LockedNotice what="Quick Match" />
+      ) : !me?.mbtiType ? (
         <div className="card">
           <p>Set your own MBTI type on your profile first, then come back here.</p>
           <a className="btn" href="/profile">Go to your profile</a>
         </div>
       ) : (
-        <div className="card">
-          <form method="get">
-            <label>Match with</label>
-            <select name="with" defaultValue={withUsername || ""}>
-              <option value="" disabled>Select a colleague&hellip;</option>
-              {colleagues.map((c) => (
-                <option key={c.username} value={c.username}>
-                  {c.displayName || c.username}{c.isOfficial ? " · Official" : ""}
-                </option>
-              ))}
-            </select>
-            <button className="btn" type="submit">See the match</button>
-          </form>
-        </div>
-      )}
+        <>
+          <div className="card">
+            <form method="get">
+              <label>Match with</label>
+              <select name="with" defaultValue={withUsername || ""}>
+                <option value="" disabled>Select a colleague&hellip;</option>
+                {colleagues.map((c) => (
+                  <option key={c.username} value={c.username}>
+                    {c.displayName || c.username}{c.isOfficial ? " · Official" : ""}
+                  </option>
+                ))}
+              </select>
+              <button className="btn" type="submit">See the match</button>
+            </form>
+          </div>
 
-      {me?.mbtiType && colleague && (
-        <MatchResult me={me} colleague={colleague} />
-      )}
+          {colleague && <MatchResult me={me} colleague={colleague} />}
 
-      {me?.mbtiType && withUsername && !colleague && (
-        <div className="card">
-          <p>Couldn't find that colleague. They may have removed their account.</p>
-        </div>
+          {withUsername && !colleague && (
+            <div className="card">
+              <p>Couldn't find that colleague. They may have removed their account.</p>
+            </div>
+          )}
+        </>
       )}
     </>
   );

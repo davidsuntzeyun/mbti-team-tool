@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import { logoutAction } from "../actions";
-import { isAdminUsername } from "../../lib/session";
+import { logoutAction, unlockRosterAction, lockRosterAction } from "../actions";
+import { isAdminUsername, isRosterUnlocked } from "../../lib/session";
+import LockToggle from "./LockToggle";
 
 export default function HeaderNav({ username }) {
   return (
@@ -26,6 +28,13 @@ export default function HeaderNav({ username }) {
           <form action={logoutAction} style={{ display: "inline" }}>
             <button type="submit">Log out</button>
           </form>
+          <Suspense fallback={null}>
+            <LockToggle
+              isUnlocked={isRosterUnlocked()}
+              unlockAction={unlockRosterAction}
+              lockAction={lockRosterAction}
+            />
+          </Suspense>
         </nav>
       )}
     </header>

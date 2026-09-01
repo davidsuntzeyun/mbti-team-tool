@@ -2,9 +2,8 @@ import { redirect } from "next/navigation";
 import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
 import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
 import { getTypeProfile, analyzeGroup, analyzeGroupIdentity, formatTypeCode } from "../../lib/mbti";
-import { unlockRosterAction } from "../actions";
 import NavTabs from "../components/NavTabs";
-import PasswordGate from "../components/PasswordGate";
+import LockedNotice from "../components/LockedNotice";
 
 const DICHOTOMY_LABELS = {
   EI: "Energy: Extraversion vs. Introversion",
@@ -22,37 +21,14 @@ export default async function TeamPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
 
-  if (!isRosterUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/team" username={username} />
-        <PasswordGate
-          action={unlockRosterAction}
-          redirectTo="/team"
-          title="Team Dynamic"
-          description="Building a group from real colleagues' actual types is locked. Ask whoever shared this tool with you for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
-
+  const unlocked = isRosterUnlocked();
   const me = await getUser(username);
-  const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
 
-  const eligibleColleagues = [...allUsers, ...officialRoster].filter(
-    (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
-  );
-
-  if (!me?.mbtiType) {
-    return (
-      <>
-        <NavTabs active="/team" username={username} />
-        <div className="card">
-          <p>Set your own MBTI type on your profile first, then come back here to build a group.</p>
-          <a className="btn" href="/profile">Go to your profile</a>
-        </div>
-      </>
+  let eligibleColleagues = [];
+  if (unlocked) {
+    const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
+    eligibleColleagues = [...allUsers, ...officialRoster].filter(
+      (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
     );
   }
 
@@ -66,7 +42,7 @@ export default async function TeamPage({ searchParams }) {
   let group = null;
   let analysis = null;
   let identityAnalysis = null;
-  if (hasSelection && validCount) {
+  if (unlocked && hasSelection && validCount) {
     const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
     group = members;
     analysis = analyzeGroup(members.map((m) => m.mbtiType));
@@ -88,50 +64,59 @@ export default async function TeamPage({ searchParams }) {
         </p>
       </div>
 
-      <div className="card">
-        <h2>Build your group</h2>
-        <p className="hint" style={{ marginTop: -4 }}>
-          You ({getTypeProfile(me.mbtiType)?.archetype}, {formatTypeCode(me.mbtiType, me.identity)}) are
-          already in. Pick 2 to 4 more colleagues to complete a group of 3 to 5.
-        </p>
-        {hasSelection && !validCount && (
-          <p className="error">
-            Pick between 2 and 4 colleagues (a group of 3 to 5 including you). You picked {selected.length}.
+      {!unlocked ? (
+        <LockedNotice what="Team Dynamic" />
+      ) : !me?.mbtiType ? (
+        <div className="card">
+          <p>Set your own MBTI type on your profile first, then come back here to build a group.</p>
+          <a className="btn" href="/profile">Go to your profile</a>
+        </div>
+      ) : (
+        <div className="card">
+          <h2>Build your group</h2>
+          <p className="hint" style={{ marginTop: -4 }}>
+            You ({getTypeProfile(me.mbtiType)?.archetype}, {formatTypeCode(me.mbtiType, me.identity)}) are
+            already in. Pick 2 to 4 more colleagues to complete a group of 3 to 5.
           </p>
-        )}
-        {eligibleColleagues.length === 0 ? (
-          <p>No colleagues with a saved MBTI type yet, ask them to set their type on their profile first.</p>
-        ) : (
-          <form method="get">
-            <div className="type-grid" style={{ gridTemplateColumns: "1fr" }}>
-              {eligibleColleagues.map((c) => {
-                const profile = getTypeProfile(c.mbtiType);
-                const id = `member-${c.username}`;
-                return (
-                  <div key={c.username} className="user-row" style={{ padding: "6px 0" }}>
-                    <label htmlFor={id} style={{ display: "flex", alignItems: "center", gap: 10, margin: 0, fontWeight: 500 }}>
-                      <input
-                        type="checkbox"
-                        id={id}
-                        name="members"
-                        value={c.username}
-                        defaultChecked={selected.includes(c.username)}
-                        style={{ width: "auto" }}
-                      />
-                      {c.displayName || c.username}{" "}
-                      {c.isOfficial && <span className="pill-official">Official</span>}{" "}
-                      <span className="pill" style={{ marginLeft: "auto" }}>
-                        {profile?.archetype} &middot; {formatTypeCode(c.mbtiType, c.identity)}
-                      </span>
-                    </label>
-                  </div>
-                );
-              })}
-            </div>
-            <button className="btn" type="submit">See group dynamic</button>
-          </form>
-        )}
-      </div>
+          {hasSelection && !validCount && (
+            <p className="error">
+              Pick between 2 and 4 colleagues (a group of 3 to 5 including you). You picked {selected.length}.
+            </p>
+          )}
+          {eligibleColleagues.length === 0 ? (
+            <p>No colleagues with a saved MBTI type yet, ask them to set their type on their profile first.</p>
+          ) : (
+            <form method="get">
+              <div className="type-grid" style={{ gridTemplateColumns: "1fr" }}>
+                {eligibleColleagues.map((c) => {
+                  const profile = getTypeProfile(c.mbtiType);
+                  const id = `member-${c.username}`;
+                  return (
+                    <div key={c.username} className="user-row" style={{ padding: "6px 0" }}>
+                      <label htmlFor={id} style={{ display: "flex", alignItems: "center", gap: 10, margin: 0, fontWeight: 500 }}>
+                        <input
+                          type="checkbox"
+                          id={id}
+                          name="members"
+                          value={c.username}
+                          defaultChecked={selected.includes(c.username)}
+                          style={{ width: "auto" }}
+                        />
+                        {c.displayName || c.username}{" "}
+                        {c.isOfficial && <span className="pill-official">Official</span>}{" "}
+                        <span className="pill" style={{ marginLeft: "auto" }}>
+                          {profile?.archetype} &middot; {formatTypeCode(c.mbtiType, c.identity)}
+                        </span>
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+              <button className="btn" type="submit">See group dynamic</button>
+            </form>
+          )}
+        </div>
+      )}
 
       {group && analysis && (
         <>

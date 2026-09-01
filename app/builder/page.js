@@ -16,9 +16,8 @@ import {
   analyzeGroupIdentity,
   formatTypeCode,
 } from "../../lib/mbti";
-import { unlockRosterAction } from "../actions";
 import NavTabs from "../components/NavTabs";
-import PasswordGate from "../components/PasswordGate";
+import LockedNotice from "../components/LockedNotice";
 
 const DICHOTOMY_LABELS = {
   EI: "Energy: Extraversion vs. Introversion",
@@ -49,51 +48,20 @@ export default async function BuilderPage({ searchParams }) {
   const username = getSessionUsername();
   if (!username) redirect("/");
 
-  if (!isRosterUnlocked()) {
-    return (
-      <>
-        <NavTabs active="/builder" username={username} />
-        <PasswordGate
-          action={unlockRosterAction}
-          redirectTo="/builder"
-          title="Team Builder"
-          description="Building a team from real colleagues' actual types is locked. Ask whoever shared this tool with you for the password."
-          error={searchParams?.gateError}
-        />
-      </>
-    );
-  }
-
+  const unlocked = isRosterUnlocked();
   const me = await getUser(username);
-  const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
-  const eligibleColleagues = [...allUsers, ...officialRoster].filter(
-    (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
-  );
 
-  if (!me?.mbtiType) {
-    return (
-      <>
-        <NavTabs active="/builder" username={username} />
-        <div className="card">
-          <p>Set your own MBTI type on your profile first, then come back here.</p>
-          <a className="btn" href="/profile">Go to your profile</a>
-        </div>
-      </>
-    );
-  }
-
-  const { mostComplementary, mostCompatible } = rankComplements(me.mbtiType, eligibleColleagues);
-
+  let eligibleColleagues = [];
+  let mostComplementary = [];
+  let mostCompatible = [];
   const activities = getActivities();
   const activityKey = typeof searchParams?.activity === "string" ? searchParams.activity : "";
   const activity = getActivity(activityKey);
-  const idealPeople = activity ? suggestIdealPeople(activity, [me, ...eligibleColleagues]).slice(0, 5) : null;
+  let idealPeople = null;
 
-  const selected = normalizeMembers(searchParams?.members).filter((name) =>
-    eligibleColleagues.some((c) => c.username === name)
-  );
+  let selected = [];
   const hasSelection = normalizeMembers(searchParams?.members).length > 0;
-  const validCount = selected.length >= 2 && selected.length <= 4;
+  let validCount = false;
 
   let group = null;
   let analysis = null;
@@ -104,21 +72,36 @@ export default async function BuilderPage({ searchParams }) {
   let activityFillers = null;
   let identityAnalysis = null;
 
-  if (hasSelection && validCount) {
-    const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
-    group = members;
-    analysis = analyzeGroup(members.map((m) => m.mbtiType));
-    identityAnalysis = analyzeGroupIdentity(members.map((m) => m.identity));
-    radar = buildRadarChart(analysis, {
-      idealPercentByLetter: activity ? getIdealPercentByLetter(activity) : null,
-    });
-    gaps = getGapLetters(analysis);
-    const remaining = eligibleColleagues.filter((c) => !selected.includes(c.username));
-    fillers = suggestGapFillers(gaps, remaining).slice(0, 3);
+  if (unlocked && me?.mbtiType) {
+    const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
+    eligibleColleagues = [...allUsers, ...officialRoster].filter(
+      (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
+    );
 
-    if (activity) {
-      activityFit = evaluateActivityFit(analysis, activity);
-      activityFillers = suggestGapFillers(activityFit.gapLetters, remaining).slice(0, 3);
+    ({ mostComplementary, mostCompatible } = rankComplements(me.mbtiType, eligibleColleagues));
+    idealPeople = activity ? suggestIdealPeople(activity, [me, ...eligibleColleagues]).slice(0, 5) : null;
+
+    selected = normalizeMembers(searchParams?.members).filter((name) =>
+      eligibleColleagues.some((c) => c.username === name)
+    );
+    validCount = selected.length >= 2 && selected.length <= 4;
+
+    if (hasSelection && validCount) {
+      const members = [me, ...selected.map((name) => eligibleColleagues.find((c) => c.username === name))];
+      group = members;
+      analysis = analyzeGroup(members.map((m) => m.mbtiType));
+      identityAnalysis = analyzeGroupIdentity(members.map((m) => m.identity));
+      radar = buildRadarChart(analysis, {
+        idealPercentByLetter: activity ? getIdealPercentByLetter(activity) : null,
+      });
+      gaps = getGapLetters(analysis);
+      const remaining = eligibleColleagues.filter((c) => !selected.includes(c.username));
+      fillers = suggestGapFillers(gaps, remaining).slice(0, 3);
+
+      if (activity) {
+        activityFit = evaluateActivityFit(analysis, activity);
+        activityFillers = suggestGapFillers(activityFit.gapLetters, remaining).slice(0, 3);
+      }
     }
   }
 
@@ -136,6 +119,15 @@ export default async function BuilderPage({ searchParams }) {
         </p>
       </div>
 
+      {!unlocked ? (
+        <LockedNotice what="Team Builder" />
+      ) : !me?.mbtiType ? (
+        <div className="card">
+          <p>Set your own MBTI type on your profile first, then come back here.</p>
+          <a className="btn" href="/profile">Go to your profile</a>
+        </div>
+      ) : (
+        <>
       <div className="card">
         <h2>Who complements you</h2>
         <p className="hint" style={{ marginTop: -4 }}>
@@ -485,6 +477,8 @@ export default async function BuilderPage({ searchParams }) {
               <p>{identityAnalysis.text}</p>
             </div>
           )}
+        </>
+      )}
         </>
       )}
     </>
