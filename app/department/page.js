@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
-import { getAllUsers, getUser } from "../../lib/db";
+import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
 import { getTypeProfile, analyzeGroup, analyzeGroupIdentity, formatTypeCode } from "../../lib/mbti";
 import { unlockRosterAction } from "../actions";
 import NavTabs from "../components/NavTabs";
@@ -38,9 +38,9 @@ export default async function DepartmentPage({ searchParams }) {
   }
 
   const me = await getUser(username);
-  const allUsers = await getAllUsers();
+  const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
 
-  const eligibleColleagues = allUsers.filter(
+  const eligibleColleagues = [...allUsers, ...officialRoster].filter(
     (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
   );
 
@@ -113,7 +113,8 @@ export default async function DepartmentPage({ searchParams }) {
                         defaultChecked={selected.includes(c.username)}
                         style={{ width: "auto" }}
                       />
-                      {c.username}{" "}
+                      {c.displayName || c.username}{" "}
+                      {c.isOfficial && <span className="pill-official">Official</span>}{" "}
                       <span className="pill" style={{ marginLeft: "auto" }}>
                         {profile?.archetype} &middot; {formatTypeCode(c.mbtiType, c.identity)}
                       </span>
@@ -135,7 +136,10 @@ export default async function DepartmentPage({ searchParams }) {
               const profile = getTypeProfile(m.mbtiType);
               return (
                 <div key={m.username} className="user-row">
-                  <span>{m.username}{m.username === me.username ? " (you)" : ""}</span>
+                  <span>
+                    {m.displayName || m.username}{m.username === me.username ? " (you)" : ""}{" "}
+                    {m.isOfficial && <span className="pill-official">Official</span>}
+                  </span>
                   <span className="pill">{profile?.archetype} &middot; {formatTypeCode(m.mbtiType, m.identity)}</span>
                 </div>
               );
@@ -185,7 +189,8 @@ export default async function DepartmentPage({ searchParams }) {
             return (
               <div key={r.username} className="card">
                 <span className="pill">{formatTypeCode(r.mbtiType, r.identity)}</span>
-                <h2 style={{ marginTop: 10 }}>{r.username}</h2>
+                {r.isOfficial && <span className="pill-official" style={{ marginLeft: 8 }}>Official</span>}
+                <h2 style={{ marginTop: 10 }}>{r.displayName || r.username}</h2>
                 <p className="hint" style={{ marginTop: -8, marginBottom: 12 }}>{profile?.archetype}</p>
                 {profile?.teamDynamics ? (
                   <>

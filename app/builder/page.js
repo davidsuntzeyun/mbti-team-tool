@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
-import { getAllUsers, getUser } from "../../lib/db";
+import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
 import {
   getTypeProfile,
   rankComplements,
@@ -65,8 +65,8 @@ export default async function BuilderPage({ searchParams }) {
   }
 
   const me = await getUser(username);
-  const allUsers = await getAllUsers();
-  const eligibleColleagues = allUsers.filter(
+  const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
+  const eligibleColleagues = [...allUsers, ...officialRoster].filter(
     (u) => u.username.toLowerCase() !== username.toLowerCase() && u.mbtiType
   );
 
@@ -148,7 +148,11 @@ export default async function BuilderPage({ searchParams }) {
             <div className="section-label" style={{ marginTop: 14 }}>Most complementary (fills your gaps)</div>
             {mostComplementary.slice(0, 5).map((c) => (
               <div key={`comp-${c.username}`} className="user-row">
-                <span>{c.username} <span className="hint" style={{ display: "inline", marginTop: 0 }}>{getTypeProfile(c.mbtiType)?.archetype}</span></span>
+                <span>
+                  {c.displayName || c.username}{" "}
+                  {c.isOfficial && <span className="pill-official">Official</span>}{" "}
+                  <span className="hint" style={{ display: "inline", marginTop: 0 }}>{getTypeProfile(c.mbtiType)?.archetype}</span>
+                </span>
                 <span className="pill">{formatTypeCode(c.mbtiType, c.identity)} &middot; differs on {c.diffCount}/4</span>
               </div>
             ))}
@@ -156,7 +160,11 @@ export default async function BuilderPage({ searchParams }) {
             <div className="section-label" style={{ marginTop: 18 }}>Most compatible (easiest rapport)</div>
             {mostCompatible.slice(0, 5).map((c) => (
               <div key={`compat-${c.username}`} className="user-row">
-                <span>{c.username} <span className="hint" style={{ display: "inline", marginTop: 0 }}>{getTypeProfile(c.mbtiType)?.archetype}</span></span>
+                <span>
+                  {c.displayName || c.username}{" "}
+                  {c.isOfficial && <span className="pill-official">Official</span>}{" "}
+                  <span className="hint" style={{ display: "inline", marginTop: 0 }}>{getTypeProfile(c.mbtiType)?.archetype}</span>
+                </span>
                 <span className="pill">{formatTypeCode(c.mbtiType, c.identity)} &middot; shares {c.sameCount}/4</span>
               </div>
             ))}
@@ -212,7 +220,8 @@ export default async function BuilderPage({ searchParams }) {
                         defaultChecked={selected.includes(c.username)}
                         style={{ width: "auto" }}
                       />
-                      {c.username}{" "}
+                      {c.displayName || c.username}{" "}
+                      {c.isOfficial && <span className="pill-official">Official</span>}{" "}
                       <span className="pill" style={{ marginLeft: "auto" }}>
                         {profile?.archetype} &middot; {formatTypeCode(c.mbtiType, c.identity)}
                       </span>
@@ -258,7 +267,8 @@ export default async function BuilderPage({ searchParams }) {
             idealPeople.map((c) => (
               <div key={c.username} className="user-row">
                 <span>
-                  {c.username}{c.username === me.username ? " (you)" : ""}{" "}
+                  {c.displayName || c.username}{c.username === me.username ? " (you)" : ""}{" "}
+                  {c.isOfficial && <span className="pill-official">Official</span>}{" "}
                   <span className="hint" style={{ display: "inline", marginTop: 0 }}>
                     {getTypeProfile(c.mbtiType)?.archetype}
                   </span>
@@ -278,7 +288,10 @@ export default async function BuilderPage({ searchParams }) {
               const profile = getTypeProfile(m.mbtiType);
               return (
                 <div key={m.username} className="user-row">
-                  <span>{m.username}{m.username === me.username ? " (you)" : ""}</span>
+                  <span>
+                    {m.displayName || m.username}{m.username === me.username ? " (you)" : ""}{" "}
+                    {m.isOfficial && <span className="pill-official">Official</span>}
+                  </span>
                   <span className="pill">{profile?.archetype} &middot; {formatTypeCode(m.mbtiType, m.identity)}</span>
                 </div>
               );
@@ -391,7 +404,8 @@ export default async function BuilderPage({ searchParams }) {
                   {activityFillers.map((c) => (
                     <div key={c.username} className="user-row" style={{ alignItems: "flex-start" }}>
                       <span>
-                        {c.username}{" "}
+                        {c.displayName || c.username}{" "}
+                        {c.isOfficial && <span className="pill-official">Official</span>}{" "}
                         <span className="hint" style={{ display: "inline", marginTop: 0 }}>
                           {getTypeProfile(c.mbtiType)?.archetype}
                         </span>
@@ -443,7 +457,8 @@ export default async function BuilderPage({ searchParams }) {
                     {fillers.map((c) => (
                       <div key={c.username} className="user-row" style={{ alignItems: "flex-start" }}>
                         <span>
-                          {c.username}{" "}
+                          {c.displayName || c.username}{" "}
+                          {c.isOfficial && <span className="pill-official">Official</span>}{" "}
                           <span className="hint" style={{ display: "inline", marginTop: 0 }}>
                             {getTypeProfile(c.mbtiType)?.archetype}
                           </span>

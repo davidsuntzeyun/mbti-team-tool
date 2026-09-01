@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
-import { getAllUsers, getUser } from "../../lib/db";
+import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
 import { getTypeProfile, quickMatch, getCommunicationFeel, getIdentityMatch, formatTypeCode } from "../../lib/mbti";
 import { unlockRosterAction } from "../actions";
 import NavTabs from "../components/NavTabs";
@@ -26,13 +26,16 @@ export default async function MatchPage({ searchParams }) {
   }
 
   const me = await getUser(username);
-  const allUsers = await getAllUsers();
-  const colleagues = allUsers.filter(
+  const [allUsers, officialRoster] = await Promise.all([getAllUsers(), getOfficialRoster()]);
+  const allColleagues = [...allUsers, ...officialRoster];
+  const colleagues = allColleagues.filter(
     (u) => u.username.toLowerCase() !== username.toLowerCase()
   );
 
   const withUsername = searchParams?.with;
-  const colleague = withUsername ? await getUser(withUsername) : null;
+  const colleague = withUsername
+    ? allColleagues.find((u) => u.username.toLowerCase() === withUsername.toLowerCase())
+    : null;
 
   return (
     <>
@@ -61,7 +64,9 @@ export default async function MatchPage({ searchParams }) {
             <select name="with" defaultValue={withUsername || ""}>
               <option value="" disabled>Select a colleague&hellip;</option>
               {colleagues.map((c) => (
-                <option key={c.username} value={c.username}>{c.username}</option>
+                <option key={c.username} value={c.username}>
+                  {c.displayName || c.username}{c.isOfficial ? " · Official" : ""}
+                </option>
               ))}
             </select>
             <button className="btn" type="submit">See the match</button>
@@ -86,13 +91,14 @@ function MatchResult({ me, colleague }) {
   if (!colleague.mbtiType) {
     return (
       <div className="card">
-        <p>{colleague.username} hasn't entered their MBTI type yet, so there's nothing to match against just yet.</p>
+        <p>{colleague.displayName || colleague.username} hasn't entered their MBTI type yet, so there's nothing to match against just yet.</p>
       </div>
     );
   }
 
   const meProfile = getTypeProfile(me.mbtiType);
   const colleagueProfile = getTypeProfile(colleague.mbtiType);
+  const colleagueLabel = colleague.displayName || colleague.username;
   const result = quickMatch(me.mbtiType, colleague.mbtiType);
   const feel = getCommunicationFeel(me.mbtiType, colleague.mbtiType);
   const identityMatch = getIdentityMatch(me.identity, colleague.identity);
@@ -100,13 +106,14 @@ function MatchResult({ me, colleague }) {
   return (
     <>
       <div className="card">
-        <h2>
+        {colleague.isOfficial && <span className="pill-official">Official</span>}
+        <h2 style={{ marginTop: colleague.isOfficial ? 10 : 0 }}>
           {meProfile.archetype} ({formatTypeCode(me.mbtiType, me.identity)}){" "}
           <span style={{ color: "#c6c6c6", fontWeight: 400 }}>&times;</span>{" "}
           {colleagueProfile.archetype} ({formatTypeCode(colleague.mbtiType, colleague.identity)})
         </h2>
         <p>
-          You ({meProfile.label}) and {colleague.username} ({colleagueProfile.label}).
+          You ({meProfile.label}) and {colleagueLabel} ({colleagueProfile.label}).
         </p>
       </div>
 
@@ -151,7 +158,7 @@ function MatchResult({ me, colleague }) {
         <>
           <div className="card">
             <div className="section-label">Team dynamics</div>
-            <h2 style={{ marginTop: 0 }}>Working well with {colleague.username}</h2>
+            <h2 style={{ marginTop: 0 }}>Working well with {colleagueLabel}</h2>
             <p>
               The intention here is simple: make sure you are working well
               together. Understanding your communication style and theirs
@@ -186,12 +193,12 @@ function MatchResult({ me, colleague }) {
           </div>
 
           <div className="card">
-            <div className="section-label">How {colleague.username} likely feels communicating with you</div>
+            <div className="section-label">How {colleagueLabel} likely feels communicating with you</div>
             <p>{feel.howTheyFeelWithYou}</p>
           </div>
 
           <div className="card">
-            <div className="section-label">How you likely feel communicating with {colleague.username}</div>
+            <div className="section-label">How you likely feel communicating with {colleagueLabel}</div>
             <p>{feel.howYouFeelWithThem}</p>
           </div>
         </>
