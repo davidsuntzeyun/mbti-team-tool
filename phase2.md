@@ -36,7 +36,7 @@ with a [type] without it landing badly."
 - Could extend into Quick Match (a "how to disagree with this specific
   person" combined readout) the same way Identity did.
 
-### 3. Department Dynamic (manager's team-view)
+### 3. Department Dynamic (manager's team-view) — ✅ Built
 Reframes the earlier "manager's team-view" idea as its own feature,
 parallel to the existing Team Dynamic page. A manager picks their reports
 (their whole department, not capped at 3-5 like Team Dynamic/Team Builder)
@@ -57,7 +57,7 @@ and gets:
   view and radar chart just need to actually be tested at larger N (e.g. a
   department of 12-15) rather than assumed to hold up.
 
-### 4. Personal Growth Plan
+### 4. Personal Growth Plan — ✅ Built
 A per-person development card, distinct from the existing "growth edge"
 text on Profile. Structure:
 
@@ -108,17 +108,30 @@ decision-support.
   strength/weakness combined with role-specific topic lists), not 48
   bespoke combinations.
 
-## Open questions still to resolve before building anything
+## Built (2026-09-01)
 
-- Which of these (if any) is worth doing first?
+Both Department Dynamic and Personal Growth Plan are live:
+
+- **Department Dynamic** (`/department`) — no size cap, confirmed working
+  at 6 people in testing (aggregate balance + identity readout, same as
+  Team Dynamic). It reuses Team Dynamic's dichotomy-card view, not Team
+  Builder's radar chart, so the "does the radar hold up at N=15" question
+  turned out to be moot — there's no radar here. Adds a new per-report
+  section pulling `teamDynamics.asTeamMember` / `communicate` /
+  `bringOutBest` for each person picked.
+- **Personal Growth Plan** (`/growth`) — new `content/growth-plan.json`
+  with 16 type-specific strength/weakness blurbs + 3 role-specific topic
+  lists. New optional `role` field on the user profile (people manager /
+  project manager / individual contributor), same skippable pattern as
+  Identity, set from its own card on the Profile page.
+- Added to Getting Started as steps 6 and 8, and to both nav components.
+
+## Open questions still to resolve before building anything else
+
+- Which of ideas 1, 2, and 5 (if any) is worth doing next?
 - Does the "working with me" card replace part of the existing Profile page,
   or live alongside it / on Explore Types too?
 - Should the conflict script live per-type only, or also get a Quick Match
   pairwise version like Identity did?
-- Department Dynamic: at unlimited size, does the existing radar chart
-  still read well, or does it need a different visualization once a
-  department gets past ~10-15 people?
-- Personal Growth Plan: is the new "role" field required or optional (like
-  Identity), and where does someone set it — Profile, or its own step?
 - Is the fun/aggregate stats idea worth it at all, or lower priority than
   it sounds?

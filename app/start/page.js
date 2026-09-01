@@ -40,20 +40,23 @@ const STEPS = [
   },
   {
     step: "6",
+    title: "Manage your whole department, not just a group",
+    href: "/department",
+    label: "Department Dynamic",
+    body: "The manager's version of Team Dynamic, no size cap. Pick everyone who reports to you and get both the department's overall balance and a personalized note on how to manage each person.",
+  },
+  {
+    step: "7",
     title: "Build the right team for the job",
     href: "/builder",
     label: "Team Builder",
     body: "See who on the roster naturally complements you, or build a group for a specific kind of work, brainstorming, operational execution, client-facing, and more, and see how well it fits.",
   },
-];
-
-const COMING_SOON = [
   {
-    title: "Department Dynamic",
-    body: "A manager's view: pick your whole department, no size limit, and see both the group's overall balance and a personalized guide for how to manage each person on it.",
-  },
-  {
-    title: "Personal Growth Plan",
+    step: "8",
+    title: "Get your own development plan",
+    href: "/growth",
+    label: "Growth Plan",
     body: "A development card built from your type: what to lean into, what to actively manage, and concrete topics to research, tailored to whether you manage people, manage projects, or work as an individual contributor.",
   },
 ];
@@ -91,21 +94,6 @@ export default function StartPage() {
           </a>
         </div>
       ))}
-
-      <div className="card">
-        <span className="pill">Roadmap</span>
-        <h2 style={{ marginTop: 10 }}>Coming soon</h2>
-        <p className="hint" style={{ marginTop: -4 }}>
-          Not built yet, still being shaped, listed here so you know what's
-          on the way.
-        </p>
-        {COMING_SOON.map((c) => (
-          <div key={c.title} style={{ marginBottom: 14 }}>
-            <h3 style={{ marginBottom: 2 }}>{c.title}</h3>
-            <p style={{ margin: 0 }}>{c.body}</p>
-          </div>
-        ))}
-      </div>
 
       <div className="card">
         <div className="section-label">A few things worth knowing</div>

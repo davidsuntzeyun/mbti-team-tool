@@ -1,10 +1,11 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername } from "../../lib/session";
 import { getUser } from "../../lib/db";
-import { getTypeProfile, getIdentityProfile, getTypeIdentityProfile, formatTypeCode } from "../../lib/mbti";
-import { setMyTypeAction, setMyIdentityAction, setMyScoresAction, deleteMyAccountAction } from "../actions";
+import { getTypeProfile, getIdentityProfile, getTypeIdentityProfile, getRoleProfile, formatTypeCode } from "../../lib/mbti";
+import { setMyTypeAction, setMyIdentityAction, setMyScoresAction, setMyRoleAction, deleteMyAccountAction } from "../actions";
 import TypePicker from "../components/TypePicker";
 import IdentityPicker from "../components/IdentityPicker";
+import RolePicker from "../components/RolePicker";
 import NavTabs from "../components/NavTabs";
 
 const SCORE_FIELDS = [
@@ -26,6 +27,7 @@ export default async function ProfilePage({ searchParams }) {
   const profile = user.mbtiType ? getTypeProfile(user.mbtiType) : null;
   const identityProfile = user.identity ? getIdentityProfile(user.identity) : null;
   const typeIdentityProfile = user.identity ? getTypeIdentityProfile(user.mbtiType, user.identity) : null;
+  const roleProfile = user.role ? getRoleProfile(user.role) : null;
 
   return (
     <>
@@ -160,6 +162,36 @@ export default async function ProfilePage({ searchParams }) {
               ))}
               <button className="btn" type="submit">Save scores</button>
             </form>
+          </div>
+
+          <div className="card">
+            <span className="pill">Optional</span>
+            <h2 style={{ marginTop: 10 }}>What's your role?</h2>
+            <p className="hint" style={{ marginTop: -4 }}>
+              This only shapes your{" "}
+              <a href="/growth">Personal Growth Plan</a>, picking which
+              development topics get suggested to you. Skip it if you're not
+              sure, you can always come back to it.
+            </p>
+            {roleProfile ? (
+              <>
+                <p>Currently set to <strong>{roleProfile.label}</strong>.</p>
+                <details style={{ marginTop: 10 }}>
+                  <summary className="collapsible-summary">
+                    <h3 style={{ display: "inline", marginBottom: 0 }}>Change this</h3>
+                  </summary>
+                  <form action={setMyRoleAction} style={{ marginTop: 10 }}>
+                    <RolePicker name="role" defaultValue={user.role} />
+                    <button className="btn btn-outline" type="submit">Update</button>
+                  </form>
+                </details>
+              </>
+            ) : (
+              <form action={setMyRoleAction}>
+                <RolePicker name="role" defaultValue={user.role} />
+                <button className="btn" type="submit">Save</button>
+              </form>
+            )}
           </div>
 
           <details className="card" open={Boolean(error)}>

@@ -1,0 +1,100 @@
+{
+  "types": {
+    "ISTJ": {
+      "strength": "Lean into your reliability. When a team is scattered or a plan is vague, you're the one who can turn it into something concrete and dependable, don't undersell how rare that is.",
+      "weakness": "Watch for treating \"the way we've always done it\" as the same thing as \"the right way.\" Build in a regular, deliberate check for whether the process still fits the situation, not just whether it's being followed."
+    },
+    "ISFJ": {
+      "strength": "Lean into your attentiveness. You notice what people actually need before they ask, use that instinct deliberately instead of just reacting to it.",
+      "weakness": "Watch for saying yes to keep the peace when you actually disagree. Practice naming a real objection early, before it turns into quiet resentment."
+    },
+    "INFJ": {
+      "strength": "Lean into your ability to see the pattern behind a situation. Say it out loud earlier, your insight helps the room more before a decision is made than after.",
+      "weakness": "Watch for going from fully engaged to completely checked out with no warning. Build in a habit of naming when you're withdrawing, rather than just disappearing."
+    },
+    "INTJ": {
+      "strength": "Lean into your long-range thinking. When a team is stuck reacting to the moment, you're the one who can name where this is actually headed.",
+      "weakness": "Watch for treating disagreement as inefficiency. Slow down enough to hear out a different approach fully before deciding it's wrong."
+    },
+    "ISTP": {
+      "strength": "Lean into your calm under pressure. When something breaks and everyone else is panicking, you're the one who can actually fix it.",
+      "weakness": "Watch for going quiet instead of flagging that you're stuck. A quick heads-up costs you nothing and saves everyone else from guessing."
+    },
+    "ISFP": {
+      "strength": "Lean into your quiet conviction. When you actually hold your ground on something, people notice, use that more deliberately, not just when you're pushed.",
+      "weakness": "Watch for letting a disagreement go unspoken because raising it feels like conflict. A perspective withheld helps no one, including you."
+    },
+    "INFP": {
+      "strength": "Lean into your sense of what actually matters. You see potential in people and ideas before anyone else does, say so before the moment passes.",
+      "weakness": "Watch for finishing the exciting 80 percent and quietly abandoning the last 20. Build a deliberate habit around closing things out, not just starting them."
+    },
+    "INTP": {
+      "strength": "Lean into your depth. When a problem needs someone to actually understand it, not just move fast on it, that's you, don't rush past that value.",
+      "weakness": "Watch for refining a conclusion long after it was already good enough. Set yourself a deliberate point to stop and share, even if it's not fully polished."
+    },
+    "ESTP": {
+      "strength": "Lean into your comfort acting on incomplete information. When a team is stuck overanalyzing, you're the one who can actually move things forward.",
+      "weakness": "Watch for skipping the people who needed to be consulted because you were moving fast. A quick check-in costs less than the cleanup after."
+    },
+    "ESFP": {
+      "strength": "Lean into your genuine warmth. You lift a room without even trying, that's a real skill, not just a personality trait, use it deliberately in tense moments.",
+      "weakness": "Watch for reading a flat reaction as personal failure. Not every room is about you, separate the outcome from your own worth before reacting."
+    },
+    "ENFP": {
+      "strength": "Lean into your ability to spot a new possibility others miss. Say it even when it's half-formed, the room needs the spark more than the polish.",
+      "weakness": "Watch for chasing the next idea before the current one is actually finished. Pick one thing to see all the way through before starting something new."
+    },
+    "ENTP": {
+      "strength": "Lean into your instinct to question assumptions. When a team is about to commit to something on autopilot, you're the one who actually stress-tests it.",
+      "weakness": "Watch for turning a useful debate into a battle you need to win. Notice when the relationship matters more than being right, and let it go."
+    },
+    "ESTJ": {
+      "strength": "Lean into your ability to bring order to chaos. When a team needs clear structure and a real decision, you're the one who delivers it.",
+      "weakness": "Watch for pushing harder for control exactly when the situation calls for flexibility. Pause before tightening your grip, and ask what the moment actually needs."
+    },
+    "ESFJ": {
+      "strength": "Lean into your instinct to keep people connected and included. A team runs better because you notice who's being left out, keep doing that deliberately.",
+      "weakness": "Watch for taking on more than your share to keep everyone happy. Practice naming what you're stretched thin on before it becomes resentment."
+    },
+    "ENFJ": {
+      "strength": "Lean into your ability to genuinely bring out the best in people. When someone doubts themselves, you're often the reason they don't quit, keep doing that on purpose.",
+      "weakness": "Watch for pouring into everyone else while your own reserves run empty. Protecting your own energy isn't selfish, it's what lets you keep showing up."
+    },
+    "ENTJ": {
+      "strength": "Lean into your decisiveness. When a team is stuck circling a decision, you're the one who can actually call it and move.",
+      "weakness": "Watch for pushing decisions through without bringing people along. A fast decision that no one buys into is often slower in the end."
+    }
+  },
+  "roles": {
+    "people_manager": {
+      "label": "People Manager",
+      "topics": [
+        "Delegation without micromanaging",
+        "Giving structured, specific feedback",
+        "Running effective one-on-ones",
+        "Managing conflict between team members",
+        "Recognizing burnout before it becomes a resignation"
+      ]
+    },
+    "project_manager": {
+      "label": "Project Manager",
+      "topics": [
+        "Scoping and sequencing dependencies",
+        "Communicating risk before it becomes a crisis",
+        "Running a postmortem that actually changes behavior",
+        "Balancing stakeholder expectations against real capacity",
+        "Facilitating decisions without owning every outcome"
+      ]
+    },
+    "individual_contributor": {
+      "label": "Individual Contributor",
+      "topics": [
+        "Making your work visible without over-explaining it",
+        "Asking for feedback before it's forced on you",
+        "Saying no to protect your actual priorities",
+        "Negotiating scope and deadlines with confidence",
+        "Building influence without needing the title"
+      ]
+    }
+  }
+}

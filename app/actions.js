@@ -8,6 +8,7 @@ import {
   updateUserType,
   updateUserIdentity,
   updateUserScores,
+  updateUserRole,
   deleteUser,
   upsertGuess,
   deleteGuess,
@@ -19,7 +20,7 @@ import {
   checkTypesPassword,
   unlockTypes,
 } from "../lib/session";
-import { isValidType, isValidIdentity } from "../lib/mbti";
+import { isValidType, isValidIdentity, isValidRole } from "../lib/mbti";
 
 // Errors are passed back via a `?error=` query param and rendered by the
 // destination page's server component. This keeps forms working with
@@ -133,6 +134,24 @@ export async function setMyScoresAction(formData) {
   }
 
   await updateUserScores(username, scores);
+  revalidatePath("/profile");
+  redirect("/profile");
+}
+
+// Role (people manager / project manager / individual contributor) is
+// optional and separate from the 4-letter type, same low-friction pattern
+// as Identity — it only shapes which development topics the Personal
+// Growth Plan shows.
+export async function setMyRoleAction(formData) {
+  const username = getSessionUsername();
+  if (!username) redirect("/");
+
+  const raw = String(formData.get("role") || "");
+  if (raw && !isValidRole(raw)) {
+    redirect("/profile?error=" + encodeURIComponent("That doesn't look like a valid role."));
+  }
+
+  await updateUserRole(username, raw || null);
   revalidatePath("/profile");
   redirect("/profile");
 }
