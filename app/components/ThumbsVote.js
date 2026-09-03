@@ -1,4 +1,5 @@
 import { voteContentAction } from "../actions";
+import { contentAnchorId } from "../../lib/feedback";
 
 // Thumbs up/down feedback on a single piece of content. Server component,
 // no client JS: each thumb is its own tiny form posting to the shared
@@ -31,7 +32,10 @@ function ThumbIcon({ direction }) {
 
 export default function ThumbsVote({ contentKey, vote, redirectTo }) {
   return (
-    <div style={{ display: "flex", justifyContent: "flex-end", gap: 4, marginTop: 12 }}>
+    <div
+      id={contentAnchorId(contentKey)}
+      style={{ display: "flex", justifyContent: "flex-end", gap: 4, marginTop: 12, scrollMarginTop: 16 }}
+    >
       <form action={voteContentAction} style={{ display: "inline" }}>
         <input type="hidden" name="contentKey" value={contentKey} />
         <input type="hidden" name="vote" value="up" />

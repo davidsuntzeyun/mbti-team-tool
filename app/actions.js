@@ -23,6 +23,7 @@ import {
   lockRoster,
 } from "../lib/session";
 import { isValidType, isValidIdentity, isValidRole } from "../lib/mbti";
+import { contentAnchorId } from "../lib/feedback";
 
 // Errors are passed back via a `?error=` query param and rendered by the
 // destination page's server component. This keeps forms working with
@@ -242,6 +243,7 @@ export async function voteContentAction(formData) {
   if (contentKey && (vote === "up" || vote === "down")) {
     await upsertContentVote({ username, contentKey, vote });
     revalidatePath(target.split("?")[0]);
+    redirect(`${target}#${contentAnchorId(contentKey)}`);
   }
   redirect(target);
 }
