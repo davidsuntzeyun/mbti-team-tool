@@ -296,5 +296,140 @@
       "ENFP": "Their enthusiasm for trying a new angle means the group does not settle for the first safe layout."
     },
     "excelsAt": "A group like this produces work that actually stops someone mid-scroll, with a clear sense of its own style. The risk is refining the look so long that it never quite ships."
+  },
+  "creating-course-materials": {
+    "label": "Creating Course Materials",
+    "group": "Creative & Visual",
+    "description": "Turning a lesson plan into slides, worksheets, and exercises a student can actually use.",
+    "skillsNeeded": "Needs someone who can translate an idea into something concrete and usable: Sensing for grounding an exercise in something a student can practically do, and Judging for structuring the material so it is ready to teach from, not just an idea of what to cover.",
+    "ideal": { "EI": { "E": 30 }, "SN": { "S": 60 }, "TF": { "T": 50 }, "JP": { "J": 55 } },
+    "idealTypes": ["ISTJ", "ISTP", "INTP", "ISFP"],
+    "idealTypeReasons": {
+      "ISTJ": "Their thoroughness means a worksheet actually covers what a student needs, not just what's convenient to write.",
+      "ISTP": "Their hands-on, practical instinct means an exercise mirrors something a student will actually do, not just a theoretical scenario.",
+      "INTP": "Their comfort building something logically airtight means the material holds up when a sharp student pokes at it.",
+      "ISFP": "Their quiet care for how something will actually feel to use means the material reads as considered, not just assembled."
+    },
+    "excelsAt": "A group like this produces material that is genuinely usable in a live session, not just correct on paper. The risk is polishing one exercise so long that the rest of the module falls behind schedule."
+  },
+  "recording-video-lessons": {
+    "label": "Recording Video Lessons",
+    "group": "People-Facing",
+    "description": "Teaching on camera, without a live room to react to.",
+    "skillsNeeded": "Needs someone comfortable holding a clear throughline alone in front of a camera: Judging for pacing a lesson well without a live room's cues, and enough warmth to still come across as personal on a recording.",
+    "ideal": { "EI": { "E": 45 }, "SN": { "S": 35 }, "TF": { "T": 30 }, "JP": { "J": 45 } },
+    "idealTypes": ["ENFJ", "INFJ", "ISFJ", "ENTP"],
+    "idealTypeReasons": {
+      "ENFJ": "Their instinct to speak directly to what an audience needs means a recorded lesson still feels personal, even without a live room to read.",
+      "INFJ": "Their ability to hold a clear throughline means a recorded lesson stays focused, even without a live audience's questions to react to.",
+      "ISFJ": "Their attentiveness to what might trip a student up means they build in the small clarifications a first-time viewer needs.",
+      "ENTP": "Their comfort explaining an idea from a few different angles means a concept still lands even without someone in the room to ask a follow-up."
+    },
+    "excelsAt": "A group like this produces a lesson that holds up on repeat viewing, clear and well-paced without needing a live room to carry it. The risk is over-scripting it until it loses the natural energy a good teacher brings."
+  },
+  "grading-assessments": {
+    "label": "Grading Assessments",
+    "group": "Analysis & Execution",
+    "description": "Reviewing a student's actual submitted work and giving it a fair, accurate mark.",
+    "skillsNeeded": "Needs someone comfortable with repetitive, detail-heavy work: Sensing for checking what was actually submitted rather than what was probably meant, and Judging for holding the same standard from the first submission to the last.",
+    "ideal": { "EI": { "E": 25 }, "SN": { "S": 75 }, "TF": { "T": 65 }, "JP": { "J": 80 } },
+    "idealTypes": ["ISTJ", "ISFJ", "INTJ", "ESTJ"],
+    "idealTypeReasons": {
+      "ISTJ": "Their consistency means every submission gets held to the same standard, not graded on how convincing the writing sounds.",
+      "ISFJ": "Their patience with repetitive work means the tenth submission gets the same careful attention as the first.",
+      "INTJ": "Their instinct to keep checking the logic means partial credit reflects real understanding, not just the right final answer.",
+      "ESTJ": "Their comfort holding a clear standard means feedback stays consistent across a whole cohort, not softer for some students than others."
+    },
+    "excelsAt": "A group like this grades fairly and consistently, and rarely lets a standard slip as the pile gets long. The risk is spending so long on precision that feedback reaches the student too late to be useful."
+  },
+  "moderating-community": {
+    "label": "Moderating Community",
+    "group": "People-Facing",
+    "description": "The day-to-day of a student group: answering scattered questions, keeping the tone right.",
+    "skillsNeeded": "Needs someone comfortable with an ongoing, low-structure stream of people: Feeling for keeping the tone warm and welcoming, and enough Extraversion to stay genuinely present in an always-on group.",
+    "ideal": { "EI": { "E": 60 }, "SN": { "S": 50 }, "TF": { "T": 20 }, "JP": { "J": 45 } },
+    "idealTypes": ["ESFJ", "ISFJ", "ENFJ", "ESFP"],
+    "idealTypeReasons": {
+      "ESFJ": "Their instinct to keep a group feeling cared for and organized means a community stays welcoming even as it grows.",
+      "ISFJ": "Their quiet attentiveness means a question that's easy to miss in a busy thread still gets a reply.",
+      "ENFJ": "Their ability to read the mood of a group means they catch a souring conversation before it needs a harder intervention.",
+      "ESFP": "Their warmth and presence keep a community feeling alive and social, not just a place to post questions."
+    },
+    "excelsAt": "A group like this keeps a community feeling genuinely welcoming, active, and looked after. The risk is being so responsive to every post that burnout creeps in from treating every message as urgent."
+  },
+  "onboarding-students": {
+    "label": "Onboarding Students",
+    "group": "People-Facing",
+    "description": "Welcoming a new student right after they enroll, and setting them up to actually start.",
+    "skillsNeeded": "Needs someone who is both warm and organized: Feeling for making a new student's first impression feel personal, and Judging for making sure nothing about getting them set up falls through the cracks.",
+    "ideal": { "EI": { "E": 55 }, "SN": { "S": 55 }, "TF": { "T": 25 }, "JP": { "J": 60 } },
+    "idealTypes": ["ESFJ", "ISFJ", "ENFJ", "ESTJ"],
+    "idealTypeReasons": {
+      "ESFJ": "Their genuine warmth means a new student's first impression of the program feels personal, not procedural.",
+      "ISFJ": "Their patience with someone brand new means basic questions get answered without a hint of impatience.",
+      "ENFJ": "Their instinct to help someone feel like they belong from day one means a new student is more likely to actually show up to the next session.",
+      "ESTJ": "Their organizational instinct means nothing about getting a new student set up gets left half-done or forgotten."
+    },
+    "excelsAt": "A group like this makes a new student's first week feel organized and genuinely welcoming, not like they're figuring it out alone. The risk is over-onboarding: so much upfront information that it overwhelms rather than reassures."
+  },
+  "researching-markets": {
+    "label": "Researching Markets",
+    "group": "Analysis & Execution",
+    "description": "Digging into the macro, industry, and company-level research that curriculum content is actually built on.",
+    "skillsNeeded": "Needs someone who can sit with a claim until it holds up: Thinking for objective, evidence-first reasoning, and enough Judging to actually land on a conclusion instead of researching indefinitely.",
+    "ideal": { "EI": { "E": 30 }, "SN": { "S": 30 }, "TF": { "T": 80 }, "JP": { "J": 55 } },
+    "idealTypes": ["INTJ", "INTP", "ISTJ", "ENTP"],
+    "idealTypeReasons": {
+      "INTJ": "Their instinct to build a thesis several steps ahead means the research accounts for where a trend is headed, not just where it is today.",
+      "INTP": "Their genuine enjoyment of understanding how something actually works means they keep digging past the first plausible explanation.",
+      "ISTJ": "Their thoroughness with sourcing and fact-checking means a claim in the research can actually be traced back to something real.",
+      "ENTP": "Their comfort questioning the obvious take means the research surfaces the counterargument too, not just the popular narrative."
+    },
+    "excelsAt": "A group like this produces research that holds up under scrutiny, with the sourcing to back it. The risk is disappearing down a research rabbit hole long after the actionable insight was already clear."
+  },
+  "ensuring-compliance": {
+    "label": "Ensuring Compliance",
+    "group": "Analysis & Execution",
+    "description": "Keeping claims about markets and returns honest, and disclaimers where they need to be.",
+    "skillsNeeded": "Needs someone with a low tolerance for ambiguity: Sensing for catching an overstated or unclear claim in the actual wording, and a strong pull toward Judging, since this kind of work has little room for leaving something half-checked.",
+    "ideal": { "EI": { "E": 25 }, "SN": { "S": 70 }, "TF": { "T": 60 }, "JP": { "J": 85 } },
+    "idealTypes": ["ISTJ", "ISFJ", "INTJ", "ESTJ"],
+    "idealTypeReasons": {
+      "ISTJ": "Their low tolerance for leaving something unclear means a disclaimer actually says what it needs to, not just what's convenient.",
+      "ISFJ": "Their protective instinct extends naturally to protecting the student from an overstated claim, not just protecting the company.",
+      "INTJ": "Their instinct to keep questioning a claim until it holds up means an overreaching statement gets caught before it goes out.",
+      "ESTJ": "Their comfort holding a firm standard means a shortcut on compliance doesn't get waved through just to move faster."
+    },
+    "excelsAt": "A group like this keeps messaging honest and appropriately caveated without needing to be told twice. The risk is being so cautious that genuinely useful, confident teaching gets hedged into vagueness."
+  },
+  "hosting-events": {
+    "label": "Hosting Events",
+    "group": "People-Facing",
+    "description": "Running the live logistics and pacing of a bootcamp day, separate from the teaching itself.",
+    "skillsNeeded": "Needs someone comfortable keeping a live day on track: Judging for holding a schedule together as the day actually unfolds, and enough Extraversion to keep the room's energy up between segments.",
+    "ideal": { "EI": { "E": 80 }, "SN": { "S": 55 }, "TF": { "T": 40 }, "JP": { "J": 70 } },
+    "idealTypes": ["ESTJ", "ESFJ", "ENTJ", "ESFP"],
+    "idealTypeReasons": {
+      "ESTJ": "Their organizational instinct means the schedule for the day actually holds, even when one segment runs long.",
+      "ESFJ": "Their warmth keeps a room feeling comfortable and looked after between sessions, not just efficiently run.",
+      "ENTJ": "Their decisiveness means a last-minute hiccup gets handled and the show keeps moving, rather than stalling the whole room.",
+      "ESFP": "Their natural stage presence keeps the energy up between segments, so the day never feels like it's dragging."
+    },
+    "excelsAt": "A group like this keeps a live event running on time and feeling well looked after, without the seams showing. The risk is being so focused on the schedule that a session that's genuinely going well gets cut short."
+  },
+  "building-partnerships": {
+    "label": "Building Partnerships",
+    "group": "People-Facing",
+    "description": "Growing relationships with affiliates, guest speakers, and collaborators.",
+    "skillsNeeded": "Needs someone genuinely energized by new connections: Extraversion for carrying an ongoing string of new relationships, and Intuition for spotting a promising collaboration before it's obvious to everyone else.",
+    "ideal": { "EI": { "E": 80 }, "SN": { "S": 30 }, "TF": { "T": 45 }, "JP": { "J": 30 } },
+    "idealTypes": ["ENFJ", "ENTJ", "ENFP", "ESTP"],
+    "idealTypeReasons": {
+      "ENFJ": "Their instinct to build genuine rapport means a partnership feels like a real relationship, not just a mutual transaction.",
+      "ENTJ": "Their comfort opening a conversation with someone more senior or more established means a promising partnership actually gets pursued, not just talked about.",
+      "ENFP": "Their genuine enthusiasm for a new connection means outreach comes across as authentic interest, not a scripted pitch.",
+      "ESTP": "Their comfort acting on incomplete information means they will make the first move on a promising opportunity instead of waiting for a perfect opening."
+    },
+    "excelsAt": "A group like this builds relationships that actually turn into something, and isn't shy about making the first move. The risk is spreading across so many potential partnerships that none of them get the follow-through to actually land."
   }
 }
