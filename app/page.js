@@ -1,10 +1,19 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername } from "../lib/session";
+import { getUser } from "../lib/db";
 import { loginAction, signupAction } from "./actions";
 
-export default function HomePage({ searchParams }) {
+// If the cookie points at an account that no longer exists (e.g. it was
+// deleted while the browser still had a session), route through
+// /api/end-stale-session to clear it instead of blindly redirecting to
+// /profile — otherwise "/" sends you to "/profile", which finds no user
+// and redirects back to "/", forever.
+export default async function HomePage({ searchParams }) {
   const username = getSessionUsername();
-  if (username) redirect("/profile");
+  if (username) {
+    const user = await getUser(username);
+    redirect(user ? "/profile" : "/api/end-stale-session");
+  }
 
   const mode = searchParams?.mode === "signup" ? "signup" : "login";
   const error = searchParams?.error;

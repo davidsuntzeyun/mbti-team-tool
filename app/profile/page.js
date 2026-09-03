@@ -1,12 +1,14 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername } from "../../lib/session";
-import { getUser } from "../../lib/db";
+import { getUser, getContentVotesByUser } from "../../lib/db";
 import { getTypeProfile, getIdentityProfile, getTypeIdentityProfile, getRoleProfile, formatTypeCode } from "../../lib/mbti";
+import { typeContentKey, identityContentKey, typeIdentityContentKey } from "../../lib/feedback";
 import { setMyTypeAction, setMyIdentityAction, setMyScoresAction, setMyRoleAction, deleteMyAccountAction } from "../actions";
 import TypePicker from "../components/TypePicker";
 import IdentityPicker from "../components/IdentityPicker";
 import RolePicker from "../components/RolePicker";
 import NavTabs from "../components/NavTabs";
+import ThumbsVote from "../components/ThumbsVote";
 
 const SCORE_FIELDS = [
   { key: "EI", label: "Extraverted / Introverted", hint: "Positive = Extraverted, negative = Introverted." },
@@ -21,13 +23,15 @@ export default async function ProfilePage({ searchParams }) {
   if (!username) redirect("/");
 
   const user = await getUser(username);
-  if (!user) redirect("/");
+  if (!user) redirect("/api/end-stale-session");
 
   const error = searchParams?.error;
   const profile = user.mbtiType ? getTypeProfile(user.mbtiType) : null;
   const identityProfile = user.identity ? getIdentityProfile(user.identity) : null;
   const typeIdentityProfile = user.identity ? getTypeIdentityProfile(user.mbtiType, user.identity) : null;
   const roleProfile = user.role ? getRoleProfile(user.role) : null;
+  const votes = user.mbtiType ? await getContentVotesByUser(username) : {};
+  const redirectTo = "/profile";
 
   return (
     <>
@@ -56,52 +60,62 @@ export default async function ProfilePage({ searchParams }) {
             <h1 style={{ marginTop: 10 }}>{profile.archetype}</h1>
             <p className="hint" style={{ marginTop: -8, marginBottom: 12 }}>{profile.label}</p>
             <p>{profile.overview}</p>
+            <ThumbsVote contentKey={typeContentKey(user.mbtiType, "overview")} vote={votes[typeContentKey(user.mbtiType, "overview")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">Where you excel</div>
             <p>{profile.bestConditions}</p>
+            <ThumbsVote contentKey={typeContentKey(user.mbtiType, "bestConditions")} vote={votes[typeContentKey(user.mbtiType, "bestConditions")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">What drains you</div>
             <p>{profile.challenges}</p>
+            <ThumbsVote contentKey={typeContentKey(user.mbtiType, "challenges")} vote={votes[typeContentKey(user.mbtiType, "challenges")]} redirectTo={redirectTo} />
           </div>
 
           <div className="grid-2">
             <div className="card">
               <h3>Communication style</h3>
               <p>{profile.communicationStyle}</p>
+              <ThumbsVote contentKey={typeContentKey(user.mbtiType, "communicationStyle")} vote={votes[typeContentKey(user.mbtiType, "communicationStyle")]} redirectTo={redirectTo} />
             </div>
             <div className="card">
               <h3>Work style</h3>
               <p>{profile.workStyle}</p>
+              <ThumbsVote contentKey={typeContentKey(user.mbtiType, "workStyle")} vote={votes[typeContentKey(user.mbtiType, "workStyle")]} redirectTo={redirectTo} />
             </div>
           </div>
 
           <div className="card">
             <div className="section-label">Pet peeves</div>
             <p>{profile.petPeeves}</p>
+            <ThumbsVote contentKey={typeContentKey(user.mbtiType, "petPeeves")} vote={votes[typeContentKey(user.mbtiType, "petPeeves")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">Your growth edge</div>
             <p>{profile.growthEdge}</p>
+            <ThumbsVote contentKey={typeContentKey(user.mbtiType, "growthEdge")} vote={votes[typeContentKey(user.mbtiType, "growthEdge")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">Under pressure</div>
             <p>{profile.underPressure}</p>
+            <ThumbsVote contentKey={typeContentKey(user.mbtiType, "underPressure")} vote={votes[typeContentKey(user.mbtiType, "underPressure")]} redirectTo={redirectTo} />
           </div>
 
           <div className="grid-2">
             <div className="card">
               <h3>Receiving feedback</h3>
               <p>{profile.feedbackReceiving}</p>
+              <ThumbsVote contentKey={typeContentKey(user.mbtiType, "feedbackReceiving")} vote={votes[typeContentKey(user.mbtiType, "feedbackReceiving")]} redirectTo={redirectTo} />
             </div>
             <div className="card">
               <h3>Giving feedback</h3>
               <p>{profile.feedbackGiving}</p>
+              <ThumbsVote contentKey={typeContentKey(user.mbtiType, "feedbackGiving")} vote={votes[typeContentKey(user.mbtiType, "feedbackGiving")]} redirectTo={redirectTo} />
             </div>
           </div>
 
@@ -116,7 +130,13 @@ export default async function ProfilePage({ searchParams }) {
             {identityProfile ? (
               <>
                 <p>{identityProfile.overview}</p>
-                {typeIdentityProfile && <p>{typeIdentityProfile.description}</p>}
+                <ThumbsVote contentKey={identityContentKey(user.identity, "overview")} vote={votes[identityContentKey(user.identity, "overview")]} redirectTo={redirectTo} />
+                {typeIdentityProfile && (
+                  <>
+                    <p>{typeIdentityProfile.description}</p>
+                    <ThumbsVote contentKey={typeIdentityContentKey(user.mbtiType, user.identity, "description")} vote={votes[typeIdentityContentKey(user.mbtiType, user.identity, "description")]} redirectTo={redirectTo} />
+                  </>
+                )}
                 <details style={{ marginTop: 10 }}>
                   <summary className="collapsible-summary">
                     <h3 style={{ display: "inline", marginBottom: 0 }}>Change this</h3>

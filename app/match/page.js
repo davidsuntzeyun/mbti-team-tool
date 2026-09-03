@@ -1,8 +1,10 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername, isRosterUnlocked } from "../../lib/session";
-import { getAllUsers, getUser, getOfficialRoster } from "../../lib/db";
+import { getAllUsers, getUser, getOfficialRoster, getContentVotesByUser } from "../../lib/db";
 import { getTypeProfile, quickMatch, getCommunicationFeel, getIdentityMatch, formatTypeCode } from "../../lib/mbti";
+import { typeContentKey, matchContentKey, identityMatchContentKey, commFeelContentKey } from "../../lib/feedback";
 import NavTabs from "../components/NavTabs";
+import ThumbsVote from "../components/ThumbsVote";
 
 export default async function MatchPage({ searchParams }) {
   const username = getSessionUsername();
@@ -21,6 +23,8 @@ export default async function MatchPage({ searchParams }) {
   const colleague = withUsername
     ? allColleagues.find((u) => u.username.toLowerCase() === withUsername.toLowerCase())
     : null;
+  const votes = me?.mbtiType && colleague?.mbtiType ? await getContentVotesByUser(username) : {};
+  const redirectTo = withUsername ? `/match?with=${encodeURIComponent(withUsername)}` : "/match";
 
   return (
     <>
@@ -64,7 +68,7 @@ export default async function MatchPage({ searchParams }) {
             </form>
           </div>
 
-          {colleague && <MatchResult me={me} colleague={colleague} />}
+          {colleague && <MatchResult me={me} colleague={colleague} votes={votes} redirectTo={redirectTo} />}
 
           {withUsername && !colleague && (
             <div className="card">
@@ -77,7 +81,7 @@ export default async function MatchPage({ searchParams }) {
   );
 }
 
-function MatchResult({ me, colleague }) {
+function MatchResult({ me, colleague, votes, redirectTo }) {
   if (!colleague.mbtiType) {
     return (
       <div className="card">
@@ -114,6 +118,7 @@ function MatchResult({ me, colleague }) {
             <li key={i}>{s}</li>
           ))}
         </ul>
+        <ThumbsVote contentKey={matchContentKey(me.mbtiType, colleague.mbtiType, "strengths")} vote={votes[matchContentKey(me.mbtiType, colleague.mbtiType, "strengths")]} redirectTo={redirectTo} />
       </div>
 
       <div className="card">
@@ -123,6 +128,7 @@ function MatchResult({ me, colleague }) {
             <li key={i}>{s}</li>
           ))}
         </ul>
+        <ThumbsVote contentKey={matchContentKey(me.mbtiType, colleague.mbtiType, "weaknesses")} vote={votes[matchContentKey(me.mbtiType, colleague.mbtiType, "weaknesses")]} redirectTo={redirectTo} />
       </div>
 
       <div className="card">
@@ -132,6 +138,7 @@ function MatchResult({ me, colleague }) {
             <li key={i}>{s}</li>
           ))}
         </ul>
+        <ThumbsVote contentKey={matchContentKey(me.mbtiType, colleague.mbtiType, "conflicts")} vote={votes[matchContentKey(me.mbtiType, colleague.mbtiType, "conflicts")]} redirectTo={redirectTo} />
       </div>
 
       {identityMatch && (
@@ -141,6 +148,7 @@ function MatchResult({ me, colleague }) {
           <p>{identityMatch.strength}</p>
           <p>{identityMatch.weakness}</p>
           <p className="hint">{identityMatch.conflict}</p>
+          <ThumbsVote contentKey={identityMatchContentKey(me.identity, colleague.identity, "underPressureTogether")} vote={votes[identityMatchContentKey(me.identity, colleague.identity, "underPressureTogether")]} redirectTo={redirectTo} />
         </div>
       )}
 
@@ -160,36 +168,43 @@ function MatchResult({ me, colleague }) {
           <div className="card">
             <div className="section-label">If they are your manager</div>
             <p>{colleagueProfile.teamDynamics.asManager}</p>
+            <ThumbsVote contentKey={typeContentKey(colleague.mbtiType, "teamDynamics:asManager")} vote={votes[typeContentKey(colleague.mbtiType, "teamDynamics:asManager")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">If they are your peer</div>
             <p>{colleagueProfile.teamDynamics.asPeer}</p>
+            <ThumbsVote contentKey={typeContentKey(colleague.mbtiType, "teamDynamics:asPeer")} vote={votes[typeContentKey(colleague.mbtiType, "teamDynamics:asPeer")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">If they are your team member</div>
             <p>{colleagueProfile.teamDynamics.asTeamMember}</p>
+            <ThumbsVote contentKey={typeContentKey(colleague.mbtiType, "teamDynamics:asTeamMember")} vote={votes[typeContentKey(colleague.mbtiType, "teamDynamics:asTeamMember")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">How to communicate with them</div>
             <p>{colleagueProfile.teamDynamics.communicate}</p>
+            <ThumbsVote contentKey={typeContentKey(colleague.mbtiType, "teamDynamics:communicate")} vote={votes[typeContentKey(colleague.mbtiType, "teamDynamics:communicate")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">How to bring out their best</div>
             <p>{colleagueProfile.teamDynamics.bringOutBest}</p>
+            <ThumbsVote contentKey={typeContentKey(colleague.mbtiType, "teamDynamics:bringOutBest")} vote={votes[typeContentKey(colleague.mbtiType, "teamDynamics:bringOutBest")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">How {colleagueLabel} likely feels communicating with you</div>
             <p>{feel.howTheyFeelWithYou}</p>
+            <ThumbsVote contentKey={commFeelContentKey(colleague.mbtiType, me.mbtiType)} vote={votes[commFeelContentKey(colleague.mbtiType, me.mbtiType)]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">How you likely feel communicating with {colleagueLabel}</div>
             <p>{feel.howYouFeelWithThem}</p>
+            <ThumbsVote contentKey={commFeelContentKey(me.mbtiType, colleague.mbtiType)} vote={votes[commFeelContentKey(me.mbtiType, colleague.mbtiType)]} redirectTo={redirectTo} />
           </div>
         </>
       )}

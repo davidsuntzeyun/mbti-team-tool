@@ -12,6 +12,7 @@ import {
   deleteUser,
   upsertGuess,
   deleteGuess,
+  upsertContentVote,
 } from "../lib/db";
 import {
   setSessionCookie,
@@ -223,6 +224,26 @@ export async function removeGuessAction(formData) {
   await deleteGuess(guesserUsername, guessedUsername);
   revalidatePath("/guess");
   redirect("/guess");
+}
+
+// Thumbs up/down on a content card. contentKey identifies the underlying
+// blurb (see lib/feedback.js), not the page, so the same blurb shown on
+// multiple pages accumulates one shared tally. redirectTo sends the user
+// back to wherever they were, including any query string (e.g. which type
+// or colleague they had selected), same pattern as the roster lock.
+export async function voteContentAction(formData) {
+  const username = getSessionUsername();
+  if (!username) redirect("/");
+
+  const contentKey = String(formData.get("contentKey") || "");
+  const vote = String(formData.get("vote") || "");
+  const target = safeRedirectTarget(formData.get("redirectTo"));
+
+  if (contentKey && (vote === "up" || vote === "down")) {
+    await upsertContentVote({ username, contentKey, vote });
+    revalidatePath(target.split("?")[0]);
+  }
+  redirect(target);
 }
 
 // Anyone logged in can remove a roster entry (self-serve or "admin"),

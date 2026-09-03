@@ -15,6 +15,7 @@ import {
   suggestIdealPeople,
   analyzeGroupIdentity,
   formatTypeCode,
+  ACTIVITY_GROUPS,
 } from "../../lib/mbti";
 import NavTabs from "../components/NavTabs";
 
@@ -24,8 +25,6 @@ const DICHOTOMY_LABELS = {
   TF: "Decisions: Thinking vs. Feeling",
   JP: "Structure: Judging vs. Perceiving",
 };
-
-const ACTIVITY_GROUPS = ["Ideation & Planning", "Analysis & Execution", "People-Facing", "Pressure"];
 
 const LETTER_MEANINGS = {
   E: "Extraversion, draws energy from people and action.",

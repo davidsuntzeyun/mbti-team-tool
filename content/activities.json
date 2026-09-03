@@ -1,6 +1,6 @@
 {
   "creative-brainstorming": {
-    "label": "Creative brainstorming",
+    "label": "Generating Ideas",
     "group": "Ideation & Planning",
     "description": "Wide-open idea generation, no constraints yet.",
     "skillsNeeded": "Needs people comfortable generating and building on ideas quickly: Intuition for spotting new possibilities, Perceiving for staying open before locking in too early, and enough Extraversion in the room to keep energy and momentum going.",
@@ -15,7 +15,7 @@
     "excelsAt": "A group built from these types moves fast between ideas, plays well off each other's tangents, and rarely runs out of new angles to explore. The risk is polish: without someone willing to eventually narrow the list down, the ideas can stay ideas."
   },
   "process-brainstorming": {
-    "label": "Process brainstorming",
+    "label": "Improving Processes",
     "group": "Ideation & Planning",
     "description": "Improving or fixing something that already exists.",
     "skillsNeeded": "Needs people who can take a known problem and actually land on a workable fix: Sensing for staying grounded in what's really happening, and Judging for turning ideas into a concrete next step rather than leaving them open-ended.",
@@ -30,7 +30,7 @@
     "excelsAt": "A group like this stays grounded in what's actually broken and pushes toward a fix that will hold up in practice, not just on paper. The risk is getting so anchored to how things currently work that a genuinely better approach gets overlooked."
   },
   "strategic-planning": {
-    "label": "Strategic planning",
+    "label": "Setting Strategy",
     "group": "Ideation & Planning",
     "description": "Setting direction and prioritizing what's next.",
     "skillsNeeded": "Needs people who can see where things are headed and commit to a direction: Intuition for spotting the bigger picture and what it implies down the road, and Judging for actually deciding and locking in a plan rather than exploring indefinitely.",
@@ -45,7 +45,7 @@
     "excelsAt": "A group like this sees several moves ahead and is comfortable committing to a direction rather than endlessly revisiting it. The risk is moving too fast past the people who'll actually have to execute the plan day to day."
   },
   "data-analysis": {
-    "label": "Data & analysis",
+    "label": "Analyzing Data",
     "group": "Analysis & Execution",
     "description": "Digging into numbers, patterns, and root causes.",
     "skillsNeeded": "Needs people who can sit with numbers and draw a sound conclusion: Thinking for objective, logic-first reasoning, Sensing for staying with what the data actually shows rather than assumptions, and enough Introversion to focus deeply without needing constant interaction.",
@@ -60,7 +60,7 @@
     "excelsAt": "A group like this is comfortable sitting with a problem until the numbers actually make sense, and won't take a conclusion at face value without checking it. The risk is spending so long validating the data that a decision never actually gets made."
   },
   "operational": {
-    "label": "Operational execution",
+    "label": "Executing Operations",
     "group": "Analysis & Execution",
     "description": "Turning a plan into consistent, reliable delivery.",
     "skillsNeeded": "Needs people who turn plans into steady execution: Sensing for practical, on-the-ground detail, and Judging for structure and follow-through. Thinking and Feeling both work here, depending on whether the work is more process-heavy or more people-heavy.",
@@ -75,7 +75,7 @@
     "excelsAt": "A group like this delivers what it commits to, on schedule, without much drama. The risk is rigidity: once the plan is set, this kind of group can be slow to adjust when the situation genuinely changes."
   },
   "quality-review": {
-    "label": "Quality review",
+    "label": "Reviewing Work",
     "group": "Analysis & Execution",
     "description": "Catching errors and making sure nothing's missed.",
     "skillsNeeded": "Needs people with a sharp eye for what's wrong or missing: Sensing for catching concrete detail, and a strong pull toward Judging, since this kind of work has little tolerance for leaving things open-ended or half-checked.",
@@ -89,7 +89,7 @@
     "excelsAt": "A group like this catches what everyone else missed and rarely lets something half-finished slide through. The risk is that the bar can get so high that good-enough work gets held back longer than it needs to be."
   },
   "client-facing": {
-    "label": "Client-facing",
+    "label": "Serving Clients",
     "group": "People-Facing",
     "description": "Working directly with clients or stakeholders.",
     "skillsNeeded": "Needs people comfortable reading and responding to others: Feeling for empathy and rapport, and enough Extraversion to carry a conversation and build trust. Sensing or Intuition both work, depending on whether the client wants concrete answers or big-picture vision.",
@@ -104,7 +104,7 @@
     "excelsAt": "A group like this builds trust quickly and makes the people on the other side of the table feel genuinely heard. The risk is over-promising, or softening bad news the client actually needs to hear."
   },
   "sales-pitching": {
-    "label": "Sales & pitching",
+    "label": "Pitching Deals",
     "group": "People-Facing",
     "description": "Persuading and building excitement for an idea.",
     "skillsNeeded": "Needs people who can build excitement and sell a vision: Extraversion for carrying the energy of a pitch, Intuition for painting the bigger possibility rather than just listing facts, and enough Feeling to read how the room is responding.",
@@ -119,7 +119,7 @@
     "excelsAt": "A group like this brings energy and conviction that's hard to fake, and adapts the pitch on the fly based on how the room is reacting. The risk is getting ahead of the details the buyer will eventually ask about."
   },
   "conflict-resolution": {
-    "label": "People & conflict resolution",
+    "label": "Resolving Conflict",
     "group": "People-Facing",
     "description": "Mediating tension and giving hard feedback fairly.",
     "skillsNeeded": "Needs people who can mediate fairly: Feeling for genuine empathy toward everyone involved, balanced with enough Thinking to stay objective rather than just smoothing things over to keep the peace.",
@@ -134,7 +134,7 @@
     "excelsAt": "A group like this can sit with tension without rushing to smooth it over, and tends to leave people feeling fairly heard on both sides. The risk is prioritizing harmony over actually naming the hard truth that needs to be said."
   },
   "crisis": {
-    "label": "Crisis response",
+    "label": "Handling Crises",
     "group": "Pressure",
     "description": "Reacting fast and adapting under real pressure.",
     "skillsNeeded": "Needs people who can decide quickly under pressure: Thinking for fast, logical calls, Sensing for reading the real situation in front of them rather than theorizing, and Perceiving for adapting as things keep changing.",
@@ -146,5 +146,155 @@
       "ESTJ": "Their decisiveness under pressure means someone is always ready to call the next step rather than let the group freeze."
     },
     "excelsAt": "A group like this stays calm, reads the real situation fast, and acts without waiting for perfect information. The risk is moving so quickly that longer-term consequences don't get enough consideration."
+  },
+  "writing-copy": {
+    "label": "Writing Copy",
+    "group": "Creative & Visual",
+    "description": "Turning a message into words that actually land and stick.",
+    "skillsNeeded": "Needs someone comfortable working alone with language until it feels right: Intuition for finding the angle that will resonate, Feeling for reading how a reader will actually experience the words, and enough Introversion to sit with a draft through several passes rather than rushing the first version out the door.",
+    "ideal": { "EI": { "E": 30 }, "SN": { "S": 25 }, "TF": { "T": 25 }, "JP": { "J": 40 } },
+    "idealTypes": ["INFP", "ENFP", "INFJ", "ENFJ"],
+    "idealTypeReasons": {
+      "INFP": "Their strong internal sense of what feels true means the copy carries real conviction, not just polished phrasing.",
+      "ENFP": "Their instinct for the angle that will genuinely excite someone means the copy rarely reads flat.",
+      "INFJ": "Their sensitivity to how a message will land with the reader means the copy respects what they are actually going through, not just what is being sold.",
+      "ENFJ": "Their read on what will move a specific audience means the copy speaks to the reader directly, not to an assumed crowd."
+    },
+    "excelsAt": "A group like this writes with real feeling behind it, and rarely produces something that reads as generic. The risk is spending so long refining a phrase that a good-enough draft misses the deadline it needed to meet."
+  },
+  "enrolling-students": {
+    "label": "Enrolling Students",
+    "group": "People-Facing",
+    "description": "Listening to what's holding someone back, and helping them decide.",
+    "skillsNeeded": "Needs someone comfortable with a patient, consultative conversation: Feeling to genuinely understand what someone is worried about, and enough Extraversion to carry an ongoing conversation, without needing the high-energy push of a pitch.",
+    "ideal": { "EI": { "E": 55 }, "SN": { "S": 50 }, "TF": { "T": 20 }, "JP": { "J": 50 } },
+    "idealTypes": ["ESFJ", "ENFJ", "ISFJ", "INFJ"],
+    "idealTypeReasons": {
+      "ESFJ": "Their genuine attentiveness to what someone needs means a hesitant prospective student feels understood, not sold to.",
+      "ENFJ": "Their instinct for what is really holding someone back means the conversation addresses the real hesitation, not just the surface objection.",
+      "ISFJ": "Their patience and quiet reliability make someone considering a big decision feel safe to take their time.",
+      "INFJ": "Their sensitivity to unspoken concerns means they often surface the real question before the person has fully put it into words."
+    },
+    "excelsAt": "A group like this makes a big decision feel safe rather than pressured, and tends to enroll people who are genuinely ready, not just persuaded in the moment. The risk is being so patient that a ready decision gets left open longer than it needs to be."
+  },
+  "planning-campaigns": {
+    "label": "Planning Campaigns",
+    "group": "Ideation & Planning",
+    "description": "Deciding who to reach, with what message, and through which channel.",
+    "skillsNeeded": "Needs someone who can see the bigger picture of an audience and a market: Intuition for spotting where attention actually is, and Thinking for prioritizing spend and channels based on what will actually work, not just what feels exciting.",
+    "ideal": { "EI": { "E": 55 }, "SN": { "S": 20 }, "TF": { "T": 65 }, "JP": { "J": 70 } },
+    "idealTypes": ["ENTJ", "INTJ", "ENFJ", "ENTP"],
+    "idealTypeReasons": {
+      "ENTJ": "Their comfort setting a clear direction and committing resources to it means a campaign plan turns into an actual, funded decision.",
+      "INTJ": "Their instinct for building a plan several steps ahead means the campaign accounts for what happens after the first response, not just the launch.",
+      "ENFJ": "Their read on what will genuinely resonate with an audience keeps the plan grounded in real people, not just numbers.",
+      "ENTP": "Their comfort questioning the obvious approach means the plan gets stress-tested before the budget is spent."
+    },
+    "excelsAt": "A group like this builds a plan that holds up past launch day, with a clear sense of where the budget should actually go. The risk is over-planning a campaign that would have benefited from just shipping and learning."
+  },
+  "designing-curriculum": {
+    "label": "Designing Curriculum",
+    "group": "Ideation & Planning",
+    "description": "Sequencing what a student needs to learn, and in what order.",
+    "skillsNeeded": "Needs someone who can see how ideas build on each other over time: Intuition for spotting the underlying structure of a subject, and Judging for actually sequencing it into a plan a student can follow step by step.",
+    "ideal": { "EI": { "E": 35 }, "SN": { "S": 30 }, "TF": { "T": 45 }, "JP": { "J": 80 } },
+    "idealTypes": ["INTJ", "ISTJ", "INFJ", "ISFJ"],
+    "idealTypeReasons": {
+      "INTJ": "Their instinct for the underlying structure of a subject means a module builds toward something, rather than covering topics in whatever order they came up.",
+      "ISTJ": "Their thoroughness means nothing a student needs gets assumed or skipped over.",
+      "INFJ": "Their sense of what a lesson needs to land emotionally, not just intellectually, before the next one, keeps a psychology-heavy module from feeling rushed.",
+      "ISFJ": "Their attentiveness to where a student is likely to get stuck means the curriculum accounts for the real learning curve, not just the ideal one."
+    },
+    "excelsAt": "A group like this builds a course that actually holds together end to end, each part earning the one before it. The risk is over-structuring a topic that would benefit from more room to explore."
+  },
+  "facilitating-webinars": {
+    "label": "Facilitating Webinars",
+    "group": "People-Facing",
+    "description": "Teaching live, and adjusting in real time to the room.",
+    "skillsNeeded": "Needs someone comfortable holding a room's attention and adapting on the fly: Extraversion for the sustained energy live teaching takes, and enough Perceiving to adjust the plan mid-session when a question reveals people are lost.",
+    "ideal": { "EI": { "E": 80 }, "SN": { "S": 40 }, "TF": { "T": 30 }, "JP": { "J": 30 } },
+    "idealTypes": ["ENFJ", "ESFJ", "ENTP", "ESFP"],
+    "idealTypeReasons": {
+      "ENFJ": "Their instinct for reading a room means they notice confusion before anyone raises a hand to say so.",
+      "ESFJ": "Their warmth puts a room at ease quickly, which matters when the material itself is genuinely difficult.",
+      "ENTP": "Their comfort thinking out loud means an unexpected question becomes part of the session, not a derailment.",
+      "ESFP": "Their energy keeps a long session from going flat, even when the material is dense."
+    },
+    "excelsAt": "A group like this keeps a room engaged through genuinely difficult material, and adapts without losing the thread. The risk is letting a lively tangent eat into time the core material actually needed."
+  },
+  "coaching-students": {
+    "label": "Coaching Students",
+    "group": "People-Facing",
+    "description": "Supporting someone's discipline and mindset over the long run.",
+    "skillsNeeded": "Needs someone comfortable with the slow, ongoing work of encouragement: Feeling for genuine investment in someone's progress, and Judging for the structure and follow-through that turns a single conversation into an actual habit.",
+    "ideal": { "EI": { "E": 45 }, "SN": { "S": 45 }, "TF": { "T": 20 }, "JP": { "J": 65 } },
+    "idealTypes": ["ENFJ", "ISFJ", "INFJ", "ESFJ"],
+    "idealTypeReasons": {
+      "ENFJ": "Their instinct to encourage growth in people means a setback becomes a lesson to work through, not a reason to quit.",
+      "ISFJ": "Their quiet, consistent follow-through means a student's progress actually gets checked on, not just wished for.",
+      "INFJ": "Their sensitivity to what is really going on beneath a student's frustration means the coaching addresses the real block, not just the symptom.",
+      "ESFJ": "Their genuine warmth keeps a student coming back even when the work itself is hard."
+    },
+    "excelsAt": "A group like this builds the kind of ongoing relationship that actually changes someone's habits, not just their information. The risk is staying so invested in one student's comfort that a hard truth they need to hear gets softened too much."
+  },
+  "writing-documentation": {
+    "label": "Writing Documentation",
+    "group": "Analysis & Execution",
+    "description": "Writing something precise enough that someone else can follow it without help.",
+    "skillsNeeded": "Needs someone comfortable with detail and structure: Sensing for staying concrete and accurate rather than assuming shared context, and Judging for organizing it so someone else can actually follow it step by step.",
+    "ideal": { "EI": { "E": 25 }, "SN": { "S": 80 }, "TF": { "T": 55 }, "JP": { "J": 75 } },
+    "idealTypes": ["ISTJ", "INTJ", "ISTP", "INTP"],
+    "idealTypeReasons": {
+      "ISTJ": "Their thoroughness means a step nobody else thought to write down still gets written down.",
+      "INTJ": "Their instinct to keep refining until something actually makes sense means the documentation holds up for someone who was not in the room when it was built.",
+      "ISTP": "Their hands-on familiarity with how something actually works means the documentation matches reality, not the original plan.",
+      "INTP": "Their comfort taking a process apart to understand it means the documentation explains the reasoning, not just the steps."
+    },
+    "excelsAt": "A group like this produces documentation someone can actually follow without needing to ask a follow-up question. The risk is going so deep on precision that it takes longer to write than the task itself took to do."
+  },
+  "negotiating-deals": {
+    "label": "Negotiating Deals",
+    "group": "People-Facing",
+    "description": "Working out terms with a partner, vendor, or client that both sides can live with.",
+    "skillsNeeded": "Needs someone comfortable holding a firm position under pressure: Thinking for staying objective about what actually matters in the deal, and enough Extraversion to carry a direct back-and-forth conversation without it becoming personal.",
+    "ideal": { "EI": { "E": 65 }, "SN": { "S": 45 }, "TF": { "T": 75 }, "JP": { "J": 55 } },
+    "idealTypes": ["ENTJ", "ESTJ", "ENTP", "ESTP"],
+    "idealTypeReasons": {
+      "ENTJ": "Their comfort holding a firm position means the other side's pressure rarely moves them off what actually matters.",
+      "ESTJ": "Their directness keeps a negotiation from dragging on longer than it needs to, without losing what the deal actually needs.",
+      "ENTP": "Their quick thinking on their feet means an unexpected counteroffer gets handled in the room, not after a delay.",
+      "ESTP": "Their comfort acting on incomplete information means they close a workable deal instead of waiting for a perfect one."
+    },
+    "excelsAt": "A group like this reaches terms that hold up, without letting the conversation drag past the point of usefulness. The risk is optimizing so hard for the best terms that a workable relationship gets damaged along the way."
+  },
+  "mentoring-individuals": {
+    "label": "Mentoring Individuals",
+    "group": "People-Facing",
+    "description": "Supporting one person's growth, one conversation at a time.",
+    "skillsNeeded": "Needs someone comfortable with quiet, one-on-one attention: Feeling for genuine care about the other person's growth, and enough Introversion to give a single conversation real focus rather than treating it as one of many.",
+    "ideal": { "EI": { "E": 30 }, "SN": { "S": 45 }, "TF": { "T": 20 }, "JP": { "J": 40 } },
+    "idealTypes": ["ISFP", "INFP", "ISFJ", "INFJ"],
+    "idealTypeReasons": {
+      "ISFP": "Their quiet authenticity means the person they are mentoring feels genuinely seen, not managed.",
+      "INFP": "Their strong sense of what matters to them personally means their encouragement never reads as generic advice.",
+      "ISFJ": "Their attentiveness to the small details of how someone is actually doing means they notice a struggle before it is said out loud.",
+      "INFJ": "Their instinct for what is really going on beneath the surface means the mentoring addresses the real thing holding someone back."
+    },
+    "excelsAt": "A group like this makes one-on-one time feel genuinely valuable, not like a scheduled check-in. The risk is under-structuring the relationship so progress is felt but never quite tracked."
+  },
+  "designing-visuals": {
+    "label": "Designing Visuals",
+    "group": "Creative & Visual",
+    "description": "Turning a message into something people actually want to look at.",
+    "skillsNeeded": "Needs someone with a genuine eye for aesthetics and feel: Sensing for the concrete, present details of how something actually looks, and Perceiving for staying open to a better version instead of locking in too early.",
+    "ideal": { "EI": { "E": 40 }, "SN": { "S": 75 }, "TF": { "T": 25 }, "JP": { "J": 20 } },
+    "idealTypes": ["ISFP", "ESFP", "INFP", "ENFP"],
+    "idealTypeReasons": {
+      "ISFP": "Their genuine, present-focused eye for aesthetics means the work looks intentional, not just assembled from a template.",
+      "ESFP": "Their instinct for what will actually catch someone's attention keeps the design grounded in how people really scroll and look, not just what looks good in isolation.",
+      "INFP": "Their strong personal sense of what feels right means the visual carries real character rather than a generic look.",
+      "ENFP": "Their enthusiasm for trying a new angle means the group does not settle for the first safe layout."
+    },
+    "excelsAt": "A group like this produces work that actually stops someone mid-scroll, with a clear sense of its own style. The risk is refining the look so long that it never quite ships."
   }
 }

@@ -8,6 +8,7 @@ const TABS = [
   { href: "/team", label: "Team Dynamic" },
   { href: "/department", label: "Department Dynamic" },
   { href: "/builder", label: "Team Builder" },
+  { href: "/task-match", label: "Task Match" },
   { href: "/growth", label: "Growth Plan" },
   { href: "/types", label: "Explore Types" },
   { href: "/faq", label: "FAQ" },

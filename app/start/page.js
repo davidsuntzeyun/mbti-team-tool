@@ -29,31 +29,38 @@ const STEPS = [
     title: "See how you and a colleague work together",
     href: "/match",
     label: "Quick Match",
-    body: "Pick a colleague who's already set their type on this tool, and get a breakdown of your strengths, friction points, and how communicating with each other actually feels from both sides. This one's locked, since it's built on a real colleague's actual type, ask whoever shared this tool with you for the password.",
+    body: "Pick a colleague who's already set their type on this tool, and get a breakdown of your strengths, friction points, and how communicating with each other actually feels from both sides. Works right away with anyone who's set their own type, no password needed. The padlock in the header unlocks the official pre-loaded roster on top, if you want to include people who haven't signed up yet.",
   },
   {
     step: "5",
     title: "Check a group's overall dynamic",
     href: "/team",
     label: "Team Dynamic",
-    body: "Build a group of 3 to 5 people, you're automatically included, and see where the group is naturally aligned and where it might be lopsided. Shares the same lock and password as Quick Match.",
+    body: "Build a group of 3 to 5 people, you're automatically included, and see where the group is naturally aligned and where it might be lopsided. Same padlock as Quick Match, works without it for anyone who's set their own type.",
   },
   {
     step: "6",
     title: "Manage your whole department, not just a group",
     href: "/department",
     label: "Department Dynamic",
-    body: "The manager's version of Team Dynamic, no size cap. Pick everyone who reports to you and get both the department's overall balance and a personalized note on how to manage each person. Same lock and password as Quick Match.",
+    body: "The manager's version of Team Dynamic, no size cap. Pick everyone who reports to you and get both the department's overall balance and a personalized note on how to manage each person. Same padlock as Quick Match, works without it for anyone who's set their own type.",
   },
   {
     step: "7",
     title: "Build the right team for the job",
     href: "/builder",
     label: "Team Builder",
-    body: "See who on the roster naturally complements you, or build a group for a specific kind of work, brainstorming, operational execution, client-facing, and more, and see how well it fits. Same lock and password as Quick Match.",
+    body: "See who on the roster naturally complements you, or build a group for a specific kind of work, brainstorming, operational execution, client-facing, and more, and see how well it fits. Same padlock as Quick Match, works without it for anyone who's set their own type.",
   },
   {
     step: "8",
+    title: "Find the right person for one task",
+    href: "/task-match",
+    label: "Task Match",
+    body: "Pick a single task, brainstorming, closing a deal, writing documentation, and more, and see who on the roster is an ideal or close match for it, and why, without building out a whole group first. Same padlock as Quick Match, works without it for anyone who's set their own type.",
+  },
+  {
+    step: "9",
     title: "Get your own development plan",
     href: "/growth",
     label: "Growth Plan",
@@ -98,10 +105,13 @@ export default function StartPage() {
       <div className="card">
         <div className="section-label">A few things worth knowing</div>
         <p>
-          Quick Match, Team Dynamic, Department Dynamic, and Team Builder
-          share one password, since all four let you see a real colleague's
-          actual type. Explore Types and Guess don't need it, neither one
-          exposes anyone's real data.
+          Quick Match, Team Dynamic, Department Dynamic, Team Builder, and
+          Task Match all work right away with anyone who's set their own
+          type on this tool, no password needed. The padlock icon in the
+          header unlocks one extra thing: the official pre-loaded roster,
+          for including people who haven't signed up yet. Explore Types and
+          Guess don't touch any of this, neither one exposes anyone's real
+          data.
         </p>
         <p style={{ marginBottom: 0 }}>
           Nothing in this tool is confidential, and none of it is meant to

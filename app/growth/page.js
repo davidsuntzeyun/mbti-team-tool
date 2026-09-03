@@ -1,15 +1,17 @@
 import { redirect } from "next/navigation";
 import { getSessionUsername } from "../../lib/session";
-import { getUser } from "../../lib/db";
+import { getUser, getContentVotesByUser } from "../../lib/db";
 import { getTypeProfile, getGrowthPlan, getRoleProfile, formatTypeCode } from "../../lib/mbti";
+import { typeContentKey } from "../../lib/feedback";
 import NavTabs from "../components/NavTabs";
+import ThumbsVote from "../components/ThumbsVote";
 
 export default async function GrowthPage() {
   const username = getSessionUsername();
   if (!username) redirect("/");
 
   const me = await getUser(username);
-  if (!me) redirect("/");
+  if (!me) redirect("/api/end-stale-session");
 
   if (!me.mbtiType) {
     return (
@@ -26,6 +28,8 @@ export default async function GrowthPage() {
   const profile = getTypeProfile(me.mbtiType);
   const plan = getGrowthPlan(me.mbtiType);
   const roleProfile = me.role ? getRoleProfile(me.role) : null;
+  const votes = plan ? await getContentVotesByUser(username) : {};
+  const redirectTo = "/growth";
 
   return (
     <>
@@ -46,11 +50,13 @@ export default async function GrowthPage() {
           <div className="card">
             <div className="section-label">Develop your strength</div>
             <p>{plan.strength}</p>
+            <ThumbsVote contentKey={typeContentKey(me.mbtiType, "growthPlan:strength")} vote={votes[typeContentKey(me.mbtiType, "growthPlan:strength")]} redirectTo={redirectTo} />
           </div>
 
           <div className="card">
             <div className="section-label">Manage your weakness</div>
             <p>{plan.weakness}</p>
+            <ThumbsVote contentKey={typeContentKey(me.mbtiType, "growthPlan:weakness")} vote={votes[typeContentKey(me.mbtiType, "growthPlan:weakness")]} redirectTo={redirectTo} />
           </div>
         </>
       )}

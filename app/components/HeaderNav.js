@@ -21,6 +21,7 @@ export default function HeaderNav({ username }) {
           <Link href="/team">Team Dynamic</Link>
           <Link href="/department">Department Dynamic</Link>
           <Link href="/builder">Team Builder</Link>
+          <Link href="/task-match">Task Match</Link>
           <Link href="/growth">Growth Plan</Link>
           <Link href="/types">Explore Types</Link>
           <Link href="/faq">FAQ</Link>
